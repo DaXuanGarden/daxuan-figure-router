@@ -1,0 +1,1371 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-02",
+  "scope": "Verified optional Skill-file sources for colleague installation. No source mapping authorizes package managers, setup hooks, model calls or replacement of existing skills.",
+  "curated_catalog": "references/capabilities.json",
+  "curated_entry_count": 39,
+  "curated_installed_path_count": 40,
+  "provenance_notes": [
+    "Sources are pinned public upstream packages. Exact local SKILL matches and upstream variants are distinguished explicitly.",
+    "Root license/attribution files in include_repo_files are preserved by the installer beneath .skill-bundle/repository without replacing a skill-owned license.",
+    "All curated identities are represented. Unknown, unlicensed, system-managed and different-name candidates remain non-installable.",
+    "scientific-visualization and daxuan-science-assets are distinct optional identities, not aliases for customized curated packages."
+  ],
+  "skills": [
+    {
+      "id": "easyplot",
+      "name": "easyplot",
+      "target_dir": "easyplot",
+      "status": "verified_public",
+      "reason": "Verified same-name public upstream variant; review its contract before using curated routes.",
+      "repository": "Rimagination/easyplot",
+      "ref": "d150e0167f15551cbfb5549076b99c43ad07272a",
+      "path": ".",
+      "skill_sha256": "7f923ad41efc61ef0605780f864f520e85befc6a017d7f4fb2141197ed3b0522",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/Rimagination/easyplot/blob/d150e0167f15551cbfb5549076b99c43ad07272a/LICENSE",
+        "sha256": "7a4d8ee2bb15574dcea5bcd5a7e1f73cad7d72e44ba5d80777bd341cc5f1d0bf"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Use the selected R or Python runtime and the packages required by the chosen bundled template. Check fonts, export devices and optional geospatial dependencies separately."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is a same-name upstream variant; it does not reproduce the curated local snapshot bytes."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/Rimagination/easyplot/blob/d150e0167f15551cbfb5549076b99c43ad07272a/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "same_identity_upstream_variant",
+        "repository_file_sha256": {
+          "LICENSE": "7a4d8ee2bb15574dcea5bcd5a7e1f73cad7d72e44ba5d80777bd341cc5f1d0bf"
+        },
+        "curated_skill_sha256": "30b88a8c7d3c219369eb0afb65ee5cef4e83b74bc618c873b8b15f5ce4091610",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "nature-figure",
+      "name": "nature-figure",
+      "target_dir": "nature-figure",
+      "status": "verified_public",
+      "reason": "Verified same-name public upstream variant; review its contract before using curated routes.",
+      "repository": "jing1312/nature-figure-skill",
+      "ref": "af778027c866e2e6b3432b946e44a4a2b4434d82",
+      "path": "skills/nature-figure",
+      "skill_sha256": "1c7f3df47161c4abe0448b1c7587827bb528676a41a62bfd214a58afafce92db",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/jing1312/nature-figure-skill/blob/af778027c866e2e6b3432b946e44a4a2b4434d82/LICENSE",
+        "sha256": "2d7c08f3d58ed5bd7cd8ea23b28b170573b1a23d3fbde89ee85ba7a1bc4ccc22"
+      },
+      "include_repo_files": [
+        "LICENSE",
+        "DERIVATIVE_NOTICE.md"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Use the explicitly selected Python or R backend. Python examples use Matplotlib; R workflows use ggplot2, patchwork, ComplexHeatmap, ggrepel, svglite and ragg as applicable.",
+        "The public derivative is independently installable at this revision, but it does not provide the current curated static/core/contract.md or references/multipanel-evidence-architecture.md. Re-read the upstream workflow before routing."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is a same-name upstream variant; it does not reproduce the curated local snapshot bytes.",
+        "Current curated required resources absent in this public revision: static/core/contract.md, references/multipanel-evidence-architecture.md. Their local execution contract is not satisfied by installing this source.",
+        "This is the jing1312 derivative of Yuan1z0825/nature-skills. Preserve its root derivative notice and original attribution."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/jing1312/nature-figure-skill/blob/af778027c866e2e6b3432b946e44a4a2b4434d82/skills/nature-figure/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "same_identity_upstream_variant",
+        "repository_file_sha256": {
+          "LICENSE": "2d7c08f3d58ed5bd7cd8ea23b28b170573b1a23d3fbde89ee85ba7a1bc4ccc22",
+          "DERIVATIVE_NOTICE.md": "c942a201ee3420e1187092c53df8545b695b216a4fed1b6adede9c0a20feba63"
+        },
+        "curated_skill_sha256": "46f2cf74d473604ff9ad884893bbe2360b3431fec631009fce5c487945acf652",
+        "curated_required_resources_missing": [
+          "static/core/contract.md",
+          "references/multipanel-evidence-architecture.md"
+        ],
+        "companion_dependency_review": {
+          "ref": "af778027c866e2e6b3432b946e44a4a2b4434d82",
+          "tree_complete": true,
+          "tree_contains_nature_shared": false,
+          "text_files_scanned": 43,
+          "scan_scope": "skills/nature-figure text files plus root install.md",
+          "nature_shared_references_found": false,
+          "installation_guidance": "The pinned README states that each nature-* skill is independently installable as a whole directory. No nature-shared skill identity or requires edge is claimed."
+        }
+      }
+    },
+    {
+      "id": "ggplot2-pub",
+      "name": "ggplot2-pub",
+      "target_dir": "ggplot2-pub",
+      "status": "verified_public",
+      "reason": "Verified same-name public upstream variant; review its contract before using curated routes.",
+      "repository": "zhjx19/ggplot2-pub",
+      "ref": "a69e7f5ce2b72966cbf75616c0531c84293e7093",
+      "path": ".",
+      "skill_sha256": "6ac2089180fd4d770bebac8411cc02bfa2c94b29bc1a6eca1fbd2691e1a0f4bc",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/zhjx19/ggplot2-pub/blob/a69e7f5ce2b72966cbf75616c0531c84293e7093/LICENSE",
+        "sha256": "b0104ea00f52e199623eece0c10a7fc8588febc5696065ac1be3fa47d17822d3"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "R and the packages, fonts and graphics devices used by the selected ggplot2 template and QA scripts are required. Installing skill files does not validate these runtimes."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is a same-name upstream variant; it does not reproduce the curated local snapshot bytes."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/zhjx19/ggplot2-pub/blob/a69e7f5ce2b72966cbf75616c0531c84293e7093/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "same_identity_upstream_variant",
+        "repository_file_sha256": {
+          "LICENSE": "b0104ea00f52e199623eece0c10a7fc8588febc5696065ac1be3fa47d17822d3"
+        },
+        "curated_skill_sha256": "bda884c3b3d0e776ca2d5939aa4199139442cc87e50bef3c13b198928be30e2d",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "make-sci-data-figures",
+      "name": "make-sci-data-figures",
+      "target_dir": "make-sci-data-figures",
+      "status": "verified_public",
+      "reason": "Verified same-name public upstream variant; review its contract before using curated routes.",
+      "repository": "zhoy0409-debug/polish-sci-figures",
+      "ref": "2687cf3c426c5aa30dfc891d9619e1be73d98cde",
+      "path": "skills/make-sci-data-figures",
+      "skill_sha256": "0b1c27b8fb4983c9d2c526e152679f46c41e10710e364e6a11679f47c9712260",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/zhoy0409-debug/polish-sci-figures/blob/2687cf3c426c5aa30dfc891d9619e1be73d98cde/LICENSE",
+        "sha256": "08e0f966f77621ce5ae0f231dbcc14a009d2a0337a4721b8471d4d1435eb6c36"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Python and dependencies imported by the selected table/plotting command are required; optional workbook and specialist-statistics backends must be checked before use.",
+        "The accepted-estimate forest entry is present upstream. Preserve supplied estimates and intervals; other commands can fit models or run tests and require a separate input/design contract."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is a same-name upstream variant; it does not reproduce the curated local snapshot bytes."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/zhoy0409-debug/polish-sci-figures/blob/2687cf3c426c5aa30dfc891d9619e1be73d98cde/skills/make-sci-data-figures/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "same_identity_upstream_variant",
+        "repository_file_sha256": {
+          "LICENSE": "08e0f966f77621ce5ae0f231dbcc14a009d2a0337a4721b8471d4d1435eb6c36"
+        },
+        "curated_skill_sha256": "93eda83b3d4ae9868c01f6162f951770b438563a4ecc8d13b6c01bc4c1dc53ab",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "StatsVisual-Skill",
+      "name": "StatsVisual-Skill",
+      "target_dir": "StatsVisual-Skill",
+      "status": "verified_public",
+      "reason": "Verified public source with exact curated SKILL bytes.",
+      "repository": "WeiLab4Research/StatsVisual-Skill",
+      "ref": "005d52b6c1d44b8de8d2b6022992d703278cf103",
+      "path": "skills/StatsVisual-Skill",
+      "skill_sha256": "36b78080e75956e06f9949cc04b77f91db05a8008a89bc59a55e1b09e98c5b31",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/WeiLab4Research/StatsVisual-Skill/blob/005d52b6c1d44b8de8d2b6022992d703278cf103/LICENSE",
+        "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "R and the plotting/statistical packages used by the selected template are required. Check fonts and PDF/SVG/TIFF devices independently.",
+        "The skill has a chart-choice confirmation workflow. Some project templates refit Cox models and interaction tests; use a results-only styling route when only accepted estimates may be displayed."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": false,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is byte-equal to the curated local snapshot."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/WeiLab4Research/StatsVisual-Skill/blob/005d52b6c1d44b8de8d2b6022992d703278cf103/skills/StatsVisual-Skill/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "exact_curated_skill",
+        "repository_file_sha256": {
+          "LICENSE": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685"
+        },
+        "curated_skill_sha256": "36b78080e75956e06f9949cc04b77f91db05a8008a89bc59a55e1b09e98c5b31",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "StatsVisual-Skill-Extension",
+      "name": "StatsVisual-Skill-Extension",
+      "target_dir": "StatsVisual-Skill-Extension",
+      "status": "verified_public",
+      "reason": "Verified public source with exact curated SKILL bytes.",
+      "repository": "WeiLab4Research/StatsVisual-Skill",
+      "ref": "005d52b6c1d44b8de8d2b6022992d703278cf103",
+      "path": "skills/StatsVisual-Skill-Extension",
+      "skill_sha256": "20950e7d1ab280581b91360a97ff49147540379ef846ddadcd5923ab4f1d7753",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/WeiLab4Research/StatsVisual-Skill/blob/005d52b6c1d44b8de8d2b6022992d703278cf103/LICENSE",
+        "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [
+        "StatsVisual-Skill"
+      ],
+      "runtime_requirements": [
+        "Requires the StatsVisual-Skill package that it maintains. This is a skill-maintenance workflow and is not an ordinary figure renderer."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": false,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is byte-equal to the curated local snapshot."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/WeiLab4Research/StatsVisual-Skill/blob/005d52b6c1d44b8de8d2b6022992d703278cf103/skills/StatsVisual-Skill-Extension/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "exact_curated_skill",
+        "repository_file_sha256": {
+          "LICENSE": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685"
+        },
+        "curated_skill_sha256": "20950e7d1ab280581b91360a97ff49147540379ef846ddadcd5923ab4f1d7753",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "academic-figure-skill",
+      "name": "academic-figure-skill",
+      "target_dir": "academic-figure-skill",
+      "status": "verified_public",
+      "reason": "Verified public source with exact curated SKILL bytes.",
+      "repository": "TingxiYu/academic-figure-skill",
+      "ref": "1df9940dd01ac939f072b12fe28d6353b79b90f9",
+      "path": ".",
+      "skill_sha256": "ae592d4f514af1d18d7b900bea2e7591815424d906cd3a151f90ff8a5b0fdec3",
+      "license": {
+        "spdx": "Apache-2.0",
+        "path": "LICENSE",
+        "url": "https://github.com/TingxiYu/academic-figure-skill/blob/1df9940dd01ac939f072b12fe28d6353b79b90f9/LICENSE",
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "The selected bundled template may use R or Python and requires its declared libraries. Inspect whether panel assets remain native vectors before promising object-level editing."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": false,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is byte-equal to the curated local snapshot.",
+        "Apache-2.0 verified from downloaded LICENSE text. Retain LICENSE and applicable NOTICE/attribution files when packaging."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/TingxiYu/academic-figure-skill/blob/1df9940dd01ac939f072b12fe28d6353b79b90f9/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "exact_curated_skill",
+        "repository_file_sha256": {
+          "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        "curated_skill_sha256": "ae592d4f514af1d18d7b900bea2e7591815424d906cd3a151f90ff8a5b0fdec3",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "plot-from-data",
+      "name": "plot-from-data",
+      "target_dir": "plot-from-data",
+      "status": "unavailable",
+      "reason": "Public original SKILL files were located, but the repository has no verified LICENSE file or license metadata. Publicly readable code is insufficient installation permission.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ],
+      "provenance": {
+        "noninstallable_candidate": {
+          "repository": "Trae1ounG/paper-plot-skills",
+          "ref": "cde5e8486b3511d7819d54cc569df5d5636aa91a",
+          "path": "plot-from-data",
+          "declared_name": "plot-from-data",
+          "skill_sha256": "5073579e21648de5edb75c59aefdf9ba13be0cc02c7e4532f99ab74cf5b94b50",
+          "status": "unavailable_no_verified_license"
+        }
+      }
+    },
+    {
+      "id": "plot-from-image",
+      "name": "plot-from-image",
+      "target_dir": "plot-from-image",
+      "status": "unavailable",
+      "reason": "Public original SKILL files were located, but the repository has no verified LICENSE file or license metadata. Publicly readable code is insufficient installation permission.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ],
+      "provenance": {
+        "noninstallable_candidate": {
+          "repository": "Trae1ounG/paper-plot-skills",
+          "ref": "cde5e8486b3511d7819d54cc569df5d5636aa91a",
+          "path": "plot-from-image",
+          "declared_name": "plot-from-image",
+          "skill_sha256": "9479938cfaae779a5023c191c3e1910d6cf80d23d098f35654e7d54196478877",
+          "status": "unavailable_no_verified_license"
+        }
+      }
+    },
+    {
+      "id": "cell-visualization-code",
+      "name": "cell-visualization-code",
+      "target_dir": "cell-visualization-code",
+      "status": "unavailable",
+      "reason": "No authoritative public repository, immutable revision and license were verified for this exact curated identity. Keep the existing local installation or obtain an independently verified source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "cell-data-figure",
+      "name": "cell-data-figure",
+      "target_dir": "cell-data-figure",
+      "status": "unavailable",
+      "reason": "No authoritative public repository, immutable revision and license were verified for this exact curated identity. Keep the existing local installation or obtain an independently verified source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "paper-figure",
+      "name": "paper-figure",
+      "target_dir": "paper-figure",
+      "status": "verified_public",
+      "reason": "Verified same-name public upstream variant; review its contract before using curated routes.",
+      "repository": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "ref": "c485faa59a68e51c6575dea67ca57abc7a6a2b9c",
+      "path": "skills/paper-figure",
+      "skill_sha256": "7d115c37bc7de777a12ccc0211d44305d513a017d6a07e8ac8dd7d2e99dab21f",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/c485faa59a68e51c6575dea67ca57abc7a6a2b9c/LICENSE",
+        "sha256": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Python plotting libraries and any project-specific data/analysis conventions must be checked for the chosen example. SKILL file installation does not create the surrounding ARIS project."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is a same-name upstream variant; it does not reproduce the curated local snapshot bytes."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/c485faa59a68e51c6575dea67ca57abc7a6a2b9c/skills/paper-figure/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "same_identity_upstream_variant",
+        "repository_file_sha256": {
+          "LICENSE": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5"
+        },
+        "curated_skill_sha256": "f010f03366a89bce3fba6c07c6c9d1c831f16fb1ce946d1eb678eb3518c94c07",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "ssci-plots",
+      "name": "ssci-plots",
+      "target_dir": "ssci-plots",
+      "status": "verified_public",
+      "reason": "Verified public source with exact curated SKILL bytes.",
+      "repository": "O0000-code/SSCI-Plots",
+      "ref": "f697b922e8fc11ca13a61f29d58c1f83963c5b1b",
+      "path": ".",
+      "skill_sha256": "514790baffc7f7cafdbf18e69a9a559ef608bac4356697de5e39221e3d3a2d27",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/O0000-code/SSCI-Plots/blob/f697b922e8fc11ca13a61f29d58c1f83963c5b1b/LICENSE",
+        "sha256": "7031ae1d1c01c289fbfd80b8591263e46a982a84d3ca6b1cc42e8b8e5a50b044"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Python with Matplotlib and the dependencies used by the selected ssci_style chart recipe is required. Validate fonts, exports, and final-size readability separately."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": false,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is byte-equal to the curated local snapshot."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/O0000-code/SSCI-Plots/blob/f697b922e8fc11ca13a61f29d58c1f83963c5b1b/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "exact_curated_skill",
+        "repository_file_sha256": {
+          "LICENSE": "7031ae1d1c01c289fbfd80b8591263e46a982a84d3ca6b1cc42e8b8e5a50b044"
+        },
+        "curated_skill_sha256": "514790baffc7f7cafdbf18e69a9a559ef608bac4356697de5e39221e3d3a2d27",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "gwas-figure",
+      "name": "gwas-figure",
+      "target_dir": "gwas-figure",
+      "status": "unavailable",
+      "reason": "No authoritative public repository, immutable revision and license were verified for this exact curated identity. Keep the existing local installation or obtain an independently verified source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "gwas-scrna",
+      "name": "gwas-scrna",
+      "target_dir": "gwas-scrna",
+      "status": "unavailable",
+      "reason": "No authoritative public repository, immutable revision and license were verified for this exact curated identity. Keep the existing local installation or obtain an independently verified source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "auto-inspire-survival-epi",
+      "name": "auto-inspire-survival-epi",
+      "target_dir": "auto-inspire-survival-epi",
+      "status": "unavailable",
+      "reason": "No verified public package for this locally renamed/customized identity was found. Related upstream libraries or differently named skills do not establish this installation source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "auto-inspire-scikit-survival",
+      "name": "auto-inspire-scikit-survival",
+      "target_dir": "auto-inspire-scikit-survival",
+      "status": "unavailable",
+      "reason": "No verified public package for this locally renamed/customized identity was found. Related upstream libraries or differently named skills do not establish this installation source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "auto-inspire-shap",
+      "name": "auto-inspire-shap",
+      "target_dir": "auto-inspire-shap",
+      "status": "unavailable",
+      "reason": "No verified public package for this locally renamed/customized identity was found. Related upstream libraries or differently named skills do not establish this installation source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "standardize-sci-images",
+      "name": "standardize-sci-images",
+      "target_dir": "standardize-sci-images",
+      "status": "verified_public",
+      "reason": "Verified same-name public upstream variant; review its contract before using curated routes.",
+      "repository": "zhoy0409-debug/polish-sci-figures",
+      "ref": "2687cf3c426c5aa30dfc891d9619e1be73d98cde",
+      "path": "skills/standardize-sci-images",
+      "skill_sha256": "09222f95135cd9782e2ecbb6b97bc7161f2ea2fe309eb8bc1ed89fabae6b7355",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/zhoy0409-debug/polish-sci-figures/blob/2687cf3c426c5aa30dfc891d9619e1be73d98cde/LICENSE",
+        "sha256": "08e0f966f77621ce5ae0f231dbcc14a009d2a0337a4721b8471d4d1435eb6c36"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Python and image-processing dependencies used by the selected command are required. Calibrated scale bars require genuine acquisition calibration and comparable batches."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is a same-name upstream variant; it does not reproduce the curated local snapshot bytes."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/zhoy0409-debug/polish-sci-figures/blob/2687cf3c426c5aa30dfc891d9619e1be73d98cde/skills/standardize-sci-images/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "same_identity_upstream_variant",
+        "repository_file_sha256": {
+          "LICENSE": "08e0f966f77621ce5ae0f231dbcc14a009d2a0337a4721b8471d4d1435eb6c36"
+        },
+        "curated_skill_sha256": "95787941184fadff7f2835e33709f963c20124bf184969db5d6c79cbef95c783",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "daxuan-journal-palette",
+      "name": "daxuan-journal-palette",
+      "target_dir": "daxuan-journal-palette",
+      "status": "verified_public",
+      "reason": "Verified same-name public upstream variant; review its contract before using curated routes.",
+      "repository": "DaXuanGarden/daxuan-journal-palette",
+      "ref": "72c05abb7ec1761a271de3ac8662e90d56681392",
+      "path": ".",
+      "skill_sha256": "d53af085f13ce845d8af18faa469e95d095e8484ad9381b7ec7b3d5b458fc49a",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/DaXuanGarden/daxuan-journal-palette/blob/72c05abb7ec1761a271de3ac8662e90d56681392/LICENSE",
+        "sha256": "2ec38de02da87b948b62fef7a7c852cfdba0235cf238f74c8e8c806aa598a26c"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "The bundled palette/code helpers require their selected Python or R environment. Network-dependent artwork references are optional and need their own access and provenance checks."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is a same-name upstream variant; it does not reproduce the curated local snapshot bytes.",
+        "Current curated required resources absent in this public revision: scripts/theme_palette.py. Their local execution contract is not satisfied by installing this source."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/DaXuanGarden/daxuan-journal-palette/blob/72c05abb7ec1761a271de3ac8662e90d56681392/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "same_identity_upstream_variant",
+        "repository_file_sha256": {
+          "LICENSE": "2ec38de02da87b948b62fef7a7c852cfdba0235cf238f74c8e8c806aa598a26c"
+        },
+        "curated_skill_sha256": "f08ad0dcf573e91adf74288651a24109a6e911c5d1b559e261c8d4d8924fc237",
+        "curated_required_resources_missing": [
+          "scripts/theme_palette.py"
+        ]
+      }
+    },
+    {
+      "id": "sci-color-palettes",
+      "name": "sci-color-palettes",
+      "target_dir": "sci-color-palettes",
+      "status": "verified_public",
+      "reason": "Verified public source with exact curated SKILL bytes.",
+      "repository": "Xiong-ding-kan/sci-color-palettes",
+      "ref": "3b7df7d10f71b3eca124e2fb006d8e0950a2a111",
+      "path": ".",
+      "skill_sha256": "f1ae9990024a7603420058fd69924bbcf758c100fc59c27efed695355f1ae533",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/Xiong-ding-kan/sci-color-palettes/blob/3b7df7d10f71b3eca124e2fb006d8e0950a2a111/LICENSE",
+        "sha256": "bf9a2f5a7f3a4d03c31c90264098946f0e1821c57e5bf840efdf8d104f99abb3"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Palette data and text guidance can be read directly. Python helpers require their declared environment; selected R/Matplotlib integration requires the corresponding plotting runtime."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": false,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is byte-equal to the curated local snapshot.",
+        "Downloaded LICENSE adds that original colour selections remain the original WeChat authors’ work; the MIT license covers software, data encoding and documentation produced in this repository. Preserve references/sources.md attribution and LICENSE."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/Xiong-ding-kan/sci-color-palettes/blob/3b7df7d10f71b3eca124e2fb006d8e0950a2a111/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "exact_curated_skill",
+        "repository_file_sha256": {
+          "LICENSE": "bf9a2f5a7f3a4d03c31c90264098946f0e1821c57e5bf840efdf8d104f99abb3"
+        },
+        "curated_skill_sha256": "f1ae9990024a7603420058fd69924bbcf758c100fc59c27efed695355f1ae533",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "polish-sci-figures",
+      "name": "polish-sci-figures",
+      "target_dir": "polish-sci-figures",
+      "status": "verified_public",
+      "reason": "Verified same-name public upstream variant; review its contract before using curated routes.",
+      "repository": "zhoy0409-debug/polish-sci-figures",
+      "ref": "2687cf3c426c5aa30dfc891d9619e1be73d98cde",
+      "path": "skills/polish-sci-figures",
+      "skill_sha256": "0c405393b6a8caa7dccc700566d08fe3f0b6e94ac1be83ce544153e8e24b8087",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/zhoy0409-debug/polish-sci-figures/blob/2687cf3c426c5aa30dfc891d9619e1be73d98cde/LICENSE",
+        "sha256": "08e0f966f77621ce5ae0f231dbcc14a009d2a0337a4721b8471d4d1435eb6c36"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Python and any image/vector/font tools invoked by the selected QA command are required. Check each command rather than treating package presence as a successful figure audit."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is a same-name upstream variant; it does not reproduce the curated local snapshot bytes."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/zhoy0409-debug/polish-sci-figures/blob/2687cf3c426c5aa30dfc891d9619e1be73d98cde/skills/polish-sci-figures/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "same_identity_upstream_variant",
+        "repository_file_sha256": {
+          "LICENSE": "08e0f966f77621ce5ae0f231dbcc14a009d2a0337a4721b8471d4d1435eb6c36"
+        },
+        "curated_skill_sha256": "9655bbe92752f5bf85a69399d0256c521eff79ddd3d900e9fb055dcf749a9af1",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "figure-legend-writer",
+      "name": "figure-legend-writer",
+      "target_dir": "figure-legend-writer",
+      "status": "verified_public",
+      "reason": "Verified public source with exact curated SKILL bytes.",
+      "repository": "aipoch/medical-research-skills",
+      "ref": "686e09dfdb45d9fa1a08664f06bb93769b3c9d91",
+      "path": "awesome-med-research-skills/Academic Writing/figure-legend-writer",
+      "skill_sha256": "75694893a34247e25920678ceb6c58425534eb143c75dbbe734b5862200206cb",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/aipoch/medical-research-skills/blob/686e09dfdb45d9fa1a08664f06bb93769b3c9d91/LICENSE",
+        "sha256": "92cd32f3b4857f97a3ad6bf276c42dea2e93fd2bb714b08d75a558c9f215f596"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Use supplied scientific facts and actual figure details. Optional bundled scripts require their declared Python dependencies; drafting does not establish missing statistical facts."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": false,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is byte-equal to the curated local snapshot."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/aipoch/medical-research-skills/blob/686e09dfdb45d9fa1a08664f06bb93769b3c9d91/awesome-med-research-skills/Academic%20Writing/figure-legend-writer/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "exact_curated_skill",
+        "repository_file_sha256": {
+          "LICENSE": "92cd32f3b4857f97a3ad6bf276c42dea2e93fd2bb714b08d75a558c9f215f596"
+        },
+        "curated_skill_sha256": "75694893a34247e25920678ceb6c58425534eb143c75dbbe734b5862200206cb",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "result-figure-consistencycheck",
+      "name": "result-figure-consistencycheck",
+      "target_dir": "result-figure-consistencycheck",
+      "status": "verified_public",
+      "reason": "Verified public source with exact curated SKILL bytes.",
+      "repository": "aipoch/medical-research-skills",
+      "ref": "686e09dfdb45d9fa1a08664f06bb93769b3c9d91",
+      "path": "scientific-skills/Other/result-figure-consistencycheck",
+      "skill_sha256": "f31244a665a2f49067c06b7263e9436408d6e055162f5f095464ce013c7e1298",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/aipoch/medical-research-skills/blob/686e09dfdb45d9fa1a08664f06bb93769b3c9d91/LICENSE",
+        "sha256": "92cd32f3b4857f97a3ad6bf276c42dea2e93fd2bb714b08d75a558c9f215f596"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Requires manuscript result text and figure-legend text in the documented form. This is a text-consistency workflow and does not inspect actual image contents."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": false,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is byte-equal to the curated local snapshot."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/aipoch/medical-research-skills/blob/686e09dfdb45d9fa1a08664f06bb93769b3c9d91/scientific-skills/Other/result-figure-consistencycheck/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "exact_curated_skill",
+        "repository_file_sha256": {
+          "LICENSE": "92cd32f3b4857f97a3ad6bf276c42dea2e93fd2bb714b08d75a558c9f215f596"
+        },
+        "curated_skill_sha256": "f31244a665a2f49067c06b7263e9436408d6e055162f5f095464ce013c7e1298",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "auto-inspire-figures",
+      "name": "auto-inspire-figures",
+      "target_dir": "auto-inspire-figures",
+      "status": "unavailable",
+      "reason": "No verified public package for this locally renamed/customized identity was found. Related upstream libraries or differently named skills do not establish this installation source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "auto-mover-figures",
+      "name": "auto-mover-figures",
+      "target_dir": "auto-mover-figures",
+      "status": "unavailable",
+      "reason": "No verified public package for this locally renamed/customized identity was found. Related upstream libraries or differently named skills do not establish this installation source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "auto-inspire-plot-library",
+      "name": "auto-inspire-plot-library",
+      "target_dir": "auto-inspire-plot-library",
+      "status": "unavailable",
+      "reason": "No verified public package for this locally renamed/customized identity was found. Related upstream libraries or differently named skills do not establish this installation source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "auto-mover-plot-library",
+      "name": "auto-mover-plot-library",
+      "target_dir": "auto-mover-plot-library",
+      "status": "unavailable",
+      "reason": "No verified public package for this locally renamed/customized identity was found. Related upstream libraries or differently named skills do not establish this installation source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "auto-inspire-scientific-visualization",
+      "name": "auto-inspire-scientific-visualization",
+      "target_dir": "auto-inspire-scientific-visualization",
+      "status": "unavailable",
+      "reason": "No verified public package for this locally renamed/customized identity was found. Related upstream libraries or differently named skills do not establish this installation source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "journal-ggplot-stylebook",
+      "name": "journal-ggplot-stylebook",
+      "target_dir": "journal-ggplot-stylebook",
+      "status": "unavailable",
+      "reason": "The local skill explicitly limits use to book purchasers on their own machine and prohibits redistribution. No public installation source is claimed.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "agent-figure-gallery",
+      "name": "agent-figure-gallery",
+      "target_dir": "agent-figure-gallery",
+      "status": "verified_public",
+      "reason": "Verified public source with exact curated SKILL bytes.",
+      "repository": "Dsadd4/AgentFigureGallery",
+      "ref": "0b55f26fd575a00b5ebacb619d953b0a008e0126",
+      "path": "skills/agent-figure-gallery",
+      "skill_sha256": "8be0dfeba25697cc3456ef8615b07c379fe904dd3569bbe2ed7d73cbc7f28cfb",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/Dsadd4/AgentFigureGallery/blob/0b55f26fd575a00b5ebacb619d953b0a008e0126/LICENSE",
+        "sha256": "85f5a4a15b2903d8c98fc2f9e2c5595b31b3a23c22f8d5e70d24ebe646781ce3"
+      },
+      "include_repo_files": [
+        "LICENSE",
+        "THIRD_PARTY_ATTRIBUTION.md"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "The controller requires a separately available AgentFigureGallery knowledge base and matching query/runtime tools. Installing the skill subdirectory does not install the repository-wide image corpus or guarantee matching generator scripts."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": false,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is byte-equal to the curated local snapshot."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/Dsadd4/AgentFigureGallery/blob/0b55f26fd575a00b5ebacb619d953b0a008e0126/skills/agent-figure-gallery/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "exact_curated_skill",
+        "repository_file_sha256": {
+          "LICENSE": "85f5a4a15b2903d8c98fc2f9e2c5595b31b3a23c22f8d5e70d24ebe646781ce3",
+          "THIRD_PARTY_ATTRIBUTION.md": "6e4e16baccf46ef0b6775f8ab34009b3a7852150b83492afc9b31717240062fa"
+        },
+        "curated_skill_sha256": "8be0dfeba25697cc3456ef8615b07c379fe904dd3569bbe2ed7d73cbc7f28cfb",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "figure-spec",
+      "name": "figure-spec",
+      "target_dir": "figure-spec",
+      "status": "verified_public",
+      "reason": "Verified same-name public upstream variant; review its contract before using curated routes.",
+      "repository": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "ref": "c485faa59a68e51c6575dea67ca57abc7a6a2b9c",
+      "path": "skills/figure-spec",
+      "skill_sha256": "f5b4b8e806a0131b3aef787a7bbfbb395cdfb814a56d3acf2f454bfa4289ee49",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/c485faa59a68e51c6575dea67ca57abc7a6a2b9c/LICENSE",
+        "sha256": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "A compatible FigureSpec renderer and the documented ARIS/project binding are required. The isolated skill subdirectory does not supply the current curated scripts/figure_renderer.py asset.",
+        "Treat this source as design/reference guidance until the actual renderer, its repository tools and its dependencies are located and verified."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is a same-name upstream variant; it does not reproduce the curated local snapshot bytes.",
+        "ARIS renderer uses repository/project binding and tools lookup; isolated skill-subpath installation is not proof of a working renderer. Current router scripts/figure_renderer.py requirement is absent upstream too; keep reference-only unless the full renderer path is verified."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/c485faa59a68e51c6575dea67ca57abc7a6a2b9c/skills/figure-spec/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "same_identity_upstream_variant",
+        "repository_file_sha256": {
+          "LICENSE": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5"
+        },
+        "curated_skill_sha256": "f7f69413608eeeb7670800579e119b1b0f1e63881300d4977fc3a0e9b148c76d",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "mermaid-diagram",
+      "name": "mermaid-diagram",
+      "target_dir": "mermaid-diagram",
+      "status": "verified_public",
+      "reason": "Verified same-name public upstream variant; review its contract before using curated routes.",
+      "repository": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "ref": "c485faa59a68e51c6575dea67ca57abc7a6a2b9c",
+      "path": "skills/mermaid-diagram",
+      "skill_sha256": "8f42b38a1deaa7b98d782136cadbd5142aeb02ed773f08aa8c0df8af0631b5a0",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/c485faa59a68e51c6575dea67ca57abc7a6a2b9c/LICENSE",
+        "sha256": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Mermaid source can be authored directly. PNG/SVG rendering and syntax verification require a compatible host Mermaid renderer or mmdc installation."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is a same-name upstream variant; it does not reproduce the curated local snapshot bytes."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/c485faa59a68e51c6575dea67ca57abc7a6a2b9c/skills/mermaid-diagram/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "same_identity_upstream_variant",
+        "repository_file_sha256": {
+          "LICENSE": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5"
+        },
+        "curated_skill_sha256": "2d9eab0a8b1cc94e43799171287ed85455d8cfa2b75d4f19269bad168d8bb1dd",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "imagegen",
+      "name": "imagegen",
+      "target_dir": "imagegen",
+      "status": "system",
+      "reason": "System-managed skill supplied by the host. Check actual image tools, model access and authorization at use time; the bundle installer must not replace the system copy.",
+      "requires": [],
+      "runtime_requirements": [
+        "Requires actual host image tooling or separately authorized API access; system SKILL presence is not service availability."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ],
+      "provenance": {
+        "noninstallable_candidate": {
+          "repository": "openai/skills",
+          "ref": "49f948faa9258a0c61caceaf225e179651397431",
+          "path": "skills/.system/imagegen",
+          "declared_name": "imagegen",
+          "skill_sha256": "826d05b806d51fa81cd650f1c0854b0a1f7fbccd1b152c588ded1797a2e7218f",
+          "status": "bundled_system"
+        }
+      }
+    },
+    {
+      "id": "paper-illustration",
+      "name": "paper-illustration",
+      "target_dir": "paper-illustration",
+      "status": "verified_public",
+      "reason": "Verified public source with exact curated SKILL bytes.",
+      "repository": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "ref": "c485faa59a68e51c6575dea67ca57abc7a6a2b9c",
+      "path": "skills/skills-codex/paper-illustration",
+      "skill_sha256": "1c876e39d880781bc5d6f51c616e02f4e5858750867f027968d5b91564179643",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/c485faa59a68e51c6575dea67ca57abc7a6a2b9c/LICENSE",
+        "sha256": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Requires independently authorized Gemini API access, credentials and an available supported model. Installing this skill does not provision or authorize the external service."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": false,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Pinned public SKILL.md is byte-equal to the curated local snapshot."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/c485faa59a68e51c6575dea67ca57abc7a6a2b9c/skills/skills-codex/paper-illustration/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "exact_curated_skill",
+        "repository_file_sha256": {
+          "LICENSE": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5"
+        },
+        "curated_skill_sha256": "1c876e39d880781bc5d6f51c616e02f4e5858750867f027968d5b91564179643",
+        "curated_required_resources_missing": []
+      }
+    },
+    {
+      "id": "nature-image2ppt",
+      "name": "nature-image2ppt",
+      "target_dir": "nature-image2ppt",
+      "status": "unavailable",
+      "reason": "The verified public Paul-Jeo/Image2PPT source declares the different skill identity image2ppt. It must not be installed as the curated nature-image2ppt identity.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ],
+      "provenance": {
+        "noninstallable_candidate": {
+          "repository": "Paul-Jeo/Image2PPT",
+          "ref": "0186e520d30826998c0903e9272ff6c04e4b5393",
+          "path": ".",
+          "declared_name": "image2ppt",
+          "skill_sha256": "608ab77ead54751e583d0741b4c3f833616eab08b5fe4d4a41751d30d03a2bf9",
+          "status": "different_identity_only",
+          "license_spdx": "MIT"
+        }
+      }
+    },
+    {
+      "id": "auto-inspire-image-to-editable-ppt",
+      "name": "auto-inspire-image-to-editable-ppt",
+      "target_dir": "auto-inspire-image-to-editable-ppt",
+      "status": "unavailable",
+      "reason": "No verified public package for this locally renamed/customized identity was found. Related upstream libraries or differently named skills do not establish this installation source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "auto-mover-editable-slides",
+      "name": "auto-mover-editable-slides",
+      "target_dir": "auto-mover-editable-slides",
+      "status": "unavailable",
+      "reason": "No verified public package for this locally renamed/customized identity was found. Related upstream libraries or differently named skills do not establish this installation source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "r-topjournal-plotting",
+      "name": "r-topjournal-plotting",
+      "target_dir": "r-topjournal-plotting",
+      "status": "unavailable",
+      "reason": "No authoritative public repository, immutable revision and license were verified for this exact curated identity. Keep the existing local installation or obtain an independently verified source.",
+      "requires": [],
+      "runtime_requirements": [
+        "Source availability and any needed runtime must be established before using this skill."
+      ],
+      "curated": true,
+      "optional": false,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "No verified_public installer source is claimed for this identity."
+      ]
+    },
+    {
+      "id": "scientific-visualization",
+      "name": "scientific-visualization",
+      "target_dir": "scientific-visualization",
+      "status": "verified_public",
+      "reason": "Verified distinct optional public skill identity.",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "ref": "5f2bc0341354fd5590aef76a533ada1e1e5b4e62",
+      "path": "skills/scientific-visualization",
+      "skill_sha256": "8cbde7cdc10d959cf72cfd08335cc8ce996247eee6ebdb900eb64a4cb0ff34a3",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE.md",
+        "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/5f2bc0341354fd5590aef76a533ada1e1e5b4e62/LICENSE.md",
+        "sha256": "09b02a3c9df3053c55531d503357a9c7cde275970e6c3ceaa1ddf5f0e90b40c1"
+      },
+      "include_repo_files": [
+        "LICENSE.md"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "The selected Python plotting backend and image/vector/font QA dependencies must be available. Read the pinned upstream SKILL and selected tooling contracts before use."
+      ],
+      "curated": false,
+      "optional": true,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Explicit optional public identity; this is not an alias or replacement source for a customized curated skill."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/5f2bc0341354fd5590aef76a533ada1e1e5b4e62/skills/scientific-visualization/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "distinct_optional_identity",
+        "repository_file_sha256": {
+          "LICENSE.md": "09b02a3c9df3053c55531d503357a9c7cde275970e6c3ceaa1ddf5f0e90b40c1"
+        }
+      }
+    },
+    {
+      "id": "daxuan-science-assets",
+      "name": "daxuan-science-assets",
+      "target_dir": "daxuan-science-assets",
+      "status": "verified_public",
+      "reason": "Verified distinct optional public skill identity.",
+      "repository": "DaXuanGarden/daxuan-science-assets",
+      "ref": "83238d22ec31b79436a0dcfaf5fd0fc356aaa137",
+      "path": ".",
+      "skill_sha256": "b1fc0ef31d3b16f4062860191928a4cd00074d2ef2e6e4ac33d65b8a073510a6",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "url": "https://github.com/DaXuanGarden/daxuan-science-assets/blob/83238d22ec31b79436a0dcfaf5fd0fc356aaa137/LICENSE",
+        "sha256": "d5069ba6d38de63fb78da8a7e68e7080d36cbb2f84dac4ac0cc1b947fb1e6d47"
+      },
+      "include_repo_files": [
+        "LICENSE"
+      ],
+      "requires": [],
+      "runtime_requirements": [
+        "Native SVG tooling requires Python and the declared rendering dependencies. Image exploration additionally requires an available authorized image backend; local files do not prove API availability.",
+        "This distinct skill creates scientific illustration assets and methodology schematics and explicitly excludes statistical result plots."
+      ],
+      "curated": false,
+      "optional": true,
+      "local_contract_review_required": true,
+      "provenance_notes": [
+        "Fresh public GitHub metadata, immutable commit, pinned SKILL bytes, frontmatter name and LICENSE bytes were verified. Skill-file installation does not certify runtime execution.",
+        "Explicit optional public identity; this is not an alias or replacement source for a customized curated skill."
+      ],
+      "provenance": {
+        "skill_url": "https://github.com/DaXuanGarden/daxuan-science-assets/blob/83238d22ec31b79436a0dcfaf5fd0fc356aaa137/SKILL.md",
+        "public_visibility_verified": true,
+        "frontmatter_name_verified": true,
+        "source_relationship": "distinct_optional_identity",
+        "repository_file_sha256": {
+          "LICENSE": "d5069ba6d38de63fb78da8a7e68e7080d36cbb2f84dac4ac0cc1b947fb1e6d47"
+        }
+      }
+    }
+  ],
+  "profiles": {
+    "default": {
+      "description": "Router only. No routed skills are installed unless a profile or skill is explicitly selected.",
+      "skills": []
+    },
+    "minimal": {
+      "description": "Router only, equivalent to default; preserve existing skill installations.",
+      "skills": []
+    },
+    "python_starter": {
+      "description": "Explicit Python drawing, palette and figure QA starter. Public drawing/QA SKILL files are upstream variants; review their contracts and runtime separately.",
+      "skills": [
+        "make-sci-data-figures",
+        "polish-sci-figures",
+        "sci-color-palettes"
+      ]
+    },
+    "r_starter": {
+      "description": "R medical/statistical figures and palette. Both public SKILL files exactly match the curated snapshots; runtime packages still need verification.",
+      "skills": [
+        "StatsVisual-Skill",
+        "sci-color-palettes"
+      ]
+    },
+    "python_minimal": {
+      "description": "Small Python plotting and palette bundle using exact curated SKILL snapshots. SSCI provides its own style/export checklist; no independent QA skill is added.",
+      "skills": [
+        "ssci-plots",
+        "sci-color-palettes"
+      ]
+    },
+    "r_ggplot": {
+      "description": "General ggplot2 drawing and palette. Public ggplot2-pub is an upstream variant and needs contract review.",
+      "skills": [
+        "ggplot2-pub",
+        "sci-color-palettes"
+      ]
+    },
+    "all_public": {
+      "description": "All verified public source identities, including explicitly distinct optional skills. Excludes system, unavailable, unlicensed and mismatched identities; installing files does not certify runtime readiness.",
+      "skills": [
+        "easyplot",
+        "nature-figure",
+        "ggplot2-pub",
+        "make-sci-data-figures",
+        "StatsVisual-Skill",
+        "StatsVisual-Skill-Extension",
+        "academic-figure-skill",
+        "paper-figure",
+        "ssci-plots",
+        "standardize-sci-images",
+        "daxuan-journal-palette",
+        "sci-color-palettes",
+        "polish-sci-figures",
+        "figure-legend-writer",
+        "result-figure-consistencycheck",
+        "agent-figure-gallery",
+        "figure-spec",
+        "mermaid-diagram",
+        "paper-illustration",
+        "scientific-visualization",
+        "daxuan-science-assets"
+      ]
+    }
+  }
+}
