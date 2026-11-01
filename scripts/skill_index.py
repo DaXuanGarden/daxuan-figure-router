@@ -18,7 +18,7 @@ import re
 import sys
 from typing import Any
 
-SKIP_DIRECTORIES = {".git", "node_modules", "__pycache__", ".venv", "venv", ".mypy_cache", ".pytest_cache"}
+SKIP_DIRECTORIES = {".git", "node_modules", "__pycache__", ".venv", "venv", ".mypy_cache", ".pytest_cache", ".skill-bundle", ".skill-bundle-staging"}
 INTENTS = ("create", "edit", "choose", "palette", "qa", "diagram", "reconstruct", "reference", "maintenance")
 LANGUAGE_FREE_INTENTS = {"palette", "qa", "reconstruct", "reference"}
 DOMAIN_ALIASES = {"generic": "general", "clinical": "medical"}

@@ -1,6 +1,12 @@
 # Changelog
 
-## Unreleased — core routing reliability
+## Unreleased — portable Skill dependencies
+
+- Add explicit offline plan/status and pinned-source installation profiles; discover real installed identities and skip them without updating or replacing.
+- Preserve source licences and per-file receipts, stage complete bundles, and distinguish unavailable origins from missing runtime packages/services.
+- Keep ordinary routing discovery read-only; freshly installed public variants require reading their actual contracts before use.
+
+## Core routing reliability
 
 - Keep source-changed and unregistered skills visible as bounded review candidates without claiming backend compatibility; use current reviewed metadata for capability filtering.
 - Separate task intent, domain evidence and chart terms; normalize common Chinese terms and domain aliases, prefer Latin word matches, and expose vocabulary diagnostics.

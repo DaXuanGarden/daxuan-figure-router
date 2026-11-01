@@ -19,7 +19,19 @@ git clone https://github.com/DaXuanGarden/daxuan-figure-router.git "${CODEX_HOME
 
 已有同名目录时不要直接覆盖，先确认它是独立安装副本还是 Git 克隆。新会话中可调用 `$daxuan-figure-router`；也可以直接引用安装目录中的 `SKILL.md`。
 
-**参考清单中的 39 项绘图能力不随本仓库提供，也无需全部安装。** 路由器只选择当前机器上实际存在的技能。它们的模板、图片、运行时和服务按各自技能的安装方式及许可证提供；仓库仅包含本路由器、能力摘要和测试。即使没有清单中的技能，检索仍能运行并报告空结果或缺项。
+**参考清单中的 39 项绘图能力不随本仓库提供，也无需全部安装。** 可按明确的 profile 下载有核实来源的技能文件，已有安装自动跳过。 路由器只选择当前机器上实际存在的技能。它们的模板、图片、运行时和服务按各自技能的安装方式及许可证提供；仓库仅包含本路由器、能力摘要和测试。即使没有清单中的技能，检索仍能运行并报告空结果或缺项。
+
+## 给同事补齐绘图技能
+
+安装路由器后，只需运行一次所需的集合；已有技能会跳过：
+
+```bash
+ROUTER_SKILL="${CODEX_HOME:-$HOME/.codex}/skills/daxuan-figure-router"
+python "$ROUTER_SKILL/scripts/skill_bundle.py" plan --profile python_starter
+python "$ROUTER_SKILL/scripts/skill_bundle.py" install --profile python_starter
+```
+
+R 使用 `r_starter`；单项可用 `--skill easyplot`。默认不下载全部清单。来源固定到 commit 并核验身份/哈希、保留许可证；没有核实来源的项明确报告，现有目录不覆盖。技能文件安装成功不等于 Python/R 包、字体或外部服务已可用。详见 [安装与来源说明](references/skill-bootstrap.md)。
 
 ## 使用示例
 
@@ -34,6 +46,20 @@ git clone https://github.com/DaXuanGarden/daxuan-figure-router.git "${CODEX_HOME
 自动技能选择保持启用。已安装的技能通常会在新会话中发现，也可以用绝对路径引用本目录的 `SKILL.md`。
 
 更多请求与职责安排见 [路由示例](examples/routing.md)。
+
+## 同一数据的候选图
+
+作者要求“给几种形式/样式比较”时，使用 [comparison workflow](references/comparison-workflow.md)：先冻结输入与科学合同，再由已有绘图 Skill 生成真实 PNG/SVG/PDF，最后用离线 gallery 供作者选择。默认只生成 4–6 个有理由的候选；不同图型、版式和色板分开记录，颜色变化不会伪装成新的科学表达。一个可运行的 accepted-results forest 示例见 [showcase](showcase/README.md)。
+
+```bash
+python "$ROUTER_SKILL/scripts/comparison.py" plan --brief brief.json --outdir comparison-run
+# 由选中的现有绘图 Skill 生成 results.json 后：
+python "$ROUTER_SKILL/scripts/comparison.py" assemble --plan comparison-run/plan.json --results results.json
+python "$ROUTER_SKILL/scripts/comparison.py" check --run comparison-run
+python "$ROUTER_SKILL/scripts/comparison.py" select --run comparison-run --id candidate-id --reason "作者选择理由"
+```
+
+`comparison.py` 不执行 JSON 中任意命令；阻塞候选、未审阅和 QA 失败都保留原因。选择记录只表示待精修，不代表投稿就绪。
 
 ## 只读检索
 
@@ -96,7 +122,7 @@ python "$ROUTER_SKILL/scripts/check_routes.py" --prompts "$ROUTER_SKILL/test-pro
 
 记录校验会检查主技能、语言、显式选择、禁止动作，以及合理的“直接改原码”路线。自由文本科学条件和真实原文读取仍需独立审阅；通过记录检查不等于模型每次都会重现该路线，更不代表科研图已经渲染。仓库内的 [合成输入示例](examples/fixtures/) 用于编辑/路由演练，全部是模拟值，不包含真实研究数据。
 
-路由器不改动原技能，不运行检索到的代码，不上传数据，不自动安装依赖或开启外部服务。只有具体绘图任务进入所选技能后，才按该技能和用户要求执行。
+只读检索不执行代码或联网；明确调用 bootstrap 才安装锁表中的技能文件，运行时与外部服务独立检查。只有具体绘图任务进入所选技能后，才按该技能和用户要求执行。
 
 本地能力摘要与已知限制见 [capabilities.json](references/capabilities.json)，实际文件和所选技能原文优先。后续只按真实误路由修正规则；视觉灵感、文献检索和项目工作台留待后续需要时开发。
 

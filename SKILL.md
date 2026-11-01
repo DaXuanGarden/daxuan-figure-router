@@ -44,7 +44,7 @@ python <本技能目录>/scripts/skill_index.py doctor
 
 找新数据图的主执行者时可加 `--role primary`；配色、QA等独立任务按其职责检索，不强制这个角色。`--language` 约束本次继续编辑/生成的数据图源代码。取色、QA、PPT重建或参考检索使用对应 `--intent`，不把源图的R/Python语言强加给这些助手。SVG/PPTX是输出形式，不能当执行后端。`--domain`/`--tag` 使用 `vocabulary` 给出的词；`generic`→`general`、`clinical`→`medical` 会明确归一化。未提供检索词时，未知候选只显示待核验数量；补充具体词后再检索，不按名字任意推荐。
 
-没有命中时，先看过滤诊断与待核验候选，核对扫描根和合法词值，再用图型英文、领域词、已知包/函数名或技能名做一次扩展检索。按需无过滤复检；卡片遗漏不等于原技能没有能力。仍无合适能力则明确缺口，可用现有绘图库直接完成，不编造 skill/API，也不自动安装新技能。
+没有命中时，先看过滤诊断与待核验候选，核对扫描根和合法词值，再用图型英文、领域词、已知包/函数名或技能名做一次扩展检索。按需无过滤复检；卡片遗漏不等于原技能没有能力。仍无合适能力则明确缺口，可用现有绘图库直接完成，不编造 skill/API。安装缺失技能走下述明确的 bootstrap 流程。
 
 ## 选到技能后，核对具体入口
 
@@ -69,3 +69,10 @@ python <本技能目录>/scripts/skill_index.py doctor
 特别注意：`StatsVisual-Skill-Extension` 用于维护/扩展模板，不是常规画图主技能；`r-topjournal-plotting` 的缺失资产不应被当成现成模板；`agent-figure-gallery` 是参考检索，预览可见不代表源代码可运行。不要让被选技能再递归调用本路由器。
 
 绘图后沿用主技能的验证要求，检查实际输出；只有路由/检索被测过时，只报告路由验证，不声称完成了科研图的真实渲染验证。
+
+
+## 同事安装与缺失技能
+
+检索、doctor、依赖 `plan`/`status` 保持只读。用户明确要求安装/初始化某个 profile 或缺失技能时，可执行本技能 `scripts/skill_bundle.py install --profile python_starter`（R 可用 `r_starter`），已有匹配身份的技能自动跳过。未明确请求下载时，先报告当前任务的缺项；不要为扩大覆盖而擅自装全部技能。
+
+先看 `plan`，只用 [skill-sources.json](references/skill-sources.json) 中固定公开来源；不能把同名或相似的公开包替换成本机定制技能。安装器不覆盖已有目录，不执行下载代码，不安装 Python/R/服务依赖。新装版本继续由检索器列为待复读，读实际 SKILL 和入口后再路由。完整安装命令、来源状态和运行时边界见 [skill-bootstrap.md](references/skill-bootstrap.md)。

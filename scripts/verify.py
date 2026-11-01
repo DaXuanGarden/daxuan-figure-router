@@ -10,11 +10,13 @@ rendering still require independent review and live execution.
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 import subprocess
 import sys
 
 from check_routes import check_records, read_json, validate_catalog, validate_suite
+from skill_bundle import BundleError, load_manifest
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -24,9 +26,18 @@ def main(argv: list[str] | None = None) -> int:
     root = Path(__file__).resolve().parent.parent
     errors = []
     documents = {}
-    for path in sorted(root.rglob("*.json")):
-        if ".git" in path.relative_to(root).parts:
-            continue
+    try:
+        load_manifest(root / "references" / "skill-sources.json")
+    except BundleError as exc:
+        errors.append(f"references/skill-sources.json: {exc}")
+    paths = []
+    for directory, children, files in os.walk(root):
+        children[:] = [name for name in children if name not in {
+            ".git", ".venv", "venv", "node_modules", "__pycache__",
+            "local-reports", ".skill-bundle", ".skill-bundle-staging",
+        }]
+        paths.extend(Path(directory) / name for name in files if name.endswith(".json"))
+    for path in sorted(paths):
         try:
             documents[path.relative_to(root).as_posix()] = read_json(path)
         except (OSError, ValueError, TypeError) as exc:
