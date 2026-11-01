@@ -1,0 +1,466 @@
+{
+  "suite": "daxuan-figure-router-core-independent-acceptance",
+  "version": 1,
+  "scope": "只检验发现、筛选和路由，不把路由通过说成绘图已完成。预期为独立语义边界，不要求某个排序算法或固定分数。",
+  "cases": [
+    {
+      "id": "r-existing-edit",
+      "prompt": "这是已有的 R/ggplot2 森林图脚本，只把字体调大、两个组换成蓝橙色。所有结果、点位、置信区间和现有布局保持一致。帮我选合适的绘图 skill 接着改。",
+      "task_spec": {
+        "mode": "edit",
+        "language": "R",
+        "domain": "generic",
+        "chart": "forest"
+      },
+      "expected": {
+        "primary_any_of": [
+          "ggplot2-pub",
+          "easyplot",
+          "nature-figure"
+        ],
+        "must_not_primary": [
+          "StatsVisual-Skill-Extension",
+          "mendelian-randomisation",
+          "cell-visualization-code",
+          "plot-from-data"
+        ],
+        "conditions": [
+          "现有脚本为主，局部修改而非整体换图/换语言。",
+          "forest 关键字不能触发 MR 或生存等上游分析。",
+          "已有颜色意图足够明确时，无需额外配色主控或图库流程。"
+        ]
+      },
+      "rationale": "局部改图应按当前代码栈选择，forest 仅是形式，不能推断科学分析类型。"
+    },
+    {
+      "id": "python-existing-edit",
+      "prompt": "已有 Matplotlib 的 ROC 图已经画好了，只想把图例移到右上角并修复 SVG 导出。继续用 Python，不要重新训练或更换风格。",
+      "task_spec": {
+        "mode": "edit",
+        "language": "python",
+        "domain": "clinical",
+        "chart": "roc"
+      },
+      "expected": {
+        "primary_any_of": [
+          "cell-visualization-code",
+          "easyplot",
+          "nature-figure",
+          "polish-sci-figures"
+        ],
+        "must_not_primary": [
+          "ggplot2-pub",
+          "StatsVisual-Skill",
+          "auto-inspire-plot-library",
+          "StatsVisual-Skill-Extension"
+        ],
+        "conditions": [
+          "保留 Matplotlib、已训练预测结果和现有配色。",
+          "不得因 ROC 触发建模、特征筛选或重新计算性能。"
+        ]
+      },
+      "rationale": "明确 Python 与已存在代码应比通用默认 R 和临床工作流更优先。"
+    },
+    {
+      "id": "unknown-chart-paired",
+      "prompt": "12 个受试者治疗前后各测了一次同一指标，我有一张 tidy CSV，但不知道画柱状图、箱线图还是别的。先用合适的技能考虑怎么表达，不能把前后当独立两组。语言都可以。",
+      "task_spec": {
+        "mode": "choose",
+        "language": "any",
+        "domain": "clinical"
+      },
+      "expected": {
+        "primary_any_of": [
+          "make-sci-data-figures",
+          "easyplot",
+          "nature-figure",
+          "academic-figure-skill",
+          "StatsVisual-Skill"
+        ],
+        "must_not_primary": [
+          "StatsVisual-Skill-Extension",
+          "standardize-sci-images",
+          "paper-illustration",
+          "agent-figure-gallery"
+        ],
+        "conditions": [
+          "选择有数据/科学目的选图能力的主技能。",
+          "明确保留受试者配对身份，未知单位信息不能由列名推断。",
+          "图库最多作为可选参考，不能替代科学选图与数据合同。"
+        ]
+      },
+      "rationale": "用户不知道图形形式时需要真正的选图能力，不应直接按一个图名套模板。"
+    },
+    {
+      "id": "explicit-known-skill",
+      "prompt": "这次明确用 $easyplot，在 R 中画已经整理好的三组分布。不要再让我从几十个 skill 里选一次。",
+      "task_spec": {
+        "mode": "create",
+        "language": "R",
+        "domain": "generic",
+        "chart": "distribution",
+        "explicit_skill": "easyplot"
+      },
+      "expected": {
+        "primary_any_of": [
+          "easyplot"
+        ],
+        "must_not_primary": [
+          "StatsVisual-Skill-Extension",
+          "StatsVisual-Skill",
+          "nature-figure"
+        ],
+        "conditions": [
+          "准确找到并读取用户点名入口，维持 R。",
+          "无需完整技能排行榜，也不因默认审美重新选择另一主技能。"
+        ]
+      },
+      "rationale": "显式点名能力在可用且兼容时优先，不重复让用户选技能。"
+    },
+    {
+      "id": "gwas-r-gene-manhattan",
+      "prompt": "MAGMA gene-level 结果已经验收好了，想用 R 画基因层面的 Manhattan。请找现有模板，不要重跑 MAGMA，也不要因为历史适配器是 Python 就换语言。",
+      "task_spec": {
+        "mode": "create",
+        "language": "R",
+        "domain": "gwas",
+        "chart": "gene_level_manhattan"
+      },
+      "expected": {
+        "primary_any_of": [
+          "gwas-figure"
+        ],
+        "must_not_primary": [
+          "gwas-for-paper",
+          "plot-from-data",
+          "StatsVisual-Skill-Extension"
+        ],
+        "conditions": [
+          "继续到 gwas-figure 的 magma_gene_level 单元并核对其通用 R 模板。",
+          "使用 templates/render_gene_level_manhattan.R，不能仅依历史 source adapter 给整个技能标 Python。",
+          "只展示已验收结果，不安排上游 GWAS/MAGMA 分析。"
+        ]
+      },
+      "rationale": "专题主技能的语言要细分到图形单元和入口，不能给整套 GWAS 能力贴单一语言。"
+    },
+    {
+      "id": "gwas-python-global-correlation",
+      "prompt": "我有已验收的 LDSC 遗传相关性 estimate、ci_low、ci_high、p 表。请沿用 Python 绘制全局遗传相关性森林图。",
+      "task_spec": {
+        "mode": "create",
+        "language": "python",
+        "domain": "gwas",
+        "chart": "global_genetic_correlation"
+      },
+      "expected": {
+        "primary_any_of": [
+          "gwas-figure"
+        ],
+        "must_not_primary": [
+          "ggplot2-pub",
+          "gwas-for-paper",
+          "StatsVisual-Skill-Extension"
+        ],
+        "conditions": [
+          "选择 global_genetic_correlation 图形单元并读取相应输入合同。",
+          "核对 Python 通用模板 render_global_genetic_correlation_forest.py，而非默认转 R。",
+          "不重新跑 LDSC。"
+        ]
+      },
+      "rationale": "同一个 GWAS 主技能应按图形单元选真正兼容的语言入口。"
+    },
+    {
+      "id": "gwas-unit-language-mismatch",
+      "prompt": "TWAS 组织-基因圆形热图要用 R 实现，已有表和现成 R 代码。我知道安装的参考适配器可能只有 Python，你先看看如何路由，但不能把我的代码换成 Python。",
+      "task_spec": {
+        "mode": "edit",
+        "language": "R",
+        "domain": "gwas",
+        "chart": "twas_circular_heatmap"
+      },
+      "expected": {
+        "primary_any_of": [
+          "gwas-figure",
+          "ggplot2-pub",
+          "easyplot",
+          "nature-figure"
+        ],
+        "must_not_primary": [
+          "plot-from-data",
+          "StatsVisual-Skill-Extension"
+        ],
+        "conditions": [
+          "若选 gwas-figure，须把 Python source adapter 作为参考并说明语言不匹配，继续修改现有 R 代码。",
+          "不能宣称已安装可直接执行的 R 圆形热图模板。",
+          "也可由兼容 R 的主技能执行，gwas-figure 只作专题合同参考。"
+        ]
+      },
+      "rationale": "不兼容模板应降为参考或适配，不应推翻用户明确现有语言。"
+    },
+    {
+      "id": "offline-diagram",
+      "prompt": "画一张离线完成的机制示意图：暴露影响炎症，炎症影响结局；只要清晰的节点和箭头，输出 SVG，不调用任何外部生成模型。",
+      "task_spec": {
+        "mode": "diagram",
+        "language": "any",
+        "domain": "generic",
+        "chart": "mechanism"
+      },
+      "expected": {
+        "primary_any_of": [
+          "mermaid-diagram",
+          "figure-spec",
+          "native-svg-fallback"
+        ],
+        "must_not_primary": [
+          "paper-illustration",
+          "imagegen",
+          "cell-cns-figure",
+          "cell_su7",
+          "cell_su8",
+          "make-sci-data-figures"
+        ],
+        "conditions": [
+          "排除依赖外部模型、云服务或自动付费路径。",
+          "figure-spec 只能在 renderer 真实可解析时作为执行主技能，否则明确降级为参考或原生 SVG 后备。",
+          "不能把已安装 SKILL.md 当成渲染依赖已经就绪。"
+        ]
+      },
+      "rationale": "图形种类、离线约束与当前运行资源必须共同决定能否执行。"
+    },
+    {
+      "id": "palette-only",
+      "prompt": "不用重新画图也不用看文献，只从本地给我 5 个用于临床队列图的颜色 HEX，并检查色盲和灰度下是否容易区分。",
+      "task_spec": {
+        "mode": "style",
+        "language": "any",
+        "domain": "clinical",
+        "chart": "palette"
+      },
+      "expected": {
+        "primary_any_of": [
+          "sci-color-palettes",
+          "daxuan-journal-palette"
+        ],
+        "must_not_primary": [
+          "nature-figure",
+          "StatsVisual-Skill-Extension",
+          "gwas-for-paper",
+          "paper-illustration",
+          "agent-figure-gallery"
+        ],
+        "conditions": [
+          "主任务仅配色，允许配色能力成为唯一主技能。",
+          "不启动完整绘图、图库、文献检索或数据分析。",
+          "只给可追溯色值和针对用途的诊断，不把色盲安全写成无条件保证。"
+        ]
+      },
+      "rationale": "helper 可在它自身被直接请求时成为主技能，不能总为配色加一层全图主控。"
+    },
+    {
+      "id": "omics-already-analysed",
+      "prompt": "差异分析已完成，给你 gene、log2FC 和 padj 结果表。只用 R 画火山图和几个基因的标签，不要再跑 DESeq2、富集或 PPI。",
+      "task_spec": {
+        "mode": "create",
+        "language": "R",
+        "domain": "omics",
+        "chart": "volcano"
+      },
+      "expected": {
+        "primary_any_of": [
+          "easyplot",
+          "ggplot2-pub",
+          "nature-figure",
+          "StatsVisual-Skill",
+          "academic-figure-skill"
+        ],
+        "must_not_primary": [
+          "differential-expression-analysis",
+          "gokegg-analysis",
+          "gsea",
+          "ppi-network-analysis",
+          "wgcna-analysis",
+          "StatsVisual-Skill-Extension"
+        ],
+        "conditions": [
+          "已完成的 log2FC/padj 是权威输入，只核对列、阈值和标签来源。",
+          "不把领域识别误转为重新分析或拓展为完整组学工作流。",
+          "若模板检索足够，不叠加多套绘图主控。"
+        ]
+      },
+      "rationale": "领域标签不意味着分析任务；绘图路由要遵守已完成结果的边界。"
+    },
+    {
+      "id": "maintenance-not-chart",
+      "prompt": "我只是想画一张普通散点图，是不是应该用 StatsVisual-Skill-Extension？如果它只是维护技能，请帮我选真正能画图的。",
+      "task_spec": {
+        "mode": "create",
+        "language": "R",
+        "domain": "generic",
+        "chart": "scatter"
+      },
+      "expected": {
+        "primary_any_of": [
+          "easyplot",
+          "ggplot2-pub",
+          "nature-figure",
+          "StatsVisual-Skill",
+          "academic-figure-skill"
+        ],
+        "must_not_primary": [
+          "StatsVisual-Skill-Extension",
+          "auto-inspire-statsvisual-skill-extension"
+        ],
+        "conditions": [
+          "识别用户是在询问扩展技能是否适用，而不是明确授权它去改模板库。",
+          "说明 Extension 是技能维护能力，不是普通图形执行者。",
+          "不修改现有 skill、索引或模板。"
+        ]
+      },
+      "rationale": "名字提及不等于明确调用；维护扩展必须从常规绘图主技能中排除。"
+    },
+    {
+      "id": "explicit-missing-renderer",
+      "prompt": "用 $figure-spec 画个简单流程图，先确认安装里的 renderer 能不能找到；缺失就告诉我具体缺什么，并走本地可用后备。",
+      "task_spec": {
+        "mode": "diagram",
+        "language": "any",
+        "domain": "generic",
+        "chart": "flowchart",
+        "explicit_skill": "figure-spec"
+      },
+      "expected": {
+        "primary_any_of": [
+          "figure-spec",
+          "mermaid-diagram",
+          "native-svg-fallback"
+        ],
+        "must_not_primary": [
+          "paper-illustration",
+          "cell-cns-figure",
+          "StatsVisual-Skill-Extension"
+        ],
+        "conditions": [
+          "先读用户明确点名入口，然后验证其 renderer 解析链。",
+          "本机已知 renderer 缺失时不得标 ready 或声称已经成功画图。",
+          "后备不自动联网安装包、不调用外部模型；报告是路由或执行哪一层已验证。"
+        ]
+      },
+      "rationale": "显式技能选择不能绕过执行资源缺失；正确路由包括有证据的降级。"
+    },
+    {
+      "id": "minimal-candidate-reading",
+      "prompt": "已有 R/ggplot2 画好的折线，只修中文标签乱码，最终给 PDF。请尽快找到适用技能，不用把全部绘图技能都读一遍。",
+      "task_spec": {
+        "mode": "edit",
+        "language": "R",
+        "domain": "generic",
+        "chart": "line"
+      },
+      "expected": {
+        "primary_any_of": [
+          "ggplot2-pub",
+          "easyplot",
+          "nature-figure"
+        ],
+        "must_not_primary": [
+          "cell-visualization-code",
+          "StatsVisual-Skill-Extension",
+          "agent-figure-gallery"
+        ],
+        "conditions": [
+          "按中文字体/导出与现有 R 代码检索，优先读 1 个主技能入口。",
+          "没有明确缺口时辅助技能为零；不全量读取候选 SKILL.md 或所有参考文件。",
+          "精简候选不能跳过所选技能的完整入口和真正相关的 CJK/PDF 指引。"
+        ]
+      },
+      "rationale": "路由应降低上下文成本，且对实际缺陷读取足够的资源。"
+    },
+    {
+      "id": "new-installed-skill-discovery",
+      "prompt": "我刚新增安装了 lab-chord-plotter 这个技能，用它在 R 中画 chord diagram；请按这次机器上的实际入口发现，不要说因为固定清单里没有就不可用。",
+      "task_spec": {
+        "mode": "create",
+        "language": "R",
+        "domain": "omics",
+        "chart": "chord",
+        "explicit_skill": "lab-chord-plotter"
+      },
+      "setup": {
+        "type": "temporary-skill-root-fixture",
+        "instruction": "只在测试临时目录新建 skill，不触碰用户真实全局目录；将临时 root 传给发现工具。",
+        "relative_path": "lab-chord-plotter/SKILL.md",
+        "content": "---\nname: lab-chord-plotter\ndescription: Create chord diagrams from accepted interaction tables in R; preserves supplied values and performs no upstream analysis.\n---\n# Lab Chord Plotter\nUse R and circlize for supplied source, target, value tables. Check the local R package before execution.\n"
+      },
+      "expected": {
+        "primary_any_of": [
+          "lab-chord-plotter"
+        ],
+        "must_not_primary": [
+          "StatsVisual-Skill-Extension"
+        ],
+        "conditions": [
+          "从本轮真实目录发现新技能，不依赖预先硬编码卡片。",
+          "返回其实际 SKILL.md 路径和待阅读状态；未读完整入口前不凭名字承诺执行。",
+          "发现不到时明确检索范围与缺项，不能默默用相似技能冒充指定技能。"
+        ]
+      },
+      "rationale": "路由器要能发现新装技能，但动态发现不等于未经核对自动执行。"
+    },
+    {
+      "id": "qa-only-final-figure",
+      "prompt": "这张多面板 SVG 已经定稿，不用重画，请仅检查最终尺寸字号、标签碰撞和是不是把整张 PNG 嵌进了 SVG。",
+      "task_spec": {
+        "mode": "qa",
+        "language": "any",
+        "domain": "generic",
+        "chart": "multipanel"
+      },
+      "expected": {
+        "primary_any_of": [
+          "polish-sci-figures",
+          "nature-figure"
+        ],
+        "must_not_primary": [
+          "make-sci-data-figures",
+          "standardize-sci-images",
+          "StatsVisual-Skill-Extension",
+          "paper-illustration"
+        ],
+        "conditions": [
+          "选现有图形的检查能力，不假设有原始表或重绘授权。",
+          "QA-only 不改源文件，也不把 SVG 容器扩展名当作内容全矢量的证据。",
+          "若调用 nature-figure，限制为已有图的 QA，不启动新图数据流程。"
+        ]
+      },
+      "rationale": "完成图的检查是独立意图，不能被通用绘图工作台接管成重绘。"
+    },
+    {
+      "id": "matlab-existing-code",
+      "prompt": "请保留 MATLAB，在现成的 plot 脚本上统一 IEEE 双栏版式与矢量导出。只是改代码和样式，不换 Python，不重算数据。",
+      "task_spec": {
+        "mode": "edit",
+        "language": "matlab",
+        "domain": "generic",
+        "chart": "line"
+      },
+      "expected": {
+        "primary_any_of": [
+          "cell-visualization-code"
+        ],
+        "must_not_primary": [
+          "ggplot2-pub",
+          "StatsVisual-Skill",
+          "plot-from-data",
+          "auto-inspire-plot-library"
+        ],
+        "conditions": [
+          "读取 MATLAB 路径与出版 profile，并核对实际 MATLAB 运行环境。",
+          "不把 R/Python-only 技能排为可直接执行的主技能。",
+          "运行环境缺失时保留语言约束，区分代码建议与已实跑验证。"
+        ]
+      },
+      "rationale": "非默认语言必须作为硬约束，且技能支持语言不等于该语言运行时已安装。"
+    }
+  ]
+}

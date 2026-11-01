@@ -1,0 +1,1662 @@
+{
+  "schema_version": 1,
+  "scope": "Local scientific figure skill routing. Curated candidates, not an automatic semantic decision or execution guarantee. Read the selected SKILL.md and verify task-specific resources before use.",
+  "path_base": "user_home",
+  "entries": [
+    {
+      "id": "easyplot",
+      "name": "easyplot",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/easyplot/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "easyplot",
+      "languages": [
+        "R",
+        "Python"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "new-plot",
+        "edit-code",
+        "known-chart",
+        "choose-chart",
+        "multi-panel",
+        "散点",
+        "箱线",
+        "小提琴",
+        "森林图",
+        "热图",
+        "改图",
+        "scatter",
+        "boxplot",
+        "violin",
+        "forest",
+        "heatmap",
+        "paired",
+        "配对"
+      ],
+      "when": "常规表格数据绘图，或保留既有代码做局部修改；单图和自包含组图均可。",
+      "avoid": "已有明确领域单元或作者指定其他技能时，不覆盖它们。",
+      "resource_checks": [
+        {
+          "path": "scripts/easyplot_templates.R",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/easyplot_py.py",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "默认偏 R，用户指定语言及项目既有实现优先。",
+      "source_hashes": {
+        ".codex/skills/easyplot/SKILL.md": "30b88a8c7d3c219369eb0afb65ee5cef4e83b74bc618c873b8b15f5ce4091610"
+      }
+    },
+    {
+      "id": "nature-figure",
+      "name": "nature-figure",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/nature-figure/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "nature-figure",
+      "languages": [
+        "R",
+        "Python"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "new-plot",
+        "choose-chart",
+        "multi-panel",
+        "publication",
+        "组图",
+        "证据结构",
+        "统一排版"
+      ],
+      "when": "需要规划全图证据组织、多面板叙事、统一排版及出版输出。",
+      "avoid": "只改一个颜色、字体或已知单图时，不启动全图规划。",
+      "resource_checks": [
+        {
+          "path": "static/core/contract.md",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/multipanel-evidence-architecture.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "只选一个全图协调者；携带外层已经确认的语言和选择，避免重复询问。",
+      "source_hashes": {
+        ".codex/skills/nature-figure/SKILL.md": "46f2cf74d473604ff9ad884893bbe2360b3431fec631009fce5c487945acf652"
+      }
+    },
+    {
+      "id": "ggplot2-pub",
+      "name": "ggplot2-pub",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/ggplot2-pub/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "ggplot2-pub",
+      "languages": [
+        "R"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "new-plot",
+        "edit-code",
+        "ggplot2",
+        "known-chart",
+        "中文字体",
+        "CJK",
+        "vector-export"
+      ],
+      "when": "R/ggplot2 的新图、已有 R 图小改、中文字体与导出修复。",
+      "avoid": "不因调用本技能把 Python/MATLAB 图重写为 R。",
+      "resource_checks": [
+        {
+          "path": "scripts/lint_plot.R",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/verify_charts.R",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/ggplot2-pub/SKILL.md": "bda884c3b3d0e776ca2d5939aa4199139442cc87e50bef3c13b198928be30e2d"
+      }
+    },
+    {
+      "id": "make-sci-data-figures",
+      "name": "make-sci-data-figures",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/make-sci-data-figures/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "make-sci-data-figures",
+      "languages": [
+        "Python"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "new-plot",
+        "choose-chart",
+        "表格数据",
+        "paired",
+        "配对",
+        "分布",
+        "比较",
+        "raincloud",
+        "violin",
+        "boxplot",
+        "paired-comparison"
+      ],
+      "when": "从真实 CSV/TSV/XLSX 数据按科学问题选择 Python 图型，并保留统计单位与配对结构。",
+      "avoid": "用户已经明确 R 或已有 R 代码时不迁移语言。",
+      "resource_checks": [
+        {
+          "path": "scripts/figure_workbench.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/data_contract.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "脚本能力按需读取；选图探索不等于允许重算用户未请求的统计。",
+      "source_hashes": {
+        ".codex/skills/make-sci-data-figures/SKILL.md": "93eda83b3d4ae9868c01f6162f951770b438563a4ecc8d13b6c01bc4c1dc53ab"
+      }
+    },
+    {
+      "id": "StatsVisual-Skill",
+      "name": "StatsVisual-Skill",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/StatsVisual-Skill/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "statsvisual",
+      "languages": [
+        "R"
+      ],
+      "domains": [
+        "medical",
+        "biostatistics"
+      ],
+      "task_tags": [
+        "choose-chart",
+        "new-plot",
+        "clinical",
+        "生存曲线",
+        "森林图",
+        "诊断图",
+        "NEJM",
+        "Lancet"
+      ],
+      "when": "用户希望先做 R 医学统计数据画像，再比较并确认图型/期刊样式。",
+      "avoid": "已确定图型并要求直接小改时，不引入本技能的首轮推荐等待流程。",
+      "resource_checks": [
+        {
+          "path": "assets/plot_template.R",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/data_profile.R",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/export_publication_figures.R",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "原技能有首轮先推荐并等待后续选择的门槛；路由时说明匹配是否会引入该交互，已存在更高优先级授权与选择继续有效。",
+      "source_hashes": {
+        ".codex/skills/StatsVisual-Skill/SKILL.md": "36b78080e75956e06f9949cc04b77f91db05a8008a89bc59a55e1b09e98c5b31"
+      }
+    },
+    {
+      "id": "StatsVisual-Skill-Extension",
+      "name": "StatsVisual-Skill-Extension",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/StatsVisual-Skill-Extension/SKILL.md"
+      ],
+      "role": "maintenance",
+      "family": "statsvisual-extension",
+      "languages": [
+        "R"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "skill-maintenance",
+        "维护技能",
+        "扩充模板",
+        "模板管理"
+      ],
+      "when": "明确要求扩充或修改 StatsVisual 的模板、图型说明和索引。",
+      "avoid": "普通画图、改图或选图不路由到维护技能。",
+      "resource_checks": [],
+      "notes": "维护不等于渲染；不得把自动新增/改动其他技能作为普通绘图的前置步骤。",
+      "source_hashes": {
+        ".codex/skills/StatsVisual-Skill-Extension/SKILL.md": "20950e7d1ab280581b91360a97ff49147540379ef846ddadcd5923ab4f1d7753"
+      }
+    },
+    {
+      "id": "academic-figure-skill",
+      "name": "academic-figure-skill",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/academic-figure-skill/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "academic-figure-skill",
+      "languages": [
+        "R",
+        "Python"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "new-plot",
+        "choose-chart",
+        "multi-panel",
+        "模板",
+        "科学问题",
+        "publication"
+      ],
+      "when": "需要以科学问题匹配多种代码图型或多面板资产参考。",
+      "avoid": "要求全部原生矢量可编辑时，不照搬把 PNG 拼入矢量容器的资产。",
+      "resource_checks": [
+        {
+          "path": "assets/figures",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/directory-map.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "当前 SKILL 的严格 YAML 解析可能告警；仍须读取正文，核实具体模板语言与导出方式。",
+      "source_hashes": {
+        ".codex/skills/academic-figure-skill/SKILL.md": "ae592d4f514af1d18d7b900bea2e7591815424d906cd3a151f90ff8a5b0fdec3"
+      }
+    },
+    {
+      "id": "plot-from-data",
+      "name": "plot-from-data",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/plot-from-data/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "plot-from-data",
+      "languages": [
+        "Python"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "new-plot",
+        "known-chart",
+        "matplotlib",
+        "bar",
+        "line",
+        "radar",
+        "scatter",
+        "论文样式模板"
+      ],
+      "when": "给定数据和已选 Matplotlib 论文样式，以现有八类脚本为蓝本适配。",
+      "avoid": "原模板仅声明 300dpi PNG，不据此承诺活文字 SVG/PDF；其他语言不迁移。",
+      "resource_checks": [
+        {
+          "path": "scripts/bar_spice.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/line_aime.py",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/plot-from-data/SKILL.md": "5073579e21648de5edb75c59aefdf9ba13be0cc02c7e4532f99ab74cf5b94b50"
+      }
+    },
+    {
+      "id": "plot-from-image",
+      "name": "plot-from-image",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/plot-from-image/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "plot-from-image",
+      "languages": [
+        "Python"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "reference-reproduction",
+        "edit-code",
+        "match-image",
+        "复现图片",
+        "参考图",
+        "风格复刻",
+        "image-reproduction"
+      ],
+      "when": "用户明确要根据参考数据图复现 Matplotlib 样式，或用自己数据画同风格图。",
+      "avoid": "不从截图伪造精确研究数据；只有参考图时先区分样式重建与数据数字化。",
+      "resource_checks": [
+        {
+          "path": "../plot-from-data/scripts",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "参考样式来源与用户真实数据分开；不是显微影像处理或机制插画工具。",
+      "source_hashes": {
+        ".codex/skills/plot-from-image/SKILL.md": "9479938cfaae779a5023c191c3e1910d6cf80d23d098f35654e7d54196478877"
+      }
+    },
+    {
+      "id": "cell-visualization-code",
+      "name": "cell-visualization-code",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/cell-visualization-code/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "cell-visualization-code",
+      "languages": [
+        "Python",
+        "MATLAB"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "new-plot",
+        "edit-code",
+        "code-review",
+        "IEEE",
+        "Elsevier",
+        "尺寸",
+        "vector-export",
+        "MATLAB"
+      ],
+      "when": "生成、重构或审查 Python/MATLAB 科研可视化代码，并统一物理尺寸和输出。",
+      "avoid": "不是从参考论文数据图反向复现的工作流；不是 R 绘图或照片描摹。",
+      "resource_checks": [
+        {
+          "path": "references/shared-contract.md",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "assets/python_plot_template.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "assets/matlab_plot_template.m",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/cell-visualization-code/SKILL.md": "4cbc1a92a23c0fafaf1f4ca5f72ab2517081ca42a679b0d657e90d2dd90d0a41"
+      }
+    },
+    {
+      "id": "cell-data-figure",
+      "name": "cell-data-figure",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/cell-data-figure/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "cell-data-figure",
+      "languages": [
+        "Python"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "reference-reproduction",
+        "match-image",
+        "复现参考论文",
+        "替换研究数据"
+      ],
+      "when": "明确要求先复现参考论文数据图并核验，再替换为用户真实数据。",
+      "avoid": "普通改图或直接生成代码不强制走参考复现阶段；应选 cell-visualization-code 或常规绘图技能。",
+      "resource_checks": [
+        {
+          "path": "scripts/figure_tools.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/data-contract.md",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "assets/export_triplet.py",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "默认 Matplotlib；有参考复现质量门槛，不能把它当通用图型关键词入口。",
+      "source_hashes": {
+        ".codex/skills/cell-data-figure/SKILL.md": "b93cdc198725bda5540824290059bde6e4ce8e38725120c8b99c45012ea41482"
+      }
+    },
+    {
+      "id": "paper-figure",
+      "name": "paper-figure",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/paper-figure/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "paper-figure",
+      "languages": [
+        "Python"
+      ],
+      "domains": [
+        "machine-learning"
+      ],
+      "task_tags": [
+        "new-plot",
+        "experiments",
+        "ablation",
+        "消融",
+        "训练曲线",
+        "实验结果"
+      ],
+      "when": "从机器学习实验结果生成论文图、消融与性能比较图。",
+      "avoid": "临床或 GWAS 图不因宽泛的“paper figure”关键词强行采用此技能。",
+      "resource_checks": [],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/paper-figure/SKILL.md": "f010f03366a89bce3fba6c07c6c9d1c831f16fb1ce946d1eb678eb3518c94c07"
+      }
+    },
+    {
+      "id": "ssci-plots",
+      "name": "ssci-plots",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/ssci-plots/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "ssci-plots",
+      "languages": [
+        "Python"
+      ],
+      "domains": [
+        "social-science",
+        "psychology",
+        "economics",
+        "public-health"
+      ],
+      "task_tags": [
+        "new-plot",
+        "path-diagram",
+        "SEM",
+        "mediation",
+        "DAG",
+        "event-study",
+        "RD",
+        "APA",
+        "事件研究",
+        "中介路径"
+      ],
+      "when": "Python 社科/公共卫生统计图，尤其 SEM/中介/DAG/事件研究/断点回归及 APA 样式。",
+      "avoid": "只有现成结果需要画图时，不自动拟合模型或改变推断。",
+      "resource_checks": [
+        {
+          "path": "scripts/ssci_style.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/ssci.mplstyle",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/ssci-plots/SKILL.md": "514790baffc7f7cafdbf18e69a9a559ef608bac4356697de5e39221e3d3a2d27"
+      }
+    },
+    {
+      "id": "gwas-figure",
+      "name": "gwas-figure",
+      "aliases": [],
+      "relative_paths": [
+        ".agents/skills/gwas-figure/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "gwas-figure",
+      "languages": [
+        "R",
+        "Python"
+      ],
+      "domains": [
+        "genetics",
+        "GWAS",
+        "omics"
+      ],
+      "task_tags": [
+        "new-plot",
+        "edit-code",
+        "multi-panel",
+        "Manhattan",
+        "regional",
+        "MAGMA",
+        "TWAS",
+        "SMR",
+        "LDSC",
+        "MR",
+        "scPagwas",
+        "组织富集",
+        "GO",
+        "遗传相关",
+        "twas_circular_heatmap",
+        "global_genetic_correlation",
+        "gene-level-manhattan",
+        "forest",
+        "circular-heatmap",
+        "环形热图",
+        "基因层面",
+        "遗传相关性森林图"
+      ],
+      "when": "已完成并验收的 GWAS/MTAG/基因/组织/通路结果绘图，先匹配九个 figure unit。",
+      "avoid": "不为绘图重跑 GWAS、MTAG、MR 或其他上游统计；不把整技能硬标为单一语言。",
+      "resource_checks": [
+        {
+          "path": "references/figure-skill-registry.json",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/route_figure_skill.py",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "先查询 --list/--unit 再读对应 recipes/<unit>/README.md 与真实模板。unit 包括 global_genetic_correlation,shared_loci,magma_gene_level,twas_circular_heatmap,twas_smr_tissue_gene_lollipop,tissue_enrichment,go_bp_enrichment,mendelian_randomization,single_cell_scpagwas。历史 MAGMA adapter 是 Python，但通用 render_gene_level_manhattan.R 可保留 R；用户/既有代码语言优先。",
+      "source_hashes": {
+        ".agents/skills/gwas-figure/SKILL.md": "e37311e016c7f3a9c967c3c49369f51d906f552dddb5b2fecb1ccfcf4a787529"
+      }
+    },
+    {
+      "id": "gwas-scrna",
+      "name": "gwas-scrna",
+      "aliases": [],
+      "relative_paths": [
+        ".agents/skills/gwas-for-paper/gwas-scrna/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "gwas-scrna",
+      "languages": [
+        "R"
+      ],
+      "domains": [
+        "single-cell",
+        "GWAS"
+      ],
+      "task_tags": [
+        "new-plot",
+        "edit-code",
+        "Seurat",
+        "UMAP",
+        "tSNE",
+        "DotPlot",
+        "scPagwas",
+        "细胞比例",
+        "单细胞"
+      ],
+      "when": "已有处理好的 Seurat/scPagwas 结果，沿用项目既有 R 包和元数据生成单细胞图。",
+      "avoid": "不自动重做 QC/标准化/聚类或执行 scPagwas 计算；项目专属流程不可当通用 scRNA 全流程。",
+      "resource_checks": [
+        {
+          "path": "references/workflow-contract.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "绘图和计算分开，基础对象与元数据须匹配；已有绘图脚本优先。",
+      "source_hashes": {
+        ".agents/skills/gwas-for-paper/gwas-scrna/SKILL.md": "4795a203150f60952bd61f52452b5b13b2bdf89feccf3657750c98cd3161658a"
+      }
+    },
+    {
+      "id": "auto-inspire-survival-epi",
+      "name": "auto-inspire-survival-epi",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-survival-epi/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "auto-inspire-analysis",
+      "languages": [
+        "Python"
+      ],
+      "domains": [
+        "medical",
+        "epidemiology"
+      ],
+      "task_tags": [
+        "new-plot",
+        "Kaplan-Meier",
+        "KM",
+        "Cox",
+        "AFT",
+        "competing-risks",
+        "生存曲线",
+        "lifelines"
+      ],
+      "when": "Python/lifelines 流程中的生存分布、Cox 或竞争风险结果展示，或用户明确要求相关分析。",
+      "avoid": "只有生存图配色修改时，保留原绘图代码；不要仅为画图重新拟合模型。",
+      "resource_checks": [
+        {
+          "path": "PORTABLE.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "生存分析支持能力，不能覆盖用户已选 R/survminer 实现。",
+      "source_hashes": {
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-survival-epi/SKILL.md": "e37dff9d2175a50bb241dd287caa2f1657f1c17542993584cb837c977f258a54"
+      }
+    },
+    {
+      "id": "auto-inspire-scikit-survival",
+      "name": "auto-inspire-scikit-survival",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-scikit-survival/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "auto-inspire-analysis",
+      "languages": [
+        "Python"
+      ],
+      "domains": [
+        "medical",
+        "machine-learning"
+      ],
+      "task_tags": [
+        "new-plot",
+        "survival-prediction",
+        "Brier",
+        "C-index",
+        "time-dependent-AUC",
+        "生存预测",
+        "Random Survival Forest"
+      ],
+      "when": "scikit-survival 预测模型的校准、判别和时间相关性能结果展示。",
+      "avoid": "普通 KM 图不必引入生存预测全流程；不自动训练或调参。",
+      "resource_checks": [
+        {
+          "path": "PORTABLE.md",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/evaluation-metrics.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-scikit-survival/SKILL.md": "34dae4e1a6dd486f6db99c6e029e8c3e96ed6ea4fd0ebb5fb249995de46b16be"
+      }
+    },
+    {
+      "id": "auto-inspire-shap",
+      "name": "auto-inspire-shap",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-shap/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "auto-inspire-analysis",
+      "languages": [
+        "Python"
+      ],
+      "domains": [
+        "machine-learning"
+      ],
+      "task_tags": [
+        "new-plot",
+        "SHAP",
+        "waterfall",
+        "beeswarm",
+        "force",
+        "特征重要性",
+        "模型解释"
+      ],
+      "when": "已有解释对象、模型和输入匹配时的 SHAP 可视化；明确要求计算 SHAP 时按本技能核验。",
+      "avoid": "不得拿普通 feature importance 冒充 SHAP；只改现成 SHAP 图不自动重算解释。",
+      "resource_checks": [
+        {
+          "path": "PORTABLE.md",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/plots.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-shap/SKILL.md": "216fbb9a6afc0ed6e584ddf00cedffdbf26a87d08bd2f4f81b74e7a204f8f909"
+      }
+    },
+    {
+      "id": "standardize-sci-images",
+      "name": "standardize-sci-images",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/standardize-sci-images/SKILL.md"
+      ],
+      "role": "helper",
+      "family": "standardize-sci-images",
+      "languages": [
+        "Python"
+      ],
+      "domains": [
+        "microscopy",
+        "histology"
+      ],
+      "task_tags": [
+        "image-processing",
+        "scale-bar",
+        "显微",
+        "病理",
+        "比例尺",
+        "影像标准化",
+        "microscopy",
+        "histology"
+      ],
+      "when": "用户请求真实显微/病理影像的尺寸、画布、亮度规则或比例尺标准化。",
+      "avoid": "没有标定信息不添加虚构比例尺；不是统计数据图或生成式补全。",
+      "resource_checks": [
+        {
+          "path": "scripts/standardize_images.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/image_contract.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/standardize-sci-images/SKILL.md": "95787941184fadff7f2835e33709f963c20124bf184969db5d6c79cbef95c783"
+      }
+    },
+    {
+      "id": "daxuan-journal-palette",
+      "name": "daxuan-journal-palette",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/daxuan-journal-palette/SKILL.md"
+      ],
+      "role": "helper",
+      "family": "palette",
+      "languages": [
+        "language-independent"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "palette",
+        "color-edit",
+        "semantic-colors",
+        "配色",
+        "颜色",
+        "色板",
+        "语义颜色"
+      ],
+      "when": "配色是当前瓶颈，需保留语义映射挑选或调整期刊图色板。",
+      "avoid": "固定颜色且无可读性问题时，不额外启动色板探索或改整图主题。",
+      "resource_checks": [
+        {
+          "path": "scripts/route_palette.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/theme_palette.py",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "只向主绘图技能交付明确 HEX/连续色阶及映射，不接管数据或统计。",
+      "source_hashes": {
+        ".codex/skills/daxuan-journal-palette/SKILL.md": "f08ad0dcf573e91adf74288651a24109a6e911c5d1b559e261c8d4d8924fc237"
+      }
+    },
+    {
+      "id": "sci-color-palettes",
+      "name": "sci-color-palettes",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/sci-color-palettes/SKILL.md"
+      ],
+      "role": "helper",
+      "family": "palette",
+      "languages": [
+        "language-independent"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "palette",
+        "color-edit",
+        "CVD",
+        "配色",
+        "颜色",
+        "色盲",
+        "对比度",
+        "连续色阶"
+      ],
+      "when": "需要检索现成 SCI 色板、诊断颜色可辨性或连续/离散色阶。",
+      "avoid": "不把色板审查升级为数据/检验改动；不与另一个色板技能同时重置风格。",
+      "resource_checks": [
+        {
+          "path": "scripts/sci_palettes/core.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/sci_palettes/derived.json",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "其非颜色冗余建议与其他技能的纯颜色默认可能冲突，应保留外层既定编码合同。",
+      "source_hashes": {
+        ".codex/skills/sci-color-palettes/SKILL.md": "f1ae9990024a7603420058fd69924bbcf758c100fc59c27efed695355f1ae533"
+      }
+    },
+    {
+      "id": "polish-sci-figures",
+      "name": "polish-sci-figures",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/polish-sci-figures/SKILL.md"
+      ],
+      "role": "helper",
+      "family": "polish-sci-figures",
+      "languages": [
+        "R",
+        "Python",
+        "SVG"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "final-qa",
+        "multi-panel",
+        "font",
+        "clipping",
+        "vector-export",
+        "排版检查",
+        "字体",
+        "导出",
+        "可编辑性"
+      ],
+      "when": "已有图件需检查最终物理尺寸、标签遮挡、字体、矢量编辑性、拼图或来源可迁移性。",
+      "avoid": "主技能已经覆盖的检查不机械重复；Matplotlib 专用做法不强制重写 R 源码。",
+      "resource_checks": [
+        {
+          "path": "scripts/check_svg_canvas.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/check_svg_editability.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/check_source_portability.py",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/polish-sci-figures/SKILL.md": "9655bbe92752f5bf85a69399d0256c521eff79ddd3d900e9fb055dcf749a9af1"
+      }
+    },
+    {
+      "id": "figure-legend-writer",
+      "name": "figure-legend-writer",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/figure-legend-writer/SKILL.md"
+      ],
+      "role": "helper",
+      "family": "figure-legend-writer",
+      "languages": [
+        "language-independent"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "legend",
+        "caption",
+        "图注",
+        "图例说明",
+        "figure-legend"
+      ],
+      "when": "明确要写/改图注，或绘图交付缺少可独立理解的说明。",
+      "avoid": "不是主渲染器；不从图片猜出样本量、检验或显著性阈值。",
+      "resource_checks": [
+        {
+          "path": "references/legend_templates.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/figure-legend-writer/SKILL.md": "75694893a34247e25920678ceb6c58425534eb143c75dbbe734b5862200206cb"
+      }
+    },
+    {
+      "id": "result-figure-consistencycheck",
+      "name": "result-figure-consistencycheck",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/result-figure-consistencycheck/SKILL.md"
+      ],
+      "role": "helper",
+      "family": "result-figure-consistencycheck",
+      "languages": [
+        "language-independent"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "text-consistency",
+        "图文一致",
+        "结果图注核对"
+      ],
+      "when": "有论文结果文字和图注，要求检查文本间一致性。",
+      "avoid": "只检查文本，不能声称已核验图上真实点位或数值；不是绘图工具。",
+      "resource_checks": [
+        {
+          "path": "assets/consistency_template.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/result-figure-consistencycheck/SKILL.md": "f31244a665a2f49067c06b7263e9436408d6e055162f5f095464ce013c7e1298"
+      }
+    },
+    {
+      "id": "auto-inspire-figures",
+      "name": "auto-inspire-figures",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-figures/SKILL.md"
+      ],
+      "role": "helper",
+      "family": "personal-figure-style",
+      "languages": [
+        "R"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "style-system",
+        "edit-code",
+        "统一风格",
+        "personal-viz"
+      ],
+      "when": "项目已有或用户明确选择 auto-inspire 视觉系统，需要统一 R 图风格。",
+      "avoid": "不默认覆盖其他项目样式；与 MOVER 风格主控二选一。",
+      "resource_checks": [
+        {
+          "path": "scripts/personal_viz.R",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/style-interoperability.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "这里按风格辅助登记；该技能自己也能实现绘图，但路由中只指定一个主控。",
+      "source_hashes": {
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-figures/SKILL.md": "5d0aae9c1e220ce7db9ed7674c2307ce2a19a65b9f1970197ac61929c5975a5c"
+      }
+    },
+    {
+      "id": "auto-mover-figures",
+      "name": "auto-mover-figures",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/auto-mover-skill/skills/auto-mover-figures/SKILL.md"
+      ],
+      "role": "helper",
+      "family": "personal-figure-style",
+      "languages": [
+        "R"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "style-system",
+        "edit-code",
+        "统一风格",
+        "MOVER"
+      ],
+      "when": "用户或项目指定 auto-mover 视觉系统，统一 R 图及出版样式。",
+      "avoid": "不与 auto-inspire 同时作为主题主控；图片转 PPT 请求转到专用子技能。",
+      "resource_checks": [
+        {
+          "path": "scripts/personal_viz.R",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/style-interoperability.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/auto-mover-skill/skills/auto-mover-figures/SKILL.md": "321f9baac4fbe683b729e35a2547457dfe80f6aae206dee6b5fe18605b397f58"
+      }
+    },
+    {
+      "id": "auto-inspire-plot-library",
+      "name": "auto-inspire-plot-library",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-plot-library/SKILL.md"
+      ],
+      "role": "reference",
+      "family": "r-plot-library",
+      "languages": [
+        "R"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "template-search",
+        "R-template",
+        "模板检索",
+        "ggplot2",
+        "bizard"
+      ],
+      "when": "主绘图技能缺少某种 R 图型模板，或用户明确需要库中技法。",
+      "avoid": "不和多个同族模板库一起全量读入；找到对应模板后核验数据契约。",
+      "resource_checks": [
+        {
+          "path": "references/template-library",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/template-master.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "模板可适配执行，reference 角色表示默认按需引用，不启动第二套全流程。",
+      "source_hashes": {
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-plot-library/SKILL.md": "d25a799d362ecea6ab27dafce2376ae0814c7e41edf33ef857523a2fd4371258"
+      }
+    },
+    {
+      "id": "auto-mover-plot-library",
+      "name": "auto-mover-plot-library",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/auto-mover-skill/skills/auto-mover-plot-library/SKILL.md"
+      ],
+      "role": "reference",
+      "family": "r-plot-library",
+      "languages": [
+        "R"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "template-search",
+        "R-template",
+        "模板检索",
+        "ggplot2",
+        "MOVER"
+      ],
+      "when": "指定 MOVER 库或已有项目用该库，按图型检索并适配 R 模板。",
+      "avoid": "不默认同时加载 auto-inspire 变体；内嵌 PPT 重建只在明确请求时使用。",
+      "resource_checks": [
+        {
+          "path": "references/template-master.md",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/bizard-gallery.csv",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/auto-mover-skill/skills/auto-mover-plot-library/SKILL.md": "6df9258eefcd80b92e4a242087a23242cce689b5279ca5cde9013a2542a90390"
+      }
+    },
+    {
+      "id": "auto-inspire-scientific-visualization",
+      "name": "auto-inspire-scientific-visualization",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-scientific-visualization/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "auto-inspire-visualization",
+      "languages": [
+        "Python"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "new-plot",
+        "edit-code",
+        "matplotlib",
+        "seaborn",
+        "plotly",
+        "multi-panel",
+        "publication"
+      ],
+      "when": "Python Matplotlib/Seaborn/Plotly 图形与导出，特别是已有项目使用此包模块。",
+      "avoid": "不为使用它改写 R 项目；外层已确认主题优先于包内默认风格。",
+      "resource_checks": [
+        {
+          "path": "PORTABLE.md",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/style_presets.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/figure_export.py",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-scientific-visualization/SKILL.md": "558675ebd5a5ec3322bc8a452f43315b99b42bf3c98f0747148be4f6fcaf50c9"
+      }
+    },
+    {
+      "id": "journal-ggplot-stylebook",
+      "name": "journal-ggplot-stylebook",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/journal-ggplot-stylebook/SKILL.md"
+      ],
+      "role": "reference",
+      "family": "r-style-reference",
+      "languages": [
+        "R"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "template-search",
+        "style-reference",
+        "ggplot2",
+        "R-template",
+        "技法",
+        "模板",
+        "样式参考"
+      ],
+      "when": "为选中的 R 图型查局部样式与实现技法。",
+      "avoid": "不是已验证可自动运行的完整科研分析流程。",
+      "resource_checks": [
+        {
+          "path": "references/catalog-basics.md",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "assets/journal-style.R",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "assets/book-code",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/journal-ggplot-stylebook/SKILL.md": "e63cb91227496092828a0205bc1e601e03eff4e196ba36139731ce6e69ee0d39"
+      }
+    },
+    {
+      "id": "agent-figure-gallery",
+      "name": "agent-figure-gallery",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/agent-figure-gallery/SKILL.md"
+      ],
+      "role": "reference",
+      "family": "agent-figure-gallery",
+      "languages": [
+        "language-independent"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "visual-reference",
+        "gallery",
+        "参考图",
+        "图库",
+        "图型灵感"
+      ],
+      "when": "图型或布局不明，且确需查看已安装外部图库中的实际图片。",
+      "avoid": "当前图库有预览但配套生成脚本缺失，不能说图库示例可直接执行或可代替真实数据。",
+      "resource_checks": [],
+      "notes": "技能是外部 KB 控制器；定位 AGENT_FIGURE_GALLERY_ROOT/DRAWING_KB_ROOT 或 ~/AgentFigureGallery。模块查询可用不等于候选生成脚本存在；只在需要时检索。",
+      "source_hashes": {
+        ".codex/skills/agent-figure-gallery/SKILL.md": "8be0dfeba25697cc3456ef8615b07c379fe904dd3569bbe2ed7d73cbc7f28cfb"
+      }
+    },
+    {
+      "id": "figure-spec",
+      "name": "figure-spec",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/figure-spec/SKILL.md"
+      ],
+      "role": "reference",
+      "family": "figure-spec",
+      "languages": [
+        "SVG"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "diagram",
+        "workflow",
+        "architecture",
+        "pipeline",
+        "editable-vector",
+        "流程图",
+        "架构图"
+      ],
+      "when": "结构化工作流/架构图的 SVG 设计约束参考；只有找到可用渲染器后才能走其执行路径。",
+      "avoid": "当前安装仅有 SKILL.md，不能承诺 JSON→SVG 渲染可运行。",
+      "resource_checks": [
+        {
+          "path": "scripts/figure_renderer.py",
+          "exists": false,
+          "required": true
+        }
+      ],
+      "notes": "渲染器当前缺失。缺失只阻断依赖该资产的执行；可按正文设计或路由到已可用方案，不擅自安装/下载。 这里仅检查本技能目录；原文另有 ARIS_REPO、.aris 项目绑定和 tools/ 解析链，执行前按其原文核对本次项目。",
+      "source_hashes": {
+        ".codex/skills/figure-spec/SKILL.md": "f7f69413608eeeb7670800579e119b1b0f1e63881300d4977fc3a0e9b148c76d"
+      }
+    },
+    {
+      "id": "mermaid-diagram",
+      "name": "mermaid-diagram",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/mermaid-diagram/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "mermaid-diagram",
+      "languages": [
+        "Mermaid"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "diagram",
+        "workflow",
+        "sequence",
+        "ER",
+        "Gantt",
+        "流程图",
+        "时序图",
+        "架构图"
+      ],
+      "when": "用户要流程/时序/ER/甘特等 Mermaid 可表达的结构图。",
+      "avoid": "不是定量统计图或精确生物机制插画；没有 mmdc 时不能声称 PNG 渲染验证通过。",
+      "resource_checks": [],
+      "notes": "可写 .mmd 源码；实际图件导出须先核验宿主 Mermaid 渲染或 mmdc。不得为路由而自动联网装依赖。",
+      "source_hashes": {
+        ".codex/skills/mermaid-diagram/SKILL.md": "2d9eab0a8b1cc94e43799171287ed85455d8cfa2b75d4f19269bad168d8bb1dd"
+      }
+    },
+    {
+      "id": "imagegen",
+      "name": "imagegen",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/.system/imagegen/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "imagegen",
+      "languages": [
+        "language-independent"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "image-generation",
+        "image-edit",
+        "illustration",
+        "生图",
+        "插画",
+        "位图编辑"
+      ],
+      "when": "用户明确要生成/编辑栅格插画资产，且原生生成工具或授权的 CLI 路径可用。",
+      "avoid": "不生成或篡改统计点、临床/显微证据；不可将位图说成对象级矢量可编辑。",
+      "resource_checks": [
+        {
+          "path": "scripts/image_gen.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/prompting.md",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "当前会话原生工具可用性需即时核验；本地脚本存在不代表 API 授权或模型服务已可用。",
+      "source_hashes": {
+        ".codex/skills/.system/imagegen/SKILL.md": "681ddb4ad6d06a2acc78a3535b583f8d0c1ea800ecda3d56370d3310fd2cd4ba"
+      }
+    },
+    {
+      "id": "paper-illustration",
+      "name": "paper-illustration",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/paper-illustration/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "paper-illustration",
+      "languages": [
+        "language-independent"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "image-generation",
+        "diagram",
+        "mechanism",
+        "illustration",
+        "机制示意",
+        "插画"
+      ],
+      "when": "明确请求 AI 科研示意插画，并已确认外部 Gemini 服务使用范围。",
+      "avoid": "不是精确数据图；没有外部 API 可用性与授权时不自动调用或上传用户材料。",
+      "resource_checks": [],
+      "notes": "正文包含外部 API 调用示例；必须即时核验模型/凭证能力，不把 SKILL 文件存在当成服务已可用。",
+      "source_hashes": {
+        ".codex/skills/paper-illustration/SKILL.md": "1c876e39d880781bc5d6f51c616e02f4e5858750867f027968d5b91564179643"
+      }
+    },
+    {
+      "id": "nature-image2ppt",
+      "name": "nature-image2ppt",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/nature-image2ppt/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "editable-ppt",
+      "languages": [
+        "PPTX"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "editable-reconstruction",
+        "image-to-ppt",
+        "截图转PPT",
+        "PDF转PPT",
+        "对象级重建"
+      ],
+      "when": "要求把已有图片/扫描 PDF/PPT 图页重建为对象级可编辑 PPTX。",
+      "avoid": "不是从零生成新报告，也不是把整张图作为一个图片对象嵌入 PPT。",
+      "resource_checks": [
+        {
+          "path": "cli/image2ppt/cli.py",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/run_final_image2ppt_qa.py",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "源代码在不代表 image2ppt 命令已在 PATH；先按技能做实际依赖/doctor 检查。",
+      "source_hashes": {
+        ".codex/skills/nature-image2ppt/SKILL.md": "0b49331f7b97e0751248c84506cada638f29ff44bb3023686f89a9f858748e9e"
+      }
+    },
+    {
+      "id": "auto-inspire-image-to-editable-ppt",
+      "name": "auto-inspire-image-to-editable-ppt",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-image-to-editable-ppt/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "editable-ppt",
+      "languages": [
+        "PPTX"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "editable-reconstruction",
+        "image-to-ppt",
+        "截图转PPT",
+        "PDF转PPT"
+      ],
+      "when": "明确请求已有图页转可编辑 PPT，且项目/用户选定 auto-inspire 路径。",
+      "avoid": "不是新演示文稿生成；不要和其他重建技能同时各跑一条流水线。",
+      "resource_checks": [
+        {
+          "path": "PORTABLE.md",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "references/page-decision-tree.md",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/build-page-worker-prompt.py",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "",
+      "source_hashes": {
+        ".codex/skills/auto-inspire-skill/skills/auto-inspire-image-to-editable-ppt/SKILL.md": "8afbd5a7b60db0e43e7aebec4c19c955c53ba8847360c915ad9ab39c9a7a0613"
+      }
+    },
+    {
+      "id": "auto-mover-editable-slides",
+      "name": "auto-mover-editable-slides",
+      "aliases": [],
+      "relative_paths": [
+        ".codex/skills/auto-mover-skill/skills/auto-mover-figures/skills/auto-mover-editable-slides/SKILL.md",
+        ".codex/skills/auto-mover-skill/skills/auto-mover-plot-library/skills/auto-mover-editable-slides/SKILL.md"
+      ],
+      "role": "primary",
+      "family": "editable-ppt",
+      "languages": [
+        "PPTX"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "editable-reconstruction",
+        "image-to-ppt",
+        "截图转PPT",
+        "PDF转PPT",
+        "MOVER"
+      ],
+      "when": "已有 MOVER 项目或明确选择内嵌的对象级 PPT 重建路径。",
+      "avoid": "同名两份安装按项目来源选一份，不当成两个不同候选重复推荐。",
+      "resource_checks": [
+        {
+          "path": "references/page-decision-tree.md",
+          "exists": true,
+          "required": true
+        },
+        {
+          "path": "scripts/build-page-worker-prompt.py",
+          "exists": true,
+          "required": true
+        }
+      ],
+      "notes": "两个 SKILL.md 路径当前内容相同，但实际引用资源应相对最终选中目录解析。",
+      "source_hashes": {
+        ".codex/skills/auto-mover-skill/skills/auto-mover-figures/skills/auto-mover-editable-slides/SKILL.md": "f6fc827f5290420960422037a47402bb04e0627fb5892d04c8bedcf34c0e54a4",
+        ".codex/skills/auto-mover-skill/skills/auto-mover-plot-library/skills/auto-mover-editable-slides/SKILL.md": "f6fc827f5290420960422037a47402bb04e0627fb5892d04c8bedcf34c0e54a4"
+      }
+    },
+    {
+      "id": "r-topjournal-plotting",
+      "name": "r-topjournal-plotting",
+      "aliases": [
+        "r-topjournal"
+      ],
+      "relative_paths": [
+        ".codex/skills/r-topjournal/SKILL.md"
+      ],
+      "role": "reference",
+      "family": "r-topjournal-plotting",
+      "languages": [
+        "R"
+      ],
+      "domains": [
+        "general"
+      ],
+      "task_tags": [
+        "template-search",
+        "R-template",
+        "顶刊绘图",
+        "r-topjournal"
+      ],
+      "when": "用户明确点名，或参考其绘图与数据契约文档。",
+      "avoid": "当前 assets/ 和 assets/helpers.R 缺失，不能承诺其文档描述的 400+ 模板与一键管线可执行。",
+      "resource_checks": [
+        {
+          "path": "assets/helpers.R",
+          "exists": false,
+          "required": true
+        },
+        {
+          "path": "assets",
+          "exists": false,
+          "required": true
+        }
+      ],
+      "notes": "缺资源时报告当前路径，仅阻断依赖资产的执行。不要为了普通绘图去运行文档中的更新检查或下载。",
+      "source_hashes": {
+        ".codex/skills/r-topjournal/SKILL.md": "3bdc48c01880c3729f8ea9bec0d4262f9bebcc95d2012de56aa89fc081ec20fb"
+      }
+    }
+  ],
+  "reviewed_on": "2026-11-01"
+}
