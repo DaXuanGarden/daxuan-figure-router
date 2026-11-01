@@ -1,6 +1,6 @@
 # Showcase: 四个候选图与一个可恢复选择
 
-![四个候选图](/home/daxuan/.codex/visualizations/2026/11/01/01a19467-e890-76e3-8a51-2dc6fb8ad65c/daxuan-figure-router-next/local-demo/contact-sheet.png)
+![四个候选图](contact-sheet.png)
 
 上图是一次本机已审阅安装的活体验证：同一份五行模拟已接受结果，调用现有 `make-sci-data-figures` forest 入口与 `sci-color-palettes` 取色，生成两个表达形式（区间、参考线连接）和两种样式（冷色圆点、暖色方点与行引导）。画布、数值、区间、行序、参考线和坐标范围固定。它证明比较器、证据和选择链路真实可用，不代表所有绘图后端都能接受同一接口。
 
