@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased — core routing reliability
+
+- Keep source-changed and unregistered skills visible as bounded review candidates without claiming backend compatibility; use current reviewed metadata for capability filtering.
+- Separate task intent, domain evidence and chart terms; normalize common Chinese terms and domain aliases, prefer Latin word matches, and expose vocabulary diagnostics.
+- Return compact search/list summaries with match evidence; `show` and `--details` expose full metadata. Consumers needing the old full candidate objects should request details.
+- Distinguish drawing backends from output containers and scope helper queries to their actual responsibilities.
+- Add reviewed entry contracts for common templates, including accepted-results versus raw-data inputs, model-refitting behavior and historical project adapters.
+- Allow direct edits of existing code without an extra primary skill; preserve explicit choices, source languages and accepted results.
+- Add a single offline verification command, route-record validation, regression fixtures, independent route replay guidance and updated CI.
+
 ## v0.1.0 — 2026-11-01
 
 Initial release of the local scientific figure skill router.

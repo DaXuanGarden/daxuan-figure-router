@@ -7,7 +7,7 @@
 
 Route installed scientific figure skills, preserve existing code and language choices, and load only the capabilities the task needs.
 
-第一版只处理本机技能的发现、选择和交接。已有代码的小修改直接沿用；新图按语言、领域、图型和输出要求选主技能；配色、模板和终检只在需要时加入。
+处理本机技能的发现、选择和交接。已有代码的小修改直接沿用；新图按输入状态、语言、领域、图型和输出要求选主技能；配色、模板和终检只在需要时加入。
 
 ## 安装
 
@@ -41,29 +41,60 @@ git clone https://github.com/DaXuanGarden/daxuan-figure-router.git "${CODEX_HOME
 
 ```bash
 ROUTER_SKILL="${CODEX_HOME:-$HOME/.codex}/skills/daxuan-figure-router"
-python "$ROUTER_SKILL/scripts/skill_index.py" search "forest 森林图" --language R --limit 4
+python "$ROUTER_SKILL/scripts/skill_index.py" search "forest 森林图" --intent create --role primary --language R --limit 4
 python "$ROUTER_SKILL/scripts/skill_index.py" show gwas-figure
-python "$ROUTER_SKILL/scripts/skill_index.py" list --role helper
+python "$ROUTER_SKILL/scripts/skill_index.py" search "配色 palette" --intent palette
+python "$ROUTER_SKILL/scripts/skill_index.py" vocabulary
 python "$ROUTER_SKILL/scripts/skill_index.py" doctor
 ```
 
-JSON 结果给出实际路径、能力摘要和资源检查。检索命中只是候选；路由 Skill 还会核对用户要求并读取被选技能原文。`doctor` 检查登记路径和文件，不能证明绘图依赖已安装或模板已跑通。
+`search`/`list` 默认返回精简摘要；`show` 或 `--details` 展开完整信息。JSON结果包含准确路径、命中依据、过滤诊断和核验状态。依赖原有完整JSON结构的脚本应使用 `--details`。检索命中只是候选；路由 Skill 还会核对用户要求并读取被选技能原文。`doctor` 检查登记路径和文件，不能证明绘图依赖已安装或模板已跑通。
 
-用户点名技能时优先用 `show` 无过滤查找。未登记技能的语言/角色未知，带这些过滤条件会排除它；文件发生变化时结果会提示重新阅读，不能把旧摘要当作更新后的能力。
+用户点名技能时优先用 `show` 无过滤查找。带过滤的查询把新装、迁移或源文档更新后命中的未知能力单列为有界 `review_candidates`，默认最多3项，可用 `--review-limit` 调整。这些候选需要复读原文，**不代表语言兼容或可以执行**；旧卡片不再作为当前能力的筛选依据。已核验且明确不兼容的能力不会混入这个分支。
+
+`vocabulary` 展示实际可用的领域、任务标签和意图。`generic`→`general`、`clinical`→`medical` 有明确别名映射；未知领域或标签给出诊断。普通forest/map词不自动证明GWAS领域，常见中文图词会提取检索词，英文独立词优先于子串命中。
+
+`--language` 约束要继续编辑/生成的数据图源代码。配色、QA、PPT重建和参考检索使用对应 `--intent`，避免把R源图的语言限制错误套到所有助手。后端与SVG/PPTX等输出形式分别记录。
+
+查找新数据图的主执行者可加 `--role primary`，配色或QA任务按其职责检索。没有具体检索词时，未知候选仅报告待核验数量和补词提示，避免从全部安装技能中任意推荐。
 
 能力摘要是首次整理时的参考快照。`source_hashes` 只核对文件内容版本；其他版本或换行差异可能产生 `review_required`，含义是需要复读原文，不代表安装损坏。摘要中的历史资源状态不代表其他机器的状态，CLI 会重新检查本机文件。
 
 默认查找 `$CODEX_HOME/skills`（未设置时为 `~/.codex/skills`）、`~/.agents/skills`、当前项目的技能目录和 Codex 插件缓存。新技能不用先改注册表也能被搜索到，但能力状态为未精读；新增或更新后再次检索即可，不维护后台索引。
 
+仅查询自定义根时重复传入 `--root /path/to/skills`；配合 `--catalog /path/to/catalog.json` 可使用自己核对过的相对路径与卡片。卡片按准确路径绑定，不会因为同名就自动套用。迁移后未重新绑定的技能仍可发现并精读，不能继承旧路径的已核验状态。
+
+## 从技能到具体代码
+
+部分高频能力带 `entry_points`：标明具体unit/模板、后端、输入类型、分析行为、来源和输出。选中后仍读取当次原文及入口：
+
+| 请求 | 合适的安排 |
+|---|---|
+| 已有R森林图，只改字号和颜色 | 修改原代码，允许没有额外主技能 |
+| 已完成MAGMA，用R画gene-level Manhattan | 找gwas-figure的通用R入口，核对P/FDR和阈值；不因历史Python adapter换语言 |
+| 已有HR/CI，只要Lancet样式 | 借布局或改原代码；不直接运行会从生存数据拟合Cox的原项目模板 |
+| R图截图转可编辑PPTX | 按重建职责查入口；R来源不要求PPT工具也用R后端 |
+| 中国站点地图 | 查easyplot的地图函数和经纬度合同；map与heatmap不同 |
+
+入口文件存在、hash相同，都不能证明运行环境或本次数据合同成立。输入是已完成结果时，`refit_or_test` 或未知分析行为的入口不得直接执行。详见 [路由记录与入口合同](references/routing-records.md)。
+
 ## 验证与边界
 
-运行脚本回归检查：
+单一验证入口，无需安装清单中的第三方技能或访问网络：
 
 ```bash
-python -B -m unittest discover -s "$ROUTER_SKILL/tests" -p 'test_*.py' -v
+python -B "$ROUTER_SKILL/scripts/verify.py"
 ```
 
-回归检查使用临时技能目录，不要求安装参考清单中的技能。初始版本包含 8 项脚本回归检查与 16 个路由验收提示；开发阶段另做过 10 项路由演练，验证了检索和交接，没有将演练计为科研图的实际渲染验证。
+验证覆盖临时目录发现、源变更、新装/迁移、词表、中文与领域检索、只读性，以及能力/验收合同和错误路由记录。CI在Python 3.10、3.13运行同一入口。测试数量以实际日志为准。
+
+`test-prompts.json` 保存语义路由验收提示。独立演练记录可用以下命令检查覆盖和机械边界：
+
+```bash
+python "$ROUTER_SKILL/scripts/check_routes.py" --prompts "$ROUTER_SKILL/test-prompts.json" --records /path/to/route-records.json
+```
+
+记录校验会检查主技能、语言、显式选择、禁止动作，以及合理的“直接改原码”路线。自由文本科学条件和真实原文读取仍需独立审阅；通过记录检查不等于模型每次都会重现该路线，更不代表科研图已经渲染。仓库内的 [合成输入示例](examples/fixtures/) 用于编辑/路由演练，全部是模拟值，不包含真实研究数据。
 
 路由器不改动原技能，不运行检索到的代码，不上传数据，不自动安装依赖或开启外部服务。只有具体绘图任务进入所选技能后，才按该技能和用户要求执行。
 

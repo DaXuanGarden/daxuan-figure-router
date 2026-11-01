@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Local scientific figure skill routing. Curated candidates, not an automatic semantic decision or execution guarantee. Read the selected SKILL.md and verify task-specific resources before use.",
+  "scope": "Local scientific figure skill routing. Curated candidates and reviewed entry navigation, not an automatic semantic decision or execution guarantee. Read the selected SKILL.md and task-specific resources before use. Empty outputs/backends mean not reviewed, not absent capability.",
   "path_base": "user_home",
   "entries": [
     {
@@ -17,7 +17,8 @@
         "Python"
       ],
       "domains": [
-        "general"
+        "general",
+        "geospatial"
       ],
       "task_tags": [
         "new-plot",
@@ -37,9 +38,18 @@
         "forest",
         "heatmap",
         "paired",
-        "配对"
+        "配对",
+        "map",
+        "China",
+        "china-map",
+        "ggmapcn",
+        "中国地图",
+        "全国站点",
+        "站点地图",
+        "世界地图",
+        "研究区定位图"
       ],
-      "when": "常规表格数据绘图，或保留既有代码做局部修改；单图和自包含组图均可。",
+      "when": "常规表格数据绘图、保留既有代码做局部修改；支持单图/自包含组图，以及按真实经纬度绘制中国站点、预测与研究区定位地图。",
       "avoid": "已有明确领域单元或作者指定其他技能时，不覆盖它们。",
       "resource_checks": [
         {
@@ -56,7 +66,49 @@
       "notes": "默认偏 R，用户指定语言及项目既有实现优先。",
       "source_hashes": {
         ".codex/skills/easyplot/SKILL.md": "30b88a8c7d3c219369eb0afb65ee5cef4e83b74bc618c873b8b15f5ce4091610"
-      }
+      },
+      "backends": [
+        "R",
+        "Python"
+      ],
+      "outputs": [
+        "PDF",
+        "SVG",
+        "PNG"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "choose",
+        "palette",
+        "qa"
+      ],
+      "entry_points": [
+        {
+          "id": "china-site-map-r",
+          "entry_path": "scripts/easyplot_china_map.R",
+          "backend": "R",
+          "input_kind": "accepted_results",
+          "required_inputs": [
+            "nonempty data frame",
+            "longitude column: numeric WGS84 degrees",
+            "latitude column: numeric WGS84 degrees",
+            "optional value and unique site-ID columns"
+          ],
+          "analysis_effect": "none",
+          "source_kind": "generic_template",
+          "outputs": [
+            "native ggplot/patchwork object"
+          ],
+          "constraints": [
+            "Call easyplot_china_site_map(); source this helper into an adapted project script or inline with provenance.",
+            "ggplot2, ggmapcn, sf, patchwork and systemfonts must be checked in the selected R environment; file presence is not runtime validation.",
+            "Preserve real site rows and values; do not substitute province aggregation or synthetic data.",
+            "Categorical maps require an explicit named palette; export the returned native object using the project output contract."
+          ],
+          "source_sha256": "b41cd1301cdbd72b01706c49845e0ca2055eb20c6a51963527d42572a9257a42"
+        }
+      ]
     },
     {
       "id": "nature-figure",
@@ -100,7 +152,22 @@
       "notes": "只选一个全图协调者；携带外层已经确认的语言和选择，避免重复询问。",
       "source_hashes": {
         ".codex/skills/nature-figure/SKILL.md": "46f2cf74d473604ff9ad884893bbe2360b3431fec631009fce5c487945acf652"
-      }
+      },
+      "backends": [
+        "R",
+        "Python"
+      ],
+      "outputs": [
+        "PDF",
+        "SVG",
+        "PNG"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "choose",
+        "qa"
+      ]
     },
     {
       "id": "ggplot2-pub",
@@ -143,7 +210,20 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/ggplot2-pub/SKILL.md": "bda884c3b3d0e776ca2d5939aa4199139442cc87e50bef3c13b198928be30e2d"
-      }
+      },
+      "backends": [
+        "R"
+      ],
+      "outputs": [
+        "PDF",
+        "SVG",
+        "PNG"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "qa"
+      ]
     },
     {
       "id": "make-sci-data-figures",
@@ -171,7 +251,19 @@
         "raincloud",
         "violin",
         "boxplot",
-        "paired-comparison"
+        "paired-comparison",
+        "forest",
+        "森林图",
+        "accepted-results",
+        "已验收结果",
+        "survival",
+        "ROC",
+        "volcano",
+        "enrichment",
+        "relationship",
+        "timecourse",
+        "composition",
+        "matrix"
       ],
       "when": "从真实 CSV/TSV/XLSX 数据按科学问题选择 Python 图型，并保留统计单位与配对结构。",
       "avoid": "用户已经明确 R 或已有 R 代码时不迁移语言。",
@@ -187,10 +279,59 @@
           "required": true
         }
       ],
-      "notes": "脚本能力按需读取；选图探索不等于允许重算用户未请求的统计。",
+      "notes": "脚本能力按需读取；选图探索不等于允许重算用户未请求的统计。 现成estimate/CI结果用 advanced_template_workbench.py forest；原始组间观测才考虑 figure_workbench.py generate，不能按图名互换输入。",
       "source_hashes": {
         ".codex/skills/make-sci-data-figures/SKILL.md": "93eda83b3d4ae9868c01f6162f951770b438563a4ecc8d13b6c01bc4c1dc53ab"
-      }
+      },
+      "backends": [
+        "Python"
+      ],
+      "outputs": [
+        "PNG",
+        "SVG",
+        "PDF",
+        "JSON"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "choose"
+      ],
+      "entry_points": [
+        {
+          "id": "accepted-forest-intervals-python",
+          "entry_path": "scripts/advanced_template_workbench.py",
+          "backend": "Python",
+          "input_kind": "accepted_results",
+          "required_inputs": [
+            "input table",
+            "term column",
+            "estimate column",
+            "low column",
+            "high column",
+            "output directory"
+          ],
+          "analysis_effect": "none",
+          "source_kind": "generic_template",
+          "outputs": [
+            "PNG",
+            "SVG",
+            "PDF",
+            "data_profile.json",
+            "analysis_plan.json",
+            "figure_recipe.json",
+            "candidate gallery"
+          ],
+          "constraints": [
+            "Use the forest command or forest() function; required CLI mappings are --term, --estimate, --low, --high and --outdir.",
+            "Every interval must satisfy lower <= estimate <= upper; log-scale intervals and estimates must be positive.",
+            "This entry displays supplied estimates/intervals and does not recompute them; verify upstream model/adjustment/interval semantics.",
+            "The module contains other commands with different analysis effects; this none contract applies only to the named forest entry.",
+            "Read references/advanced_template_contracts.md; check Python plotting dependencies and requested font before rendering."
+          ],
+          "source_sha256": "a24680698761c4374946da5022c3ada462f6e46c97bdeee9d9f7f71a6ee958a6"
+        }
+      ]
     },
     {
       "id": "StatsVisual-Skill",
@@ -214,6 +355,8 @@
         "clinical",
         "生存曲线",
         "森林图",
+        "volcano",
+        "火山图",
         "诊断图",
         "NEJM",
         "Lancet"
@@ -240,7 +383,89 @@
       "notes": "原技能有首轮先推荐并等待后续选择的门槛；路由时说明匹配是否会引入该交互，已存在更高优先级授权与选择继续有效。",
       "source_hashes": {
         ".codex/skills/StatsVisual-Skill/SKILL.md": "36b78080e75956e06f9949cc04b77f91db05a8008a89bc59a55e1b09e98c5b31"
-      }
+      },
+      "backends": [
+        "R"
+      ],
+      "outputs": [
+        "PDF",
+        "SVG",
+        "TIFF",
+        "PNG",
+        "JPEG"
+      ],
+      "intents": [
+        "create",
+        "choose",
+        "edit",
+        "qa"
+      ],
+      "entry_points": [
+        {
+          "id": "lancet-subgroup-project-template",
+          "entry_path": "assets/templates/forest_plot/lancet_subgroup_forest.R",
+          "backend": "R",
+          "input_kind": "raw_observations",
+          "required_inputs": [
+            "data_file Excel workbook with Figure3_Data sheet",
+            "project_dir",
+            "figure_name",
+            "USUBJID",
+            "TRT01P",
+            "AVAL",
+            "CNSR",
+            "AGEGR1",
+            "BLECOG",
+            "RSFA",
+            "RSFB",
+            "VISCMNY",
+            "LIVERMNY",
+            "LUNGMNY",
+            "ADJTRTFL",
+            "HER2CAT",
+            "TFIMCAT"
+          ],
+          "analysis_effect": "refit_or_test",
+          "source_kind": "project_adapter",
+          "outputs": [
+            "subgroup estimates CSV",
+            "RDS plot object",
+            "PDF",
+            "SVG",
+            "TIFF",
+            "PNG"
+          ],
+          "constraints": [
+            "The source performs overall/subgroup Cox fits and interaction tests; it is not an accepted-HR/CI-only renderer.",
+            "Fixed Pyrotinib/Placebo labels, event coding, Excel sheet and subgroup definitions belong to a specific source project.",
+            "For results-only styling, retain existing estimates/code and use layout guidance as reference; do not source this template.",
+            "Execute an adapted analysis only when the user requested that analysis and the design/input contract is established.",
+            "The adapted surrounding script must define data_file, project_dir and figure_name before this source executes; check its explicit R package/device requirements."
+          ],
+          "source_sha256": "80690414e2295a22b1b412e5ce036c5aa788d85e4ad77274075ccf48896341a8"
+        },
+        {
+          "id": "lancet-style-reference",
+          "entry_path": "references/styles/lancet.md",
+          "backend": "language-independent",
+          "input_kind": "existing_code",
+          "required_inputs": [
+            "existing plotting code or accepted figure specification",
+            "declared effect/interval semantics and target layout"
+          ],
+          "analysis_effect": "none",
+          "source_kind": "reference",
+          "outputs": [
+            "style guidance"
+          ],
+          "constraints": [
+            "Read as layout/typography guidance; this Markdown file is not an execution API.",
+            "Preserve the original backend, estimates and intervals; a journal style label does not authorize model fitting.",
+            "User/project confirmed choices take precedence over default styling; consult the specific journal requirements only when required."
+          ],
+          "source_sha256": "9210063cc9e7f880b2dcafdf9594199de7b64379258d1475929e74bc4a29c9bc"
+        }
+      ]
     },
     {
       "id": "StatsVisual-Skill-Extension",
@@ -269,7 +494,16 @@
       "notes": "维护不等于渲染；不得把自动新增/改动其他技能作为普通绘图的前置步骤。",
       "source_hashes": {
         ".codex/skills/StatsVisual-Skill-Extension/SKILL.md": "20950e7d1ab280581b91360a97ff49147540379ef846ddadcd5923ab4f1d7753"
-      }
+      },
+      "backends": [
+        "R"
+      ],
+      "outputs": [
+        "skill-resources"
+      ],
+      "intents": [
+        "maintenance"
+      ]
     },
     {
       "id": "academic-figure-skill",
@@ -312,7 +546,21 @@
       "notes": "当前 SKILL 的严格 YAML 解析可能告警；仍须读取正文，核实具体模板语言与导出方式。",
       "source_hashes": {
         ".codex/skills/academic-figure-skill/SKILL.md": "ae592d4f514af1d18d7b900bea2e7591815424d906cd3a151f90ff8a5b0fdec3"
-      }
+      },
+      "backends": [
+        "R",
+        "Python"
+      ],
+      "outputs": [
+        "PNG",
+        "PDF"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "choose",
+        "qa"
+      ]
     },
     {
       "id": "plot-from-data",
@@ -356,7 +604,17 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/plot-from-data/SKILL.md": "5073579e21648de5edb75c59aefdf9ba13be0cc02c7e4532f99ab74cf5b94b50"
-      }
+      },
+      "backends": [
+        "Python"
+      ],
+      "outputs": [
+        "PNG"
+      ],
+      "intents": [
+        "create",
+        "edit"
+      ]
     },
     {
       "id": "plot-from-image",
@@ -394,7 +652,18 @@
       "notes": "参考样式来源与用户真实数据分开；不是显微影像处理或机制插画工具。",
       "source_hashes": {
         ".codex/skills/plot-from-image/SKILL.md": "9479938cfaae779a5023c191c3e1910d6cf80d23d098f35654e7d54196478877"
-      }
+      },
+      "backends": [
+        "Python"
+      ],
+      "outputs": [
+        "Python-code"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "reference"
+      ]
     },
     {
       "id": "cell-visualization-code",
@@ -444,7 +713,23 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/cell-visualization-code/SKILL.md": "4cbc1a92a23c0fafaf1f4ca5f72ab2517081ca42a679b0d657e90d2dd90d0a41"
-      }
+      },
+      "backends": [
+        "Python",
+        "MATLAB"
+      ],
+      "outputs": [
+        "Python-code",
+        "MATLAB-code",
+        "PDF",
+        "PNG",
+        "FIG"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "qa"
+      ]
     },
     {
       "id": "cell-data-figure",
@@ -489,7 +774,20 @@
       "notes": "默认 Matplotlib；有参考复现质量门槛，不能把它当通用图型关键词入口。",
       "source_hashes": {
         ".codex/skills/cell-data-figure/SKILL.md": "b93cdc198725bda5540824290059bde6e4ce8e38725120c8b99c45012ea41482"
-      }
+      },
+      "backends": [
+        "Python"
+      ],
+      "outputs": [
+        "Python-code",
+        "TIFF",
+        "JPEG",
+        "PDF"
+      ],
+      "intents": [
+        "create",
+        "reference"
+      ]
     },
     {
       "id": "paper-figure",
@@ -520,7 +818,18 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/paper-figure/SKILL.md": "f010f03366a89bce3fba6c07c6c9d1c831f16fb1ce946d1eb678eb3518c94c07"
-      }
+      },
+      "backends": [
+        "Python"
+      ],
+      "outputs": [
+        "PDF",
+        "PNG"
+      ],
+      "intents": [
+        "create",
+        "edit"
+      ]
     },
     {
       "id": "ssci-plots",
@@ -569,7 +878,20 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/ssci-plots/SKILL.md": "514790baffc7f7cafdbf18e69a9a559ef608bac4356697de5e39221e3d3a2d27"
-      }
+      },
+      "backends": [
+        "Python"
+      ],
+      "outputs": [
+        "PDF",
+        "PNG",
+        "TIFF"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "diagram"
+      ]
     },
     {
       "id": "gwas-figure",
@@ -630,7 +952,83 @@
       "notes": "先查询 --list/--unit 再读对应 recipes/<unit>/README.md 与真实模板。unit 包括 global_genetic_correlation,shared_loci,magma_gene_level,twas_circular_heatmap,twas_smr_tissue_gene_lollipop,tissue_enrichment,go_bp_enrichment,mendelian_randomization,single_cell_scpagwas。历史 MAGMA adapter 是 Python，但通用 render_gene_level_manhattan.R 可保留 R；用户/既有代码语言优先。",
       "source_hashes": {
         ".agents/skills/gwas-figure/SKILL.md": "e37311e016c7f3a9c967c3c49369f51d906f552dddb5b2fecb1ccfcf4a787529"
-      }
+      },
+      "backends": [
+        "R",
+        "Python"
+      ],
+      "outputs": [
+        "PDF",
+        "SVG",
+        "PNG",
+        "TSV"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "choose",
+        "qa"
+      ],
+      "entry_points": [
+        {
+          "id": "magma-gene-level-r",
+          "entry_path": "templates/render_gene_level_manhattan.R",
+          "backend": "R",
+          "input_kind": "accepted_results",
+          "required_inputs": [
+            "gene",
+            "CHR",
+            "BP",
+            "P or FDR"
+          ],
+          "analysis_effect": "none",
+          "source_kind": "generic_template",
+          "outputs": [
+            "PDF",
+            "SVG",
+            "PNG",
+            "audit TSV",
+            "caption"
+          ],
+          "constraints": [
+            "Read recipes/magma_gene_level/README.md; the historical article adapter is Python, while this generic template is R.",
+            "Keep the upstream metric and declared significance threshold; inspect/adapt the fixed FDR=0.01 or P=5e-8 default instead of treating it as a new scientific decision.",
+            "Keep templates/paper_typography.R alongside the adapted script; verify Arial and required R packages.",
+            "Do not rerun MAGMA/GWAS or infer gene coordinates from an identifier without an explicit mapping source."
+          ],
+          "source_sha256": "02999bc9889b24c4f7ceabec79a109b2e89e59dae084fa28f9015abbb28a5be0"
+        },
+        {
+          "id": "global-genetic-correlation-python",
+          "entry_path": "templates/render_global_genetic_correlation_forest.py",
+          "backend": "Python",
+          "input_kind": "accepted_results",
+          "required_inputs": [
+            "stage",
+            "method",
+            "estimate",
+            "ci_low",
+            "ci_high",
+            "p"
+          ],
+          "analysis_effect": "none",
+          "source_kind": "generic_template",
+          "outputs": [
+            "PDF",
+            "SVG",
+            "PNG",
+            "audit TSV",
+            "caption"
+          ],
+          "constraints": [
+            "Read recipes/global_genetic_correlation/README.md; entry render() only displays accepted estimates and intervals.",
+            "Do not manufacture stage/method labels when absent; obtain or map them from documented input metadata.",
+            "Keep templates/paper_typography.py available beside the adapted script and verify the requested font.",
+            "No LDSC refit or upstream genetic-correlation estimation is authorized by this drawing entry."
+          ],
+          "source_sha256": "8bba5cda09d02a649b84fddaca6f62eff179c260e754fe21570a2069fed9a740"
+        }
+      ]
     },
     {
       "id": "gwas-scrna",
@@ -671,7 +1069,17 @@
       "notes": "绘图和计算分开，基础对象与元数据须匹配；已有绘图脚本优先。",
       "source_hashes": {
         ".agents/skills/gwas-for-paper/gwas-scrna/SKILL.md": "4795a203150f60952bd61f52452b5b13b2bdf89feccf3657750c98cd3161658a"
-      }
+      },
+      "backends": [
+        "R"
+      ],
+      "outputs": [
+        "R-code"
+      ],
+      "intents": [
+        "create",
+        "edit"
+      ]
     },
     {
       "id": "auto-inspire-survival-epi",
@@ -711,7 +1119,17 @@
       "notes": "生存分析支持能力，不能覆盖用户已选 R/survminer 实现。",
       "source_hashes": {
         ".codex/skills/auto-inspire-skill/skills/auto-inspire-survival-epi/SKILL.md": "e37dff9d2175a50bb241dd287caa2f1657f1c17542993584cb837c977f258a54"
-      }
+      },
+      "backends": [
+        "Python"
+      ],
+      "outputs": [
+        "PNG"
+      ],
+      "intents": [
+        "create",
+        "edit"
+      ]
     },
     {
       "id": "auto-inspire-scikit-survival",
@@ -755,7 +1173,15 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/auto-inspire-skill/skills/auto-inspire-scikit-survival/SKILL.md": "34dae4e1a6dd486f6db99c6e029e8c3e96ed6ea4fd0ebb5fb249995de46b16be"
-      }
+      },
+      "backends": [
+        "Python"
+      ],
+      "outputs": [],
+      "intents": [
+        "create",
+        "edit"
+      ]
     },
     {
       "id": "auto-inspire-shap",
@@ -798,7 +1224,15 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/auto-inspire-skill/skills/auto-inspire-shap/SKILL.md": "216fbb9a6afc0ed6e584ddf00cedffdbf26a87d08bd2f4f81b74e7a204f8f909"
-      }
+      },
+      "backends": [
+        "Python"
+      ],
+      "outputs": [],
+      "intents": [
+        "create",
+        "edit"
+      ]
     },
     {
       "id": "standardize-sci-images",
@@ -843,7 +1277,15 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/standardize-sci-images/SKILL.md": "95787941184fadff7f2835e33709f963c20124bf184969db5d6c79cbef95c783"
-      }
+      },
+      "backends": [
+        "Python"
+      ],
+      "outputs": [],
+      "intents": [
+        "edit",
+        "qa"
+      ]
     },
     {
       "id": "daxuan-journal-palette",
@@ -886,7 +1328,19 @@
       "notes": "只向主绘图技能交付明确 HEX/连续色阶及映射，不接管数据或统计。",
       "source_hashes": {
         ".codex/skills/daxuan-journal-palette/SKILL.md": "f08ad0dcf573e91adf74288651a24109a6e911c5d1b559e261c8d4d8924fc237"
-      }
+      },
+      "backends": [
+        "language-independent"
+      ],
+      "outputs": [
+        "HEX",
+        "JSON",
+        "PNG",
+        "HTML"
+      ],
+      "intents": [
+        "palette"
+      ]
     },
     {
       "id": "sci-color-palettes",
@@ -930,7 +1384,16 @@
       "notes": "其非颜色冗余建议与其他技能的纯颜色默认可能冲突，应保留外层既定编码合同。",
       "source_hashes": {
         ".codex/skills/sci-color-palettes/SKILL.md": "f1ae9990024a7603420058fd69924bbcf758c100fc59c27efed695355f1ae533"
-      }
+      },
+      "backends": [
+        "language-independent"
+      ],
+      "outputs": [
+        "HEX"
+      ],
+      "intents": [
+        "palette"
+      ]
     },
     {
       "id": "polish-sci-figures",
@@ -943,8 +1406,7 @@
       "family": "polish-sci-figures",
       "languages": [
         "R",
-        "Python",
-        "SVG"
+        "Python"
       ],
       "domains": [
         "general"
@@ -982,7 +1444,21 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/polish-sci-figures/SKILL.md": "9655bbe92752f5bf85a69399d0256c521eff79ddd3d900e9fb055dcf749a9af1"
-      }
+      },
+      "backends": [
+        "R",
+        "Python"
+      ],
+      "outputs": [
+        "audit-report",
+        "SVG",
+        "PDF",
+        "PNG"
+      ],
+      "intents": [
+        "qa",
+        "edit"
+      ]
     },
     {
       "id": "figure-legend-writer",
@@ -1018,7 +1494,17 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/figure-legend-writer/SKILL.md": "75694893a34247e25920678ceb6c58425534eb143c75dbbe734b5862200206cb"
-      }
+      },
+      "backends": [
+        "language-independent"
+      ],
+      "outputs": [
+        "figure-legend"
+      ],
+      "intents": [
+        "create",
+        "edit"
+      ]
     },
     {
       "id": "result-figure-consistencycheck",
@@ -1052,7 +1538,17 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/result-figure-consistencycheck/SKILL.md": "f31244a665a2f49067c06b7263e9436408d6e055162f5f095464ce013c7e1298"
-      }
+      },
+      "backends": [
+        "language-independent"
+      ],
+      "outputs": [
+        "Markdown",
+        "CSV"
+      ],
+      "intents": [
+        "qa"
+      ]
     },
     {
       "id": "auto-inspire-figures",
@@ -1092,7 +1588,22 @@
       "notes": "这里按风格辅助登记；该技能自己也能实现绘图，但路由中只指定一个主控。",
       "source_hashes": {
         ".codex/skills/auto-inspire-skill/skills/auto-inspire-figures/SKILL.md": "5d0aae9c1e220ce7db9ed7674c2307ce2a19a65b9f1970197ac61929c5975a5c"
-      }
+      },
+      "backends": [
+        "R"
+      ],
+      "outputs": [
+        "PDF",
+        "PNG",
+        "TIFF",
+        "SVG"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "palette",
+        "qa"
+      ]
     },
     {
       "id": "auto-mover-figures",
@@ -1132,7 +1643,24 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/auto-mover-skill/skills/auto-mover-figures/SKILL.md": "321f9baac4fbe683b729e35a2547457dfe80f6aae206dee6b5fe18605b397f58"
-      }
+      },
+      "backends": [
+        "R"
+      ],
+      "outputs": [
+        "PDF",
+        "PNG",
+        "TIFF",
+        "SVG",
+        "PPTX"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "palette",
+        "qa",
+        "reconstruct"
+      ]
     },
     {
       "id": "auto-inspire-plot-library",
@@ -1173,7 +1701,21 @@
       "notes": "模板可适配执行，reference 角色表示默认按需引用，不启动第二套全流程。",
       "source_hashes": {
         ".codex/skills/auto-inspire-skill/skills/auto-inspire-plot-library/SKILL.md": "d25a799d362ecea6ab27dafce2376ae0814c7e41edf33ef857523a2fd4371258"
-      }
+      },
+      "backends": [
+        "R"
+      ],
+      "outputs": [
+        "R-template",
+        "PDF",
+        "PNG"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "choose",
+        "reference"
+      ]
     },
     {
       "id": "auto-mover-plot-library",
@@ -1214,7 +1756,23 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/auto-mover-skill/skills/auto-mover-plot-library/SKILL.md": "6df9258eefcd80b92e4a242087a23242cce689b5279ca5cde9013a2542a90390"
-      }
+      },
+      "backends": [
+        "R"
+      ],
+      "outputs": [
+        "R-template",
+        "PDF",
+        "PNG",
+        "PPTX"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "choose",
+        "reference",
+        "reconstruct"
+      ]
     },
     {
       "id": "auto-inspire-scientific-visualization",
@@ -1262,7 +1820,21 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/auto-inspire-skill/skills/auto-inspire-scientific-visualization/SKILL.md": "558675ebd5a5ec3322bc8a452f43315b99b42bf3c98f0747148be4f6fcaf50c9"
-      }
+      },
+      "backends": [
+        "Python"
+      ],
+      "outputs": [
+        "PDF",
+        "EPS",
+        "TIFF",
+        "PNG"
+      ],
+      "intents": [
+        "create",
+        "edit",
+        "qa"
+      ]
     },
     {
       "id": "journal-ggplot-stylebook",
@@ -1310,7 +1882,17 @@
       "notes": "",
       "source_hashes": {
         ".codex/skills/journal-ggplot-stylebook/SKILL.md": "e63cb91227496092828a0205bc1e601e03eff4e196ba36139731ce6e69ee0d39"
-      }
+      },
+      "backends": [
+        "R"
+      ],
+      "outputs": [
+        "R-template",
+        "PDF"
+      ],
+      "intents": [
+        "reference"
+      ]
     },
     {
       "id": "agent-figure-gallery",
@@ -1340,7 +1922,16 @@
       "notes": "技能是外部 KB 控制器；定位 AGENT_FIGURE_GALLERY_ROOT/DRAWING_KB_ROOT 或 ~/AgentFigureGallery。模块查询可用不等于候选生成脚本存在；只在需要时检索。",
       "source_hashes": {
         ".codex/skills/agent-figure-gallery/SKILL.md": "8be0dfeba25697cc3456ef8615b07c379fe904dd3569bbe2ed7d73cbc7f28cfb"
-      }
+      },
+      "backends": [
+        "language-independent"
+      ],
+      "outputs": [
+        "reference-images"
+      ],
+      "intents": [
+        "reference"
+      ]
     },
     {
       "id": "figure-spec",
@@ -1352,7 +1943,7 @@
       "role": "reference",
       "family": "figure-spec",
       "languages": [
-        "SVG"
+        "Python"
       ],
       "domains": [
         "general"
@@ -1378,7 +1969,17 @@
       "notes": "渲染器当前缺失。缺失只阻断依赖该资产的执行；可按正文设计或路由到已可用方案，不擅自安装/下载。 这里仅检查本技能目录；原文另有 ARIS_REPO、.aris 项目绑定和 tools/ 解析链，执行前按其原文核对本次项目。",
       "source_hashes": {
         ".codex/skills/figure-spec/SKILL.md": "f7f69413608eeeb7670800579e119b1b0f1e63881300d4977fc3a0e9b148c76d"
-      }
+      },
+      "backends": [
+        "Python"
+      ],
+      "outputs": [
+        "SVG"
+      ],
+      "intents": [
+        "diagram",
+        "reference"
+      ]
     },
     {
       "id": "mermaid-diagram",
@@ -1411,7 +2012,18 @@
       "notes": "可写 .mmd 源码；实际图件导出须先核验宿主 Mermaid 渲染或 mmdc。不得为路由而自动联网装依赖。",
       "source_hashes": {
         ".codex/skills/mermaid-diagram/SKILL.md": "2d9eab0a8b1cc94e43799171287ed85455d8cfa2b75d4f19269bad168d8bb1dd"
-      }
+      },
+      "backends": [
+        "Mermaid"
+      ],
+      "outputs": [
+        "MMD",
+        "Markdown",
+        "PNG"
+      ],
+      "intents": [
+        "diagram"
+      ]
     },
     {
       "id": "imagegen",
@@ -1450,10 +2062,19 @@
           "required": true
         }
       ],
-      "notes": "当前会话原生工具可用性需即时核验；本地脚本存在不代表 API 授权或模型服务已可用。",
+      "notes": "当前会话原生工具可用性需即时核验；本地脚本存在不代表 API 授权或模型服务已可用。 outputs 未穷举；具体格式按当次实际生成接口核验。",
       "source_hashes": {
         ".codex/skills/.system/imagegen/SKILL.md": "681ddb4ad6d06a2acc78a3535b583f8d0c1ea800ecda3d56370d3310fd2cd4ba"
-      }
+      },
+      "backends": [
+        "language-independent"
+      ],
+      "outputs": [],
+      "intents": [
+        "create",
+        "edit",
+        "diagram"
+      ]
     },
     {
       "id": "paper-illustration",
@@ -1484,7 +2105,16 @@
       "notes": "正文包含外部 API 调用示例；必须即时核验模型/凭证能力，不把 SKILL 文件存在当成服务已可用。",
       "source_hashes": {
         ".codex/skills/paper-illustration/SKILL.md": "1c876e39d880781bc5d6f51c616e02f4e5858750867f027968d5b91564179643"
-      }
+      },
+      "backends": [
+        "language-independent"
+      ],
+      "outputs": [
+        "PNG"
+      ],
+      "intents": [
+        "diagram"
+      ]
     },
     {
       "id": "nature-image2ppt",
@@ -1495,9 +2125,7 @@
       ],
       "role": "primary",
       "family": "editable-ppt",
-      "languages": [
-        "PPTX"
-      ],
+      "languages": [],
       "domains": [
         "general"
       ],
@@ -1522,10 +2150,17 @@
           "required": true
         }
       ],
-      "notes": "源代码在不代表 image2ppt 命令已在 PATH；先按技能做实际依赖/doctor 检查。",
+      "notes": "源代码在不代表 image2ppt 命令已在 PATH；先按技能做实际依赖/doctor 检查。 backends 未登记表示尚未核验其具体生成后端；PPTX 是输出形式，不是绘图源语言。",
       "source_hashes": {
         ".codex/skills/nature-image2ppt/SKILL.md": "0b49331f7b97e0751248c84506cada638f29ff44bb3023686f89a9f858748e9e"
-      }
+      },
+      "backends": [],
+      "outputs": [
+        "PPTX"
+      ],
+      "intents": [
+        "reconstruct"
+      ]
     },
     {
       "id": "auto-inspire-image-to-editable-ppt",
@@ -1536,9 +2171,7 @@
       ],
       "role": "primary",
       "family": "editable-ppt",
-      "languages": [
-        "PPTX"
-      ],
+      "languages": [],
       "domains": [
         "general"
       ],
@@ -1567,10 +2200,17 @@
           "required": true
         }
       ],
-      "notes": "",
+      "notes": " backends 未登记表示尚未核验其具体生成后端；PPTX 是输出形式，不是绘图源语言。",
       "source_hashes": {
         ".codex/skills/auto-inspire-skill/skills/auto-inspire-image-to-editable-ppt/SKILL.md": "8afbd5a7b60db0e43e7aebec4c19c955c53ba8847360c915ad9ab39c9a7a0613"
-      }
+      },
+      "backends": [],
+      "outputs": [
+        "PPTX"
+      ],
+      "intents": [
+        "reconstruct"
+      ]
     },
     {
       "id": "auto-mover-editable-slides",
@@ -1582,9 +2222,7 @@
       ],
       "role": "primary",
       "family": "editable-ppt",
-      "languages": [
-        "PPTX"
-      ],
+      "languages": [],
       "domains": [
         "general"
       ],
@@ -1609,11 +2247,18 @@
           "required": true
         }
       ],
-      "notes": "两个 SKILL.md 路径当前内容相同，但实际引用资源应相对最终选中目录解析。",
+      "notes": "两个 SKILL.md 路径当前内容相同，但实际引用资源应相对最终选中目录解析。 backends 未登记表示尚未核验其具体生成后端；PPTX 是输出形式，不是绘图源语言。",
       "source_hashes": {
         ".codex/skills/auto-mover-skill/skills/auto-mover-figures/skills/auto-mover-editable-slides/SKILL.md": "f6fc827f5290420960422037a47402bb04e0627fb5892d04c8bedcf34c0e54a4",
         ".codex/skills/auto-mover-skill/skills/auto-mover-plot-library/skills/auto-mover-editable-slides/SKILL.md": "f6fc827f5290420960422037a47402bb04e0627fb5892d04c8bedcf34c0e54a4"
-      }
+      },
+      "backends": [],
+      "outputs": [
+        "PPTX"
+      ],
+      "intents": [
+        "reconstruct"
+      ]
     },
     {
       "id": "r-topjournal-plotting",
@@ -1655,7 +2300,16 @@
       "notes": "缺资源时报告当前路径，仅阻断依赖资产的执行。不要为了普通绘图去运行文档中的更新检查或下载。",
       "source_hashes": {
         ".codex/skills/r-topjournal/SKILL.md": "3bdc48c01880c3729f8ea9bec0d4262f9bebcc95d2012de56aa89fc081ec20fb"
-      }
+      },
+      "backends": [
+        "R"
+      ],
+      "outputs": [
+        "guidance"
+      ],
+      "intents": [
+        "reference"
+      ]
     }
   ],
   "reviewed_on": "2026-11-01"
