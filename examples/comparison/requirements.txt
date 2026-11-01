@@ -1,0 +1,6 @@
+# Only for this optional rendering demo; core CLI tools use the standard library.
+matplotlib>=3.7,<4
+numpy>=1.24,<3
+pandas>=2,<4
+scipy>=1.10,<2
+Pillow>=10,<13

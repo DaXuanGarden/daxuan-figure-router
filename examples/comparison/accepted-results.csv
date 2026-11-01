@@ -1,0 +1,6 @@
+term,estimate,lower,upper,group
+Primary outcome,1.28,1.09,1.50,Primary
+Secondary outcome A,0.84,0.70,1.01,Secondary
+Secondary outcome B,1.17,0.98,1.40,Secondary
+Replication cohort,1.23,1.02,1.48,Primary
+Sensitivity analysis,1.21,1.05,1.39,Primary
