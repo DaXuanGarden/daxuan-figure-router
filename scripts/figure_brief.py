@@ -154,6 +154,13 @@ def validate_brief(value: dict, *, base: Path | None = None, check_paths: bool =
             "evolution_policy.append_only_memory must contain strings")
     for key in ("automatic_skill_self_edit", "automatic_github_push"):
         require(policy.get(key) is False, f"{key} must remain false in a FigureBrief")
+    for key in ("reference_images_are_style_only", "human_confirmation_required"):
+        if key in policy:
+            require(policy.get(key) is True, f"evolution_policy.{key} must remain true")
+    if "memory_schema" in policy:
+        identifier(policy.get("memory_schema"), "evolution_policy.memory_schema")
+    if "promotion_policy" in policy:
+        text(policy.get("promotion_policy"), "evolution_policy.promotion_policy")
     text(policy.get("promotion_gate"), "evolution_policy.promotion_gate")
     return {"ok": True, "schema_version": SCHEMA, "candidate_count": len(value["candidate_figures"]),
             "input_count": len(value["input_records"]), "data_status": value["data_status"],

@@ -1,6 +1,6 @@
 {
   "name": "daxuan-figure-router",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "owner": "Daxuan",
   "author": "Daxuan",
   "github_owner": "DaXuanGarden",
@@ -27,7 +27,8 @@
     "figure_brief_validation",
     "portable_unit_tests",
     "output_evidence_boundary",
-    "human_selection_before_production"
+    "human_selection_before_production",
+    "bounded_evolution_memory_check"
   ],
   "trust_boundary": {
     "remote_code_execution": "forbidden",

@@ -39,7 +39,11 @@ def valid_brief():
                             "human_selection_required_before_production": True},
         "evolution_policy": {"mode": "bounded-human-in-the-loop", "append_only_memory": ["accepted_patterns.jsonl"],
                              "automatic_skill_self_edit": False, "automatic_github_push": False,
-                             "promotion_gate": "tests and scientific review"}
+                             "promotion_gate": "tests and scientific review",
+                             "reference_images_are_style_only": True,
+                             "human_confirmation_required": True,
+                             "memory_schema": "figure-memory-v1",
+                             "promotion_policy": "manual review only"}
     }
 
 
@@ -61,6 +65,20 @@ class FigureBriefTests(unittest.TestCase):
             figure_brief.validate_brief(value)
         value = valid_brief()
         del value["candidate_figures"][0]["forbidden_shortcuts"]
+        with self.assertRaises(figure_brief.BriefError):
+            figure_brief.validate_brief(value)
+
+    def test_evolution_reference_and_confirmation_guards_are_strict(self):
+        value = valid_brief()
+        value["evolution_policy"]["reference_images_are_style_only"] = False
+        with self.assertRaises(figure_brief.BriefError):
+            figure_brief.validate_brief(value)
+        value = valid_brief()
+        value["evolution_policy"]["human_confirmation_required"] = False
+        with self.assertRaises(figure_brief.BriefError):
+            figure_brief.validate_brief(value)
+        value = valid_brief()
+        value["evolution_policy"]["memory_schema"] = "../unsafe"
         with self.assertRaises(figure_brief.BriefError):
             figure_brief.validate_brief(value)
 
