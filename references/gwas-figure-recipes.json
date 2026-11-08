@@ -1,0 +1,78 @@
+{
+  "schema_version": "gwas-figure-recipes.v1",
+  "purpose": "Display accepted GWAS/post-GWAS results with explicit evidence boundaries; recipes never refit upstream statistics.",
+  "recipes": {
+    "global_genetic_correlation": {
+      "title": "Global genetic-correlation heatmap or method-agreement panel",
+      "backend": "any",
+      "analysis_effect": "none",
+      "required_columns": ["trait_exposure", "trait_outcome", "method", "estimate", "se", "p"],
+      "optional_columns": ["fdr", "ci_low", "ci_high", "direction"],
+      "evidence_boundaries": [
+        "Display documented LDSC, GNOVA, or HDL estimates without refitting.",
+        "Keep method identity and the declared multiple-testing rule visible.",
+        "Genetic correlation is not causal evidence."
+      ]
+    },
+    "local_genetic_correlation": {
+      "title": "Local genetic-correlation Manhattan or trait-by-region map",
+      "backend": "any",
+      "analysis_effect": "none",
+      "required_columns": ["trait_exposure", "trait_outcome", "chromosome", "position", "region", "estimate", "p"],
+      "optional_columns": ["fdr", "method", "ci_low", "ci_high"],
+      "evidence_boundaries": [
+        "Use only completed local-correlation output and its documented genome build.",
+        "Do not infer local signals from global correlation values.",
+        "Retain region and chromosome ordering from the source analysis."
+      ]
+    },
+    "pleiotropy_placo_plus": {
+      "title": "PLACO+ pleiotropic-locus map or circular dendrogram",
+      "backend": "any",
+      "analysis_effect": "none",
+      "required_columns": ["trait_exposure", "trait_outcome", "lead_snp", "chromosome", "position", "placo_p"],
+      "optional_columns": ["clump_r2", "clump_kb", "effect_direction", "functional_class"],
+      "evidence_boundaries": [
+        "Use the accepted PLACO+ lead catalog after the declared clumping step.",
+        "Do not mix legacy PLACO rows into the primary figure.",
+        "A pleiotropic association is not proof of a shared causal variant."
+      ]
+    },
+    "coloc_shared_loci": {
+      "title": "PLACO+ and pairwise-colocalisation shared-locus dendrogram",
+      "backend": "any",
+      "analysis_effect": "none",
+      "required_columns": ["trait_exposure", "trait_outcome", "lead_snp", "chromosome", "position", "pp_h4"],
+      "optional_columns": ["region_start", "region_end", "gene", "annotation_source", "hyprcoloc_probability"],
+      "evidence_boundaries": [
+        "Display PP.H4 and the declared region window (for example ±250 kb) from the accepted coloc output.",
+        "ANNOVAR output is a candidate SNP-to-gene mapping, not a causal-gene claim.",
+        "Do not display HyPrColoc evidence until serial and parallel results have been reconciled."
+      ]
+    },
+    "mendelian_randomization": {
+      "title": "MR estimate forest plot or method-agreement panel",
+      "backend": "any",
+      "analysis_effect": "none",
+      "required_columns": ["exposure", "outcome", "method", "estimate", "ci_low", "ci_high", "p"],
+      "optional_columns": ["n_instruments", "q_p", "pleiotropy_p", "fdr"],
+      "evidence_boundaries": [
+        "Display completed MR estimates and uncertainty without rerunning MR.",
+        "Keep estimand, method, effect scale, and reference line explicit.",
+        "Do not combine incompatible estimands into one pooled estimate."
+      ]
+    },
+    "gene_level": {
+      "title": "Gene-level Manhattan, lollipop, or candidate-gene matrix",
+      "backend": "any",
+      "analysis_effect": "none",
+      "required_columns": ["gene", "chromosome", "position", "p"],
+      "optional_columns": ["fdr", "trait_exposure", "trait_outcome", "annotation_source", "tissue"],
+      "evidence_boundaries": [
+        "Use an explicit gene-coordinate source and preserve the upstream gene-level metric.",
+        "Do not infer coordinates or causal status from a gene symbol alone.",
+        "Distinguish ANNOVAR candidate mapping from MAGMA or other gene-level evidence."
+      ]
+    }
+  }
+}

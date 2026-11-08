@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — GWAS figure contracts
+
+- Add a versioned FigureBrief validator and six display-only GWAS figure recipes.
+- Add synthetic LST–CVD recipe fixtures for correlation, PLACO+/coloc, locus and gene-level
+  candidate planning without rerunning upstream statistics.
+- Support an explicit `project_root` for project-relative input-path checks.
+
 ## Unreleased — portable Skill dependencies
 
 - Add explicit offline plan/status and pinned-source installation profiles; discover real installed identities and skip them without updating or replacing.
@@ -28,3 +35,9 @@ Initial release of the local scientific figure skill router.
 - Include 8 isolated CLI regression checks, 16 routing acceptance prompts, installation instructions, and CI.
 
 The capability cards are a reference snapshot. Referenced third-party skills and assets are not bundled. Routing scores retrieve candidates; the agent must read the selected skill and apply task constraints before execution. Scientific figure backends are not certified as runnable by this release.
+# Unreleased
+
+- Added GWAS figure recipes for global genetic correlation, PLACO+/coloc shared loci,
+  gene-level results and MR, including evidence-layer and annotation boundaries.
+- Added a synthetic LST–CVD recipe dry-run with a FigureBrief and candidate-comparison
+  documentation. The fixture contains no real study data and does not execute a renderer.

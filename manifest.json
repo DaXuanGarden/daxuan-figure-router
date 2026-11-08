@@ -1,0 +1,36 @@
+{
+  "name": "daxuan-figure-router",
+  "version": "0.2.0",
+  "owner": "DaXuanGarden",
+  "updated_at": "2026-11-08",
+  "status": "active",
+  "maturity_tier": "library",
+  "lifecycle_stage": "library",
+  "context_budget_tier": "production",
+  "review_cadence": "quarterly",
+  "upstream_inspiration": "https://github.com/joeseesun/qiaomu-skill-publisher",
+  "qiaomu_defaults": {
+    "copyright": "Copyright (c) 向阳乔木",
+    "x": "https://x.com/vista8",
+    "github": "https://github.com/joeseesun/"
+  },
+  "target_platforms": ["openai", "claude", "generic", "agent-skills-compatible", "vscode"],
+  "release_gates": [
+    "prior_art_research",
+    "generalization_gate",
+    "validate_skill",
+    "trigger_eval",
+    "export_skill_ir",
+    "figure_brief_validation",
+    "portable_unit_tests",
+    "output_evidence_boundary",
+    "human_selection_before_production"
+  ],
+  "trust_boundary": {
+    "remote_code_execution": "forbidden",
+    "upstream_statistics": "never refit or alter through a figure recipe",
+    "reference_images": "style structure only",
+    "automatic_skill_self_edit": false,
+    "automatic_github_push": false
+  }
+}

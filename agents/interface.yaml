@@ -1,0 +1,12 @@
+interface:
+  display_name: "Daxuan Figure Router"
+  short_description: "按任务准确选择和协调本机科研绘图技能，保留既有代码与语言选择"
+  default_prompt: "用 $daxuan-figure-router 帮我为这次绘图或改图选择合适的已有技能，并继续完成任务。"
+compatibility:
+  adapter_targets:
+    - openai
+    - claude
+    - generic
+    - agent-skills-compatible
+    - vscode
+  canonical_source: SKILL.md

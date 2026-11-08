@@ -1,0 +1,17 @@
+{
+  "figure_id": "synthetic-lst-cvd-gwas-recipes",
+  "scientific_question": "How can accepted LST-CVD genetic-correlation and shared-locus evidence be displayed?",
+  "input_state": "accepted_results",
+  "ancestry": "European",
+  "genome_build": "GRCh37",
+  "source_tables": ["accepted-results.csv"],
+  "thresholds": {
+    "placo_plus_p": 5e-8,
+    "coloc_pp_h4": 0.7,
+    "clump_r2": 0.001,
+    "clump_kb": 10000
+  },
+  "annotation_sources": ["ANNOVAR nearest/refGene"],
+  "causal_claim_allowed": false,
+  "display_only_operations": ["label_collision_avoidance", "lead_locus_grouping"]
+}
