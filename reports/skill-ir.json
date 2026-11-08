@@ -3,8 +3,8 @@
   "generated_at": "2026-11-08",
   "package": {
     "name": "daxuan-figure-router",
-    "version": "0.2.0",
-    "owner": "DaXuanGarden",
+    "version": "0.2.1",
+    "owner": "Daxuan",
     "maturity_tier": "library",
     "lifecycle_stage": "library",
     "upstream_inspiration": "https://github.com/joeseesun/qiaomu-skill-publisher",
@@ -20,7 +20,8 @@
     "outputs": [],
     "exclusions": [],
     "qiaomu_defaults": {
-      "copyright": "Copyright (c) 向阳乔木",
+      "profile_name": "向阳乔木",
+      "website": "https://qiaomu.ai",
       "x": "https://x.com/vista8",
       "github": "https://github.com/joeseesun/"
     }
@@ -74,6 +75,7 @@
       "evals/trigger_cases.json"
     ],
     "reports": [
+      "reports/author-profile-polish-20261108.md",
       "reports/creation-handoff.md",
       "reports/daxuan-figure-router-polish-report.md",
       "reports/output-evidence.json",
