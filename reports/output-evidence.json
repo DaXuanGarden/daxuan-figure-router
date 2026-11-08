@@ -1,0 +1,9 @@
+{
+  "ok": false,
+  "evidence_kind": "recorded_fixture",
+  "status": "missing_evidence",
+  "scope": "portable figure-contract and routing checks",
+  "validated": ["FigureBrief structure", "GWAS recipe boundaries", "candidate-routing contracts", "unit tests"],
+  "not_validated": ["live R/Python renderer", "font availability", "provider-backed figure quality", "human blind review"],
+  "reason": "This package turn validates the drawing contract and routing logic; it does not claim a live publication-ready render."
+}

@@ -17,6 +17,48 @@ Route installed scientific figure skills, preserve existing code and language ch
 git clone https://github.com/DaXuanGarden/daxuan-figure-router.git "${CODEX_HOME:-$HOME/.codex}/skills/daxuan-figure-router"
 ```
 
+公开发布后的标准安装入口（当前版本尚未完成 GitHub/Release 验证）为：
+
+```bash
+npx skills add DaXuanGarden/daxuan-figure-router --skill daxuan-figure-router --yes
+```
+
+本包借鉴并遵循 [Qiaomu Skill Publisher](https://github.com/joeseesun/qiaomu-skill-publisher)
+的证据、评估和发布边界；当前目录的本地验证不能替代远端安装证据。
+
+维护信息：Copyright (c) 向阳乔木；X: https://x.com/vista8；GitHub: https://github.com/joeseesun/。
+
+## Prerequisites
+
+- [ ] Python 3.10+
+- [ ] Git（仅用于完整安装或发布）
+- [ ] 目标绘图 Skill、R/Python 后端和字体按各自项目需要安装
+
+<!-- qiaomu-profile:start -->
+## 关于向阳乔木
+
+向阳乔木（乔向阳 / Joe）是一位实践型 AI 产品与内容创作者，长期把前沿 AI 变化转译成可复用的工作流、产品判断、AI 编程实践、AI 搜索实践和 GEO/AI 营销方法。
+
+- 个人网站: https://qiaomu.ai
+- 博客: https://blog.qiaomu.ai
+- X: https://x.com/vista8
+- GitHub: https://github.com/joeseesun/
+- 微信公众号: 向阳乔木推荐看
+
+### 支持与关注
+
+| 打赏支持 | 微信公众号 |
+|---|---|
+| <img src="assets/qiaomu-profile/qiaomu_reward_qr.png" alt="向阳乔木打赏二维码" width="180" /> | <img src="assets/qiaomu-profile/qiaomu_wechat_public_account_qr.jpg" alt="向阳乔木推荐看公众号二维码" width="180" /> |
+| 感谢支持乔木持续分享 AI 实践 | 扫码关注「向阳乔木推荐看」 |
+
+<!-- qiaomu-profile:end -->
+
+## License
+
+本路由器原创代码和文档采用 [MIT License](LICENSE)；第三方绘图 Skill、字体、模板和
+素材继续遵循各自许可证。
+
 已有同名目录时不要直接覆盖，先确认它是独立安装副本还是 Git 克隆。新会话中可调用 `$daxuan-figure-router`；也可以直接引用安装目录中的 `SKILL.md`。
 
 **参考清单中的 39 项绘图能力不随本仓库提供，也无需全部安装。** 可按明确的 profile 下载有核实来源的技能文件，已有安装自动跳过。 路由器只选择当前机器上实际存在的技能。它们的模板、图片、运行时和服务按各自技能的安装方式及许可证提供；仓库仅包含本路由器、能力摘要和测试。即使没有清单中的技能，检索仍能运行并报告空结果或缺项。
@@ -35,6 +77,8 @@ R 使用 `r_starter`；单项可用 `--skill easyplot`。默认不下载全部�
 
 ## 使用示例
 
+你可以直接这样说：
+
 在 Codex 中调用：
 
 ```text
@@ -46,6 +90,27 @@ R 使用 `r_starter`；单项可用 `--skill easyplot`。默认不下载全部�
 自动技能选择保持启用。已安装的技能通常会在新会话中发现，也可以用绝对路径引用本目录的 `SKILL.md`。
 
 更多请求与职责安排见 [路由示例](examples/routing.md)。
+
+## 验证
+
+```bash
+python3 scripts/validate_skill.py .
+python3 scripts/trigger_eval.py . --cases evals/trigger_cases.json
+python3 scripts/figure_brief.py validate --brief path/to/brief.json --check-paths
+python3 scripts/verify.py
+```
+
+### Troubleshooting
+
+- `review_required`：先补齐输入表、基因组版本、祖源、阈值或注释来源，再生成候选图。
+- `analysis_effect` 不是 `none`：该入口可能会重跑上游统计，不能直接用于已验收结果的样式比较。
+- renderer 或字体缺失：记录 `degraded`/`missing evidence`，不要把文件导出成功写成真实渲染已验证。
+- 只有一个候选图：先检查 FigureBrief 是否声明了足够的表达目的；颜色变化单独归为样式变体。
+
+GWAS/MTAG/PLACO+/coloc/MR 等已完成结果的图形合同、候选图比较和合成演练见
+[GWAS figure recipes](references/gwas-figure-recipes.md) 与
+[GWAS recipe dry-run](examples/gwas/README.md)。这些配方只负责展示已验收结果，
+不会重新运行上游统计分析。
 
 ## 同一数据的候选图
 
@@ -60,6 +125,25 @@ python "$ROUTER_SKILL/scripts/comparison.py" select --run comparison-run --id ca
 ```
 
 `comparison.py` 不执行 JSON 中任意命令；阻塞候选、未审阅和 QA 失败都保留原因。选择记录只表示待精修，不代表投稿就绪。
+
+### GWAS FigureBrief
+
+项目有多种已完成 GWAS/post-GWAS 结果时，建议先保存一份版本化 FigureBrief，
+再进入同一数据的候选图比较。FigureBrief 固定科学问题、结果来源、候选图目的、
+ANNOVAR/coloc/PLACO+ 等证据边界和导出要求；它不替代上游统计脚本，也不改变任何
+P 值、FDR、clumping 或共定位阈值。
+
+```bash
+python "$ROUTER_SKILL/scripts/figure_brief.py" validate --brief path/to/brief.json
+# 项目级 brief 可声明 project_root，再检查真实输入文件：
+python "$ROUTER_SKILL/scripts/figure_brief.py" validate --brief path/to/brief.json --check-paths
+python "$ROUTER_SKILL/scripts/figure_brief.py" list-recipes
+```
+
+当前 recipe 覆盖 global/local genetic correlation、PLACO+、PLACO+–coloc shared loci、
+MR 和 gene-level 图形。每个 recipe 都声明 `analysis_effect: none`，并明确要求把候选
+基因注释与因果基因结论分开。`--check-paths` 是可选的项目文件存在性检查；默认只校验
+可移植的结构合同。
 
 ## 只读检索
 

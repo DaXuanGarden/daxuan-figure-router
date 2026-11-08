@@ -1,0 +1,1014 @@
+{
+  "ok": false,
+  "complete": false,
+  "researched_at": "2026-11-08",
+  "queries": [
+    "scientific figure router agent skill",
+    "GWAS visualization skill",
+    "figure quality evaluation skill",
+    "reproducible scientific plotting workflow"
+  ],
+  "metric_semantics": {
+    "skills_sh_installs": "ecosystem install telemetry; not ratings or correctness",
+    "skillsmp_repo_stars": "GitHub repository stars; not installs, ratings, or skill-specific quality",
+    "cross_catalog_score": "not calculated; metrics remain separate"
+  },
+  "query_runs": [
+    {
+      "query": "scientific figure router agent skill",
+      "skills_sh": "ok",
+      "skillsmp": "ok",
+      "skills_sh_candidates": 3,
+      "skillsmp_candidates": 5
+    },
+    {
+      "query": "GWAS visualization skill",
+      "skills_sh": "error",
+      "skillsmp": "ok",
+      "skills_sh_error": "skills.sh returned no parseable candidates",
+      "skillsmp_candidates": 10
+    },
+    {
+      "query": "figure quality evaluation skill",
+      "skills_sh": "ok",
+      "skillsmp": "ok",
+      "skills_sh_candidates": 4,
+      "skillsmp_candidates": 9
+    },
+    {
+      "query": "reproducible scientific plotting workflow",
+      "skills_sh": "error",
+      "skillsmp": "ok",
+      "skills_sh_error": "skills.sh returned no parseable candidates",
+      "skillsmp_candidates": 7
+    }
+  ],
+  "candidate_family_count": 36,
+  "candidates": [
+    {
+      "family_key": "vercel-labs/skills:find-skills",
+      "queries": [
+        "scientific figure router agent skill"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "scientific figure router agent skill",
+        "owner_repo": "vercel-labs/skills",
+        "skill_name": "find-skills",
+        "family_key": "vercel-labs/skills:find-skills",
+        "skills_sh_installs": 4300000,
+        "skills_sh_installs_display": "4.3M",
+        "skills_sh_url": "https://skills.sh/vercel-labs/skills/find-skills"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "vercel-labs/agent-browser:agent-browser",
+      "queries": [
+        "scientific figure router agent skill"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "scientific figure router agent skill",
+        "owner_repo": "vercel-labs/agent-browser",
+        "skill_name": "agent-browser",
+        "family_key": "vercel-labs/agent-browser:agent-browser",
+        "skills_sh_installs": 1400000,
+        "skills_sh_installs_display": "1.4M",
+        "skills_sh_url": "https://skills.sh/vercel-labs/agent-browser/agent-browser"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "jaechang-hits/sciagent-skills:peer-review-methodology",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "figure quality evaluation skill",
+        "owner_repo": "jaechang-hits/sciagent-skills",
+        "skill_name": "peer-review-methodology",
+        "family_key": "jaechang-hits/sciagent-skills:peer-review-methodology",
+        "skills_sh_installs": 76,
+        "skills_sh_installs_display": "76",
+        "skills_sh_url": "https://skills.sh/jaechang-hits/sciagent-skills/peer-review-methodology"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "neuromechanist/research-skills:svg-figure",
+      "queries": [
+        "scientific figure router agent skill"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "scientific figure router agent skill",
+        "owner_repo": "neuromechanist/research-skills",
+        "skill_name": "svg-figure",
+        "family_key": "neuromechanist/research-skills:svg-figure",
+        "skills_sh_installs": 49,
+        "skills_sh_installs_display": "49",
+        "skills_sh_url": "https://skills.sh/neuromechanist/research-skills/svg-figure"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "jj66-git/mathmodeling-skills_jj:math-figure-generator",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "figure quality evaluation skill",
+        "owner_repo": "jj66-git/mathmodeling-skills_jj",
+        "skill_name": "math-figure-generator",
+        "family_key": "jj66-git/mathmodeling-skills_jj:math-figure-generator",
+        "skills_sh_installs": 6,
+        "skills_sh_installs_display": "6",
+        "skills_sh_url": "https://skills.sh/jj66-git/mathmodeling-skills_jj/math-figure-generator"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "astdeniss/business-skills:influencer-marketing",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "figure quality evaluation skill",
+        "owner_repo": "astdeniss/business-skills",
+        "skill_name": "influencer-marketing",
+        "family_key": "astdeniss/business-skills:influencer-marketing",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/astdeniss/business-skills/influencer-marketing"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "kyriezhang329/mathmodeling-skills:math-figure-generator",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "figure quality evaluation skill",
+        "owner_repo": "kyriezhang329/mathmodeling-skills",
+        "skill_name": "math-figure-generator",
+        "family_key": "kyriezhang329/mathmodeling-skills:math-figure-generator",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/kyriezhang329/mathmodeling-skills/math-figure-generator"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:agent-introspection-debugging",
+      "queries": [
+        "reproducible scientific plotting workflow"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "agent-introspection-debugging",
+        "author": "affaan-m",
+        "description": "Structured self-debugging workflow for AI agent failures using capture, diagnosis, contained recovery, and introspection reports. Use when an agent run fails and you need a reproducible diagnosis instead of a retry.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/.agents/skills/agent-introspection-debugging",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/agents-skills-agent-introspection-debugging",
+        "repo_stars": 297201,
+        "catalog_updated_at": "2026-09-18T22:51:01+00:00",
+        "source_key": "affaan-m/ecc:.agents/skills/agent-introspection-debugging",
+        "family_key": "affaan-m/ecc:agent-introspection-debugging",
+        "aliases": [
+          {
+            "language": "en",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/pi/core/skills/agent-introspection-debugging"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/pi/core/skills/agent-introspection-debugging"
+          }
+        ],
+        "query": "reproducible scientific plotting workflow"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:flox-environments",
+      "queries": [
+        "reproducible scientific plotting workflow"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "flox-environments",
+        "author": "affaan-m",
+        "description": "Create reproducible, cross-platform (macOS/Linux) development environments with Flox, a declarative Nix-based environment manager. Use when setting up project toolchains, installing system-level dependencies (compilers, databases, native libs), pinning exact package versions for a team, onboarding developers, running local services (PostgreSQL, Redis, Kafka), or solving 'works on my machine' problems — including agent/vibe-coding setups that need project-scoped tools without sudo. Also use when the user mentions .flox/, manifest.toml, flox activate, or FloxHub.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/flox-environments",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-flox-environments",
+        "repo_stars": 297201,
+        "catalog_updated_at": "2026-10-26T20:18:53+00:00",
+        "source_key": "affaan-m/ecc:skills/flox-environments",
+        "family_key": "affaan-m/ecc:flox-environments",
+        "aliases": [],
+        "query": "reproducible scientific plotting workflow"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:master-agreement-generator",
+      "queries": [
+        "reproducible scientific plotting workflow"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "master-agreement-generator",
+        "author": "affaan-m",
+        "description": "Generate review drafts of counterparty master agreements from one template plus a JSON spec, with role-selected clauses and a Schedule A workflow limited to the executed agreement's notice authority. Use when you need reproducible drafting and separately reviewed execution preparation.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/master-agreement-generator",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-master-agreement-generator",
+        "repo_stars": 297201,
+        "catalog_updated_at": "2026-09-10T12:20:52+00:00",
+        "source_key": "affaan-m/ecc:skills/master-agreement-generator",
+        "family_key": "affaan-m/ecc:master-agreement-generator",
+        "aliases": [],
+        "query": "reproducible scientific plotting workflow"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:mle-workflow",
+      "queries": [
+        "reproducible scientific plotting workflow"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "mle-workflow",
+        "author": "affaan-m",
+        "description": "Production machine-learning engineering workflow for data contracts, reproducible training, model evaluation, deployment, monitoring, and rollback. Use when building, reviewing, or hardening ML systems beyond one-off notebooks.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/.kiro/skills/mle-workflow",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/kiro-skills-mle-workflow",
+        "repo_stars": 297201,
+        "catalog_updated_at": "2026-06-07T05:26:37+00:00",
+        "source_key": "affaan-m/ecc:.kiro/skills/mle-workflow",
+        "family_key": "affaan-m/ecc:mle-workflow",
+        "aliases": [
+          {
+            "language": "en",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/.agents/skills/mle-workflow"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/pi/core/skills/mle-workflow"
+          }
+        ],
+        "query": "reproducible scientific plotting workflow"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:pytorch-patterns",
+      "queries": [
+        "reproducible scientific plotting workflow"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "pytorch-patterns",
+        "author": "affaan-m",
+        "description": "PyTorch deep learning patterns and best practices for building robust, efficient, and reproducible training pipelines, model architectures, and data loading.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/.kiro/skills/pytorch-patterns",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/kiro-skills-pytorch-patterns",
+        "repo_stars": 297201,
+        "catalog_updated_at": "2026-06-07T05:26:37+00:00",
+        "source_key": "affaan-m/ecc:.kiro/skills/pytorch-patterns",
+        "family_key": "affaan-m/ecc:pytorch-patterns",
+        "aliases": [],
+        "query": "reproducible scientific plotting workflow"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:scientific-db-pubmed-database",
+      "queries": [
+        "scientific figure router agent skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "scientific-db-pubmed-database",
+        "author": "affaan-m",
+        "description": "Direct PubMed and NCBI E-utilities search workflows for biomedical literature, MeSH queries, PMID lookup, citation retrieval, and API-backed literature monitoring. Use when a task needs biomedical literature from PubMed rather than general web search.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/scientific-db-pubmed-database",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-scientific-db-pubmed-database",
+        "repo_stars": 297201,
+        "catalog_updated_at": "2026-09-10T09:45:09+00:00",
+        "source_key": "affaan-m/ecc:skills/scientific-db-pubmed-database",
+        "family_key": "affaan-m/ecc:scientific-db-pubmed-database",
+        "aliases": [
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/scientific-db-pubmed-database"
+          }
+        ],
+        "query": "scientific figure router agent skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:scientific-db-uspto-database",
+      "queries": [
+        "reproducible scientific plotting workflow",
+        "scientific figure router agent skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "scientific-db-uspto-database",
+        "author": "affaan-m",
+        "description": "USPTO patent and trademark data workflow for official record lookup, PatentSearch queries, TSDR checks, assignment data, and reproducible IP research logs. Use when a task needs official United States patent or trademark records from USPTO systems.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/scientific-db-uspto-database",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-scientific-db-uspto-database",
+        "repo_stars": 297201,
+        "catalog_updated_at": "2026-09-10T09:45:09+00:00",
+        "source_key": "affaan-m/ecc:skills/scientific-db-uspto-database",
+        "family_key": "affaan-m/ecc:scientific-db-uspto-database",
+        "aliases": [
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/scientific-db-uspto-database"
+          }
+        ],
+        "query": "scientific figure router agent skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:scientific-pkg-gget",
+      "queries": [
+        "reproducible scientific plotting workflow",
+        "scientific figure router agent skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "scientific-pkg-gget",
+        "author": "affaan-m",
+        "description": "gget CLI and Python workflow for quick genomic database queries, sequence lookup, BLAST-style searches, enrichment checks, and reproducible bioinformatics evidence logs. Use when a task needs quick bioinformatics lookup across genomic reference databases with the gget CLI or Python package.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/scientific-pkg-gget",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-scientific-pkg-gget",
+        "repo_stars": 297201,
+        "catalog_updated_at": "2026-09-10T09:45:09+00:00",
+        "source_key": "affaan-m/ecc:skills/scientific-pkg-gget",
+        "family_key": "affaan-m/ecc:scientific-pkg-gget",
+        "aliases": [
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/scientific-pkg-gget"
+          }
+        ],
+        "query": "scientific figure router agent skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:scientific-thinking-literature-review",
+      "queries": [
+        "scientific figure router agent skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "scientific-thinking-literature-review",
+        "author": "affaan-m",
+        "description": "Systematic literature-review workflow for academic, biomedical, technical, and scientific topics, including search planning, source screening, synthesis, citation checks, and evidence logging. Use when the task is to find, screen, synthesize, and cite a body of academic or technical literature.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/scientific-thinking-literature-review",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-scientific-thinking-literature-review",
+        "repo_stars": 297201,
+        "catalog_updated_at": "2026-09-10T09:45:09+00:00",
+        "source_key": "affaan-m/ecc:skills/scientific-thinking-literature-review",
+        "family_key": "affaan-m/ecc:scientific-thinking-literature-review",
+        "aliases": [
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/scientific-thinking-literature-review"
+          }
+        ],
+        "query": "scientific figure router agent skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:scientific-thinking-scholar-evaluation",
+      "queries": [
+        "scientific figure router agent skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "scientific-thinking-scholar-evaluation",
+        "author": "affaan-m",
+        "description": "Structured scholarly-work evaluation for papers, proposals, literature reviews, methods sections, evidence quality, citation support, and research-writing feedback. Use when evaluating academic or scientific work — papers, proposals, methods sections, or evidence quality — against a repeatable rubric.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/scientific-thinking-scholar-evaluation",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-scientific-thinking-scholar-evaluation",
+        "repo_stars": 297201,
+        "catalog_updated_at": "2026-09-10T09:45:09+00:00",
+        "source_key": "affaan-m/ecc:skills/scientific-thinking-scholar-evaluation",
+        "family_key": "affaan-m/ecc:scientific-thinking-scholar-evaluation",
+        "aliases": [
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/scientific-thinking-scholar-evaluation"
+          }
+        ],
+        "query": "scientific figure router agent skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:token-card",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "token-card",
+        "author": "affaan-m",
+        "description": "Render a token-usage stat card from local Claude Code, Codex, Gemini CLI, and OpenCode session logs and commit it into the repository as a file. Use when someone wants a current usage figure in a README, or asks for a shareable card of their coding-agent activity.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/token-card",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-token-card",
+        "repo_stars": 297201,
+        "catalog_updated_at": "2026-10-09T22:54:39+00:00",
+        "source_key": "affaan-m/ecc:skills/token-card",
+        "family_key": "affaan-m/ecc:token-card",
+        "aliases": [],
+        "query": "figure quality evaluation skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nousresearch/hermes-agent:anatomy",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "anatomy",
+        "author": "NousResearch",
+        "description": "Explain an idea as an interactive isometric machine figure.",
+        "content_language": "en",
+        "github_url": "https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/creative/anatomy",
+        "skillsmp_url": "https://skillsmp.com/creators/nousresearch/hermes-agent/optional-skills-creative-anatomy",
+        "repo_stars": 260788,
+        "catalog_updated_at": "2026-10-23T08:41:25+00:00",
+        "source_key": "nousresearch/hermes-agent:optional-skills/creative/anatomy",
+        "family_key": "nousresearch/hermes-agent:anatomy",
+        "aliases": [],
+        "query": "figure quality evaluation skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "addyosmani/agent-skills:debugging-and-error-recovery",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "debugging-and-error-recovery",
+        "author": "addyosmani",
+        "description": "Guides systematic root-cause debugging. Use when tests fail, builds break, something that worked yesterday broke, behavior doesn't match expectations, or you encounter any unexpected error. Use when you need to figure out what broke and why — a systematic approach to finding and fixing the root cause rather than guessing.",
+        "content_language": "en",
+        "github_url": "https://github.com/addyosmani/agent-skills/tree/main/skills/debugging-and-error-recovery",
+        "skillsmp_url": "https://skillsmp.com/creators/addyosmani/agent-skills/skills-debugging-and-error-recovery",
+        "repo_stars": 113397,
+        "catalog_updated_at": "2026-10-19T15:11:07+00:00",
+        "source_key": "addyosmani/agent-skills:skills/debugging-and-error-recovery",
+        "family_key": "addyosmani/agent-skills:debugging-and-error-recovery",
+        "aliases": [],
+        "query": "figure quality evaluation skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:blog-post",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "blog-post",
+        "author": "nexu-io",
+        "description": "A long-form article / blog post — masthead, hero image placeholder,\narticle body with figures and pull quotes, author byline, related posts.\nUse when the brief asks for \"blog\", \"article\", \"post\", \"essay\", or\n\"case study\".",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/design-templates/blog-post",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/design-templates-blog-post",
+        "repo_stars": 106055,
+        "catalog_updated_at": "2026-07-27T14:02:48+00:00",
+        "source_key": "nexu-io/open-design:design-templates/blog-post",
+        "family_key": "nexu-io/open-design:blog-post",
+        "aliases": [
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/blog-post"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/blog-post"
+          }
+        ],
+        "query": "figure quality evaluation skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:video-template-frame-bold-poster",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "video-template-frame-bold-poster",
+        "author": "nexu-io",
+        "description": "Use this plugin when the user wants a \"Bold Poster Frame\" HyperFrames motion video — A 1970s European editorial poster in motion — a red rule draws across, a giant tilted figure drops in, a three-line headline rises line-by-line, an italic serif standfirst fades.",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/video-templates/frame-bold-poster",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/plugins-official-video-templates-frame-bold-poster",
+        "repo_stars": 106055,
+        "catalog_updated_at": "2026-07-14T08:43:57+00:00",
+        "source_key": "nexu-io/open-design:plugins/_official/video-templates/frame-bold-poster",
+        "family_key": "nexu-io/open-design:video-template-frame-bold-poster",
+        "aliases": [],
+        "query": "figure quality evaluation skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:video-template-frame-data-rollup",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "video-template-frame-data-rollup",
+        "author": "nexu-io",
+        "description": "Use this plugin when the user wants a \"Data Rollup Frame\" HyperFrames motion video — A native Remotion data frame — bars grow from zero by real data via spring physics while the figures roll 0→target in sync.",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/video-templates/frame-data-rollup",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/plugins-official-video-templates-frame-data-rollup",
+        "repo_stars": 106055,
+        "catalog_updated_at": "2026-07-14T08:43:57+00:00",
+        "source_key": "nexu-io/open-design:plugins/_official/video-templates/frame-data-rollup",
+        "family_key": "nexu-io/open-design:video-template-frame-data-rollup",
+        "aliases": [],
+        "query": "figure quality evaluation skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "paddlepaddle/paddleocr:paddleocr-doc-parsing",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "paddleocr-doc-parsing",
+        "author": "PaddlePaddle",
+        "description": "Use this skill to extract structured Markdown/JSON from PDFs and document images—tables with cell-level precision, formulas as LaTeX, figures, seals, charts, headers/footers, multi-column layout and correct reading order. Trigger terms: 文档解析, 版面分析, 版面还原, 表格提取, 公式识别, 多栏排版, 扫描件结构化, 发票, 财报, 复杂 PDF, PDF转Markdown, 图表, 阅读顺序; reading order, formula, LaTeX, layout parsing, structure extraction, PP-StructureV3, PaddleOCR-VL.",
+        "content_language": "en",
+        "github_url": "https://github.com/PaddlePaddle/PaddleOCR/tree/main/skills/paddleocr-doc-parsing",
+        "skillsmp_url": "https://skillsmp.com/creators/paddlepaddle/paddleocr/skills-paddleocr-doc-parsing",
+        "repo_stars": 92294,
+        "catalog_updated_at": "2026-06-04T18:20:24+00:00",
+        "source_key": "paddlepaddle/paddleocr:skills/paddleocr-doc-parsing",
+        "family_key": "paddlepaddle/paddleocr:paddleocr-doc-parsing",
+        "aliases": [],
+        "query": "figure quality evaluation skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "rohitg00/ai-engineering-from-scratch:blueprint-figure",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "blueprint-figure",
+        "author": "rohitg00",
+        "description": "Draws static SVG figures for lessons, READMEs and manuals in the AI Engineering from Scratch look: paper panel, blueprint accent, nine figure kinds, fixed hue meanings, eight arrow styles, and checks for legibility and markup. Trigger phrases: \"draw a figure\", \"blueprint figure\", \"sequence figure\", \"state machine figure\", \"figure for this lesson\", \"add a diagram to the manual\".",
+        "content_language": "en",
+        "github_url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/.claude/skills/blueprint-figure",
+        "skillsmp_url": "https://skillsmp.com/creators/rohitg00/ai-engineering-from-scratch/claude-skills-blueprint-figure",
+        "repo_stars": 76940,
+        "catalog_updated_at": "2026-10-13T09:13:48+00:00",
+        "source_key": "rohitg00/ai-engineering-from-scratch:.claude/skills/blueprint-figure",
+        "family_key": "rohitg00/ai-engineering-from-scratch:blueprint-figure",
+        "aliases": [],
+        "query": "figure quality evaluation skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "rohitg00/ai-engineering-from-scratch:motion-figure",
+      "queries": [
+        "figure quality evaluation skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "motion-figure",
+        "author": "rohitg00",
+        "description": "Builds figures that move or respond to the reader, in three tiers: SMIL animations and slider widgets inside lessons, interactive mechanism figures that show the named parts of a real system with a computed verdict, and ordered dither bands in the course palette. Triggers: \"animated figure\", \"add a slider widget\", \"interactive figure\", \"show how this system works\", \"make this diagram move\", \"dither masthead\", \"mechanism figure\", \"figure fence\".",
+        "content_language": "en",
+        "github_url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/.claude/skills/motion-figure",
+        "skillsmp_url": "https://skillsmp.com/creators/rohitg00/ai-engineering-from-scratch/claude-skills-motion-figure",
+        "repo_stars": 76940,
+        "catalog_updated_at": "2026-10-13T09:13:48+00:00",
+        "source_key": "rohitg00/ai-engineering-from-scratch:.claude/skills/motion-figure",
+        "family_key": "rohitg00/ai-engineering-from-scratch:motion-figure",
+        "aliases": [],
+        "query": "figure quality evaluation skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "davila7/claude-code-templates:biomni",
+      "queries": [
+        "GWAS visualization skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "biomni",
+        "author": "davila7",
+        "description": "Autonomous biomedical AI agent framework for executing complex research tasks across genomics, drug discovery, molecular biology, and clinical analysis. Use this skill when conducting multi-step biomedical research including CRISPR screening design, single-cell RNA-seq analysis, ADMET prediction, GWAS interpretation, rare disease diagnosis, or lab protocol optimization. Leverages LLM reasoning with code execution and integrated biomedical databases.",
+        "content_language": "en",
+        "github_url": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/biomni",
+        "skillsmp_url": "https://skillsmp.com/creators/davila7/claude-code-templates/cli-tool-components-skills-scientific-biomni",
+        "repo_stars": 33139,
+        "catalog_updated_at": "2025-12-20T21:13:50+00:00",
+        "source_key": "davila7/claude-code-templates:cli-tool/components/skills/scientific/biomni",
+        "family_key": "davila7/claude-code-templates:biomni",
+        "aliases": [],
+        "query": "GWAS visualization skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "davila7/claude-code-templates:gwas-database",
+      "queries": [
+        "GWAS visualization skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "gwas-database",
+        "author": "davila7",
+        "description": "Query NHGRI-EBI GWAS Catalog for SNP-trait associations. Search variants by rs ID, disease/trait, gene, retrieve p-values and summary statistics, for genetic epidemiology and polygenic risk scores.",
+        "content_language": "en",
+        "github_url": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/gwas-database",
+        "skillsmp_url": "https://skillsmp.com/creators/davila7/claude-code-templates/cli-tool-components-skills-scientific-gwas-database",
+        "repo_stars": 33139,
+        "catalog_updated_at": "2025-12-20T21:13:50+00:00",
+        "source_key": "davila7/claude-code-templates:cli-tool/components/skills/scientific/gwas-database",
+        "family_key": "davila7/claude-code-templates:gwas-database",
+        "aliases": [],
+        "query": "GWAS visualization skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "openai/plugins:gwas-catalog-skill",
+      "queries": [
+        "GWAS visualization skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "gwas-catalog-skill",
+        "author": "openai",
+        "description": "Submit compact GWAS Catalog REST API v2 requests for studies, associations, SNPs, EFO traits, genes, publications, loci, and metadata. Use when a user wants concise GWAS Catalog summaries",
+        "content_language": "en",
+        "github_url": "https://github.com/openai/plugins/tree/main/plugins/life-science-research/skills/gwas-catalog-skill",
+        "skillsmp_url": "https://skillsmp.com/creators/openai/plugins/plugins-life-science-research-skills-gwas-catalog-skill",
+        "repo_stars": 7772,
+        "catalog_updated_at": "2026-04-21T18:07:49+00:00",
+        "source_key": "openai/plugins:plugins/life-science-research/skills/gwas-catalog-skill",
+        "family_key": "openai/plugins:gwas-catalog-skill",
+        "aliases": [],
+        "query": "GWAS visualization skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "openai/plugins:locus-to-gene-mapper-skill",
+      "queries": [
+        "GWAS visualization skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "locus-to-gene-mapper-skill",
+        "author": "openai",
+        "description": "Map GWAS loci to ranked candidate genes using a deterministic multi-skill chain (EFO -> GWAS -> coordinates -> Open Targets L2G/coloc -> eQTL -> burden/coding context), with reproducible tables and optional figures. Use when a user provides a trait/EFO term and/or lead variants and needs locus-to-gene prioritization for downstream biology decisions.",
+        "content_language": "en",
+        "github_url": "https://github.com/openai/plugins/tree/main/plugins/life-science-research/skills/locus-to-gene-mapper-skill",
+        "skillsmp_url": "https://skillsmp.com/creators/openai/plugins/plugins-life-science-research-skills-locus-to-gene-mapper-skill",
+        "repo_stars": 7772,
+        "catalog_updated_at": "2026-05-11T22:04:35+00:00",
+        "source_key": "openai/plugins:plugins/life-science-research/skills/locus-to-gene-mapper-skill",
+        "family_key": "openai/plugins:locus-to-gene-mapper-skill",
+        "aliases": [],
+        "query": "GWAS visualization skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "brycewang-stanford/auto-empirical-research-skills:genomics-analysis-guide",
+      "queries": [
+        "GWAS visualization skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "genomics-analysis-guide",
+        "author": "brycewang-stanford",
+        "description": "Workflows for RNA-seq, GWAS, and variant calling in genomic research",
+        "content_language": "en",
+        "github_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/43-wentorai-research-plugins/skills/domains/biomedical/genomics-analysis-guide",
+        "skillsmp_url": "https://skillsmp.com/creators/brycewang-stanford/auto-empirical-research-skills/skills-43-wentorai-research-plugins-skills-domains-biomedical-genomics-analysis-guide",
+        "repo_stars": 4912,
+        "catalog_updated_at": "2026-04-03T02:07:17+00:00",
+        "source_key": "brycewang-stanford/auto-empirical-research-skills:skills/43-wentorai-research-plugins/skills/domains/biomedical/genomics-analysis-guide",
+        "family_key": "brycewang-stanford/auto-empirical-research-skills:genomics-analysis-guide",
+        "aliases": [],
+        "query": "GWAS visualization skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "synthetic-sciences/openscience:curated-bio-datasets",
+      "queries": [
+        "GWAS visualization skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "curated-bio-datasets",
+        "author": "synthetic-sciences",
+        "description": "Guide to accessing curated biological datasets for computational biology. COSMIC cancer data, GTEx expression, GWAS catalog, GeneBass exome variants, BioGRID interactions, MSigDB gene sets, DisGeNET disease-gene associations, and GO ontology. For specific database APIs use individual database skills (cosmic-database, gwas-database, etc.).",
+        "content_language": "en",
+        "github_url": "https://github.com/synthetic-sciences/openscience/tree/main/backend/cli/skills/biology/curated-bio-datasets",
+        "skillsmp_url": "https://skillsmp.com/creators/synthetic-sciences/openscience/backend-cli-skills-biology-curated-bio-datasets",
+        "repo_stars": 4348,
+        "catalog_updated_at": "2026-07-04T06:25:04+00:00",
+        "source_key": "synthetic-sciences/openscience:backend/cli/skills/biology/curated-bio-datasets",
+        "family_key": "synthetic-sciences/openscience:curated-bio-datasets",
+        "aliases": [],
+        "query": "GWAS visualization skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "synthetic-sciences/openscience:gwas-database",
+      "queries": [
+        "GWAS visualization skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "gwas-database",
+        "author": "synthetic-sciences",
+        "description": "Query NHGRI-EBI GWAS Catalog for SNP-trait associations. Search variants by rs ID, disease/trait, gene, retrieve p-values and summary statistics, for genetic epidemiology and polygenic risk scores.",
+        "content_language": "en",
+        "github_url": "https://github.com/synthetic-sciences/openscience/tree/main/backend/cli/skills/databases/gwas-database",
+        "skillsmp_url": "https://skillsmp.com/creators/synthetic-sciences/openscience/backend-cli-skills-databases-gwas-database",
+        "repo_stars": 4348,
+        "catalog_updated_at": "2026-09-16T06:26:11+00:00",
+        "source_key": "synthetic-sciences/openscience:backend/cli/skills/databases/gwas-database",
+        "family_key": "synthetic-sciences/openscience:gwas-database",
+        "aliases": [],
+        "query": "GWAS visualization skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "foryourhealth111-pixel/vibe-skills:bio-database-evidence",
+      "queries": [
+        "GWAS visualization skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "bio-database-evidence",
+        "author": "foryourhealth111-pixel",
+        "description": "Unified biological database evidence owner. Use for gene annotation, variant clinical significance, cancer mutation evidence, GWAS trait associations, pathway mapping, target-disease evidence, protein structures, protein interaction networks, reference single-cell census queries, and cross-database biological ID mapping. Do not use for full single-cell analysis, bulk RNA-seq differential expression, BAM/VCF processing, protein embedding models, metabolic flux modeling, genomic interval ML, or flow-cytometry file parsing.",
+        "content_language": "en",
+        "github_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/bio-database-evidence",
+        "skillsmp_url": "https://skillsmp.com/creators/foryourhealth111-pixel/vibe-skills/bundled-skills-bio-database-evidence",
+        "repo_stars": 3797,
+        "catalog_updated_at": "2026-04-30T14:04:04+00:00",
+        "source_key": "foryourhealth111-pixel/vibe-skills:bundled/skills/bio-database-evidence",
+        "family_key": "foryourhealth111-pixel/vibe-skills:bio-database-evidence",
+        "aliases": [],
+        "query": "GWAS visualization skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "freedomintelligence/openclaw-medical-skills:gwas-lookup",
+      "queries": [
+        "GWAS visualization skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "gwas-lookup",
+        "author": "FreedomIntelligence",
+        "description": "Federated variant lookup across 9 genomic databases — GWAS Catalog, Open Targets, PheWeb (UKB, FinnGen, BBJ), GTEx, eQTL Catalogue, and more.",
+        "content_language": "en",
+        "github_url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/tree/main/skills/gwas-lookup",
+        "skillsmp_url": "https://skillsmp.com/creators/freedomintelligence/openclaw-medical-skills/skills-gwas-lookup",
+        "repo_stars": 3092,
+        "catalog_updated_at": "2026-03-08T11:04:10+00:00",
+        "source_key": "freedomintelligence/openclaw-medical-skills:skills/gwas-lookup",
+        "family_key": "freedomintelligence/openclaw-medical-skills:gwas-lookup",
+        "aliases": [],
+        "query": "GWAS visualization skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "freedomintelligence/openclaw-medical-skills:gwas-prs",
+      "queries": [
+        "GWAS visualization skill"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "gwas-prs",
+        "author": "FreedomIntelligence",
+        "description": "Calculate polygenic risk scores from DTC genetic data using the PGS Catalog",
+        "content_language": "en",
+        "github_url": "https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/tree/main/skills/gwas-prs",
+        "skillsmp_url": "https://skillsmp.com/creators/freedomintelligence/openclaw-medical-skills/skills-gwas-prs",
+        "repo_stars": 3092,
+        "catalog_updated_at": "2026-03-08T11:04:10+00:00",
+        "source_key": "freedomintelligence/openclaw-medical-skills:skills/gwas-prs",
+        "family_key": "freedomintelligence/openclaw-medical-skills:gwas-prs",
+        "aliases": [],
+        "query": "GWAS visualization skill"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    }
+  ],
+  "missing_evidence": [
+    "skills.sh `GWAS visualization skill`: skills.sh returned no parseable candidates",
+    "skills.sh `reproducible scientific plotting workflow`: skills.sh returned no parseable candidates"
+  ],
+  "next_steps": [
+    "shortlist by job relevance and role coverage, not combined popularity",
+    "open canonical GitHub source and inspect SKILL.md before adoption",
+    "verify license, maintenance, permissions, security, duplication, and rating evidence",
+    "write keep/adapt/reject/invent synthesis before authoring"
+  ]
+}
