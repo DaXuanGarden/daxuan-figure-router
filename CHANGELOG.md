@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.1 — Daxuan author profile (unreleased)
+
+- Clarify Daxuan as the author and maintainer in the package metadata, license, SKILL, and README.
+- Add the author's public-account section and a valid PNG QR asset for 「大轩的成长花园」.
+- Keep the separate 「关于向阳乔木」 public profile while making its relationship to the repository explicit.
+
 ## Unreleased — GWAS figure contracts
 
 - Add a versioned FigureBrief validator and six display-only GWAS figure recipes.

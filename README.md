@@ -7,6 +7,8 @@
 
 Route installed scientific figure skills, preserve existing code and language choices, and load only the capabilities the task needs.
 
+**作者与维护者：** Daxuan（[DaXuanGarden](https://github.com/DaXuanGarden)）
+
 处理本机技能的发现、选择和交接。已有代码的小修改直接沿用；新图按输入状态、语言、领域、图型和输出要求选主技能；配色、模板和终检只在需要时加入。
 
 ## 安装
@@ -17,22 +19,30 @@ Route installed scientific figure skills, preserve existing code and language ch
 git clone https://github.com/DaXuanGarden/daxuan-figure-router.git "${CODEX_HOME:-$HOME/.codex}/skills/daxuan-figure-router"
 ```
 
-公开发布后的标准安装入口（当前版本尚未完成 GitHub/Release 验证）为：
+公开发布后的标准安装入口为：
 
 ```bash
 npx skills add DaXuanGarden/daxuan-figure-router --skill daxuan-figure-router --yes
 ```
 
 本包借鉴并遵循 [Qiaomu Skill Publisher](https://github.com/joeseesun/qiaomu-skill-publisher)
-的证据、评估和发布边界；当前目录的本地验证不能替代远端安装证据。
+的证据、评估和发布边界。发布版本、CI 状态和安装验证以远程仓库为准。
 
-维护信息：Copyright (c) 向阳乔木；X: https://x.com/vista8；GitHub: https://github.com/joeseesun/。
+版权信息：Copyright (c) Daxuan（DaXuanGarden）。
 
 ## Prerequisites
 
 - [ ] Python 3.10+
 - [ ] Git（仅用于完整安装或发布）
 - [ ] 目标绘图 Skill、R/Python 后端和字体按各自项目需要安装
+
+## 作者与公众号
+
+本 Skill 由 Daxuan（DaXuanGarden）开发与维护。中文 AI 实践分享见公众号「大轩的成长花园」：
+
+<p><img src="assets/daxuan-profile/daxuan_wechat_qr.png" alt="大轩的成长花园公众号二维码" width="420" /></p>
+
+下面的“关于向阳乔木”是公开的个人资料与内容渠道信息，不改变本仓库的作者归属。
 
 <!-- qiaomu-profile:start -->
 ## 关于向阳乔木

@@ -1,7 +1,9 @@
 {
   "name": "daxuan-figure-router",
-  "version": "0.2.0",
-  "owner": "DaXuanGarden",
+  "version": "0.2.1",
+  "owner": "Daxuan",
+  "author": "Daxuan",
+  "github_owner": "DaXuanGarden",
   "updated_at": "2026-11-08",
   "status": "active",
   "maturity_tier": "library",
@@ -10,7 +12,8 @@
   "review_cadence": "quarterly",
   "upstream_inspiration": "https://github.com/joeseesun/qiaomu-skill-publisher",
   "qiaomu_defaults": {
-    "copyright": "Copyright (c) 向阳乔木",
+    "profile_name": "向阳乔木",
+    "website": "https://qiaomu.ai",
     "x": "https://x.com/vista8",
     "github": "https://github.com/joeseesun/"
   },

@@ -1,11 +1,11 @@
-# Creation Handoff — daxuan-figure-router 0.2.0
+# Creation Handoff — daxuan-figure-router 0.2.1
 
 ## 1. Result
 
-- **Skill:** `daxuan-figure-router` 0.2.0
+- **Skill:** `daxuan-figure-router` 0.2.1
 - **Job:** 将科研绘图意图、已验收结果、参考图和作者偏好路由到可比较且可审计的图形候选，同时保留语言、代码和统计证据边界。
 - **Local path:** `/home/daxuan/.codex/skills/daxuan-figure-router`
-- **Publication status:** local package only; GitHub remote, PR、Release 和 clean install remain missing evidence.
+- **Publication status:** `v0.2.0` is published at the GitHub remote; `v0.2.1` contains the Daxuan author/profile correction and is pending a separate release.
 
 ## 2. Reference skills studied
 
