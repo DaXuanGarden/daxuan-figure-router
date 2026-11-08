@@ -1,0 +1,158 @@
+{
+  "ok": true,
+  "threshold": 0.34,
+  "description_concepts": [
+    "authoring_action",
+    "figure",
+    "skill",
+    "source_material"
+  ],
+  "missing_description_concepts": [],
+  "summary": {
+    "total": 11,
+    "passed": 11,
+    "false_positive": 0,
+    "false_negative": 0,
+    "pass_rate": 1.0
+  },
+  "failures": [],
+  "results": {
+    "should_trigger": [
+      {
+        "prompt": "用绘图 skill 为已有 GWAS 和 PLACO+ 结果选择图型并完成出图",
+        "family": "gwas_result_figure",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring_action",
+          "figure",
+          "skill",
+          "source_material"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "修改这个 R 图，保留数值和统计含义，改图布局和标注",
+        "family": "existing_figure_edit",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.5,
+        "matched_concepts": [
+          "authoring_action",
+          "figure"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "根据参考图片为 coloc 共享位点结果选择图型并设计多个可比较的图形候选",
+        "family": "reference_guided_comparison",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.75,
+        "matched_concepts": [
+          "authoring_action",
+          "figure",
+          "source_material"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Route this accepted GWAS result to a reproducible heatmap or forest plot workflow.",
+        "family": "accepted_results_routing",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.75,
+        "matched_concepts": [
+          "authoring_action",
+          "figure",
+          "source_material"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Use the figure router to compare a circular dendrogram with a trait-pair matrix.",
+        "family": "candidate_comparison",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.5,
+        "matched_concepts": [
+          "figure",
+          "skill"
+        ],
+        "negative_pattern": null
+      }
+    ],
+    "should_not_trigger": [
+      {
+        "prompt": "只解释一下什么是圆形热图，不要改文件",
+        "family": "explain_only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "只解释"
+      },
+      {
+        "prompt": "把这篇论文翻译一下",
+        "family": "translate_only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "翻译一下"
+      },
+      {
+        "prompt": "把这个普通 Python 包发布到 PyPI",
+        "family": "non_skill_package",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "普通 Python 包"
+      },
+      {
+        "prompt": "头脑风暴几个图名，先不要做图",
+        "family": "brainstorm_only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      }
+    ],
+    "near_neighbor": [
+      {
+        "prompt": "给这个脚本加一个 argparse 参数",
+        "family": "script_edit_only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "只检查最终 PNG 的分辨率，不做图形选择",
+        "family": "qa_only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.25,
+        "matched_concepts": [
+          "authoring_action"
+        ],
+        "negative_pattern": null
+      }
+    ]
+  }
+}

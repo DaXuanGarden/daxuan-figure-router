@@ -52,6 +52,26 @@ python <本技能目录>/scripts/skill_index.py doctor
 
 把输入区分为原始观测、已完成结果、现有代码或图片。用户只要绘图/改图时，选渲染已有结果的入口；`analysis_effect` 为 `refit_or_test` 或 `unknown` 的模板先精读确认，不能直接运行来重做分析。历史文章adapter只有在数据与来源合同匹配时才可执行，否则只作参考。模板中的默认P/FDR列、阈值、过滤和分组必须与本次已确认表达一致。
 
+### GWAS 图形的 FigureBrief 与 recipe
+
+已完成 GWAS/post-GWAS 结果进入比较流程前，可用本技能提供的
+`scripts/figure_brief.py` 校验项目级 `FigureBrief`。它记录研究问题、结果来源、
+图形候选、证据边界和输出要求；校验器只检查结构和路径标签，不计算统计量，
+也不会执行绘图代码。GWAS 图形的最小输入字段和“只显示、不重跑上游分析”的边界
+见 [GWAS figure recipes](references/gwas-figure-recipes.json)。
+
+```text
+python <本技能目录>/scripts/figure_brief.py validate --brief path/to/brief.json
+python <本技能目录>/scripts/figure_brief.py validate --brief path/to/brief.json --check-paths
+python <本技能目录>/scripts/figure_brief.py list-recipes
+```
+
+当 `FigureBrief.data_status` 为 `accepted-results` 时，路由器应选择能读取已验收结果
+的 renderer；`--check-paths` 仅在项目本地审计时使用。项目级 brief 可用
+`project_root` 指定稳定的项目根目录，避免把 brief 所在的结果目录误当作路径根。recipe 的
+`analysis_effect` 固定为 `none`，因此不能以画图为理由重新运行 LDSC、PLACO+、coloc、
+MR 或基因分析。ANNOVAR 候选映射、MAGMA 结果和因果结论必须在 FigureBrief 中分开描述。
+
 例如：已有HR/CI表想借Lancet样式，不能直接运行会从生存数据拟合Cox的模板；MAGMA使用R时，应继续找通用R模板，不能因历史adapter标Python就换语言。样式参考与实际执行可以由不同能力承担。
 
 ## 决策后直接交接

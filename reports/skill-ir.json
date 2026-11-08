@@ -1,0 +1,108 @@
+{
+  "schema_version": "2.0.0-qiaomu-lite",
+  "generated_at": "2026-11-08",
+  "package": {
+    "name": "daxuan-figure-router",
+    "version": "0.2.0",
+    "owner": "DaXuanGarden",
+    "maturity_tier": "library",
+    "lifecycle_stage": "library",
+    "upstream_inspiration": "https://github.com/joeseesun/qiaomu-skill-publisher",
+    "upstream_sync": {}
+  },
+  "intent": {
+    "description": "为科研绘图和改图选择、协调本机已安装的技能。当不知道该用哪个绘图 skill、需要选图型、改已有图、处理领域图或组合多个绘图能力时使用；保留用户指定技能、现有代码和语言。明确工具的简单修改可直接执行，无需重新选型。",
+    "job_to_be_done": "为科研绘图和改图选择、协调本机已安装的技能。当不知道该用哪个绘图 skill、需要选图型、改已有图、处理领域图或组合多个绘图能力时使用；保留用户指定技能、现有代码和语言。明确工具的简单修改可直接执行，无需重新选型。",
+    "target_users": [
+      "Qiaomu operator"
+    ],
+    "inputs": [],
+    "outputs": [],
+    "exclusions": [],
+    "qiaomu_defaults": {
+      "copyright": "Copyright (c) 向阳乔木",
+      "x": "https://x.com/vista8",
+      "github": "https://github.com/joeseesun/"
+    }
+  },
+  "triggers": {
+    "should_trigger": [
+      "用绘图 skill 为已有 GWAS 和 PLACO+ 结果选择图型并完成出图",
+      "修改这个 R 图，保留数值和统计含义，改图布局和标注",
+      "根据参考图片为 coloc 共享位点结果选择图型并设计多个可比较的图形候选",
+      "Route this accepted GWAS result to a reproducible heatmap or forest plot workflow.",
+      "Use the figure router to compare a circular dendrogram with a trait-pair matrix."
+    ],
+    "should_not_trigger": [
+      "只解释一下什么是圆形热图，不要改文件",
+      "把这篇论文翻译一下",
+      "把这个普通 Python 包发布到 PyPI",
+      "头脑风暴几个图名，先不要做图"
+    ],
+    "near_neighbor": [
+      "给这个脚本加一个 argparse 参数",
+      "只检查最终 PNG 的分辨率，不做图形选择"
+    ]
+  },
+  "workflow": {
+    "router_rules": [],
+    "compact_workflow": [],
+    "gate_ladder": [],
+    "output_contract": []
+  },
+  "resources": {
+    "references": [
+      "references/capabilities.json",
+      "references/comparison-workflow.md",
+      "references/development-brief.md",
+      "references/gwas-figure-recipes.json",
+      "references/gwas-figure-recipes.md",
+      "references/next-development-brief.md",
+      "references/routing-records.md",
+      "references/skill-bootstrap.md",
+      "references/skill-sources.json"
+    ],
+    "scripts": [
+      "scripts/check_routes.py",
+      "scripts/comparison.py",
+      "scripts/figure_brief.py",
+      "scripts/skill_bundle.py",
+      "scripts/skill_index.py",
+      "scripts/verify.py"
+    ],
+    "evals": [
+      "evals/trigger_cases.json"
+    ],
+    "reports": [
+      "reports/creation-handoff.md",
+      "reports/daxuan-figure-router-polish-report.md",
+      "reports/output-evidence.json",
+      "reports/prior-art-candidates.json",
+      "reports/prior-art-research.md",
+      "reports/skill-ir.json",
+      "reports/trigger-eval.json"
+    ]
+  },
+  "portability": {
+    "canonical_format": null,
+    "adapter_targets": [
+      "openai",
+      "claude",
+      "generic",
+      "agent-skills-compatible",
+      "vscode"
+    ],
+    "activation": {},
+    "execution": {},
+    "trust": {},
+    "permissions": {},
+    "degradation": {}
+  },
+  "gates": {},
+  "evidence_boundary": {
+    "generated_reports_are_evidence": true,
+    "planned_work_is_evidence": false,
+    "missing_external_or_human_evidence_label": "missing evidence",
+    "public_claim_policy": "claim only what local validation, install proof, human review, or provider-backed evidence actually supports"
+  }
+}
