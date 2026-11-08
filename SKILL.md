@@ -76,6 +76,39 @@ MR 或基因分析。ANNOVAR 候选映射、MAGMA 结果和因果结论必须在
 
 例如：已有HR/CI表想借Lancet样式，不能直接运行会从生存数据拟合Cox的模板；MAGMA使用R时，应继续找通用R模板，不能因历史adapter标Python就换语言。样式参考与实际执行可以由不同能力承担。
 
+### 有边界的灵感与自进化
+
+当作者希望“参考更多论文图、比较多种表达，并逐渐形成自己的审美”时，使用
+`scripts/evolution.py` 建立独立的 Figure evolution memory。它只追加记录四类事件：
+参考图、作者选择、失败原因和待审阅的规则提议。它不下载参考素材，不改写 Skill 或
+绘图脚本，不改变统计结果，也不自动推送 GitHub。
+
+```text
+python <本技能目录>/scripts/evolution.py init --memory ./figure-memory
+python <本技能目录>/scripts/evolution.py add-reference --memory ./figure-memory \
+  --id circular-01 --title "Trait-locus-gene circular figure" \
+  --kind reference-image --source-url https://example.org/figure \
+  --tag circular --tag trait-locus-gene
+python <本技能目录>/scripts/evolution.py record-choice --memory ./figure-memory \
+  --variant-id circular-gene --reason "层级关系更容易追踪" \
+  --prefer compact-legend --avoid dense-labels
+python <本技能目录>/scripts/evolution.py record-failure --memory ./figure-memory \
+  --area legend --reason "双栏尺寸下图例裁切" \
+  --action "采用图下独立图例带" \
+  --tag crop
+python <本技能目录>/scripts/evolution.py gallery --memory ./figure-memory \
+  --out ./figure-memory/gallery.html
+python <本技能目录>/scripts/evolution.py check --memory ./figure-memory
+```
+
+参考图的 `claim_scope` 默认是 `style-only`；它不能提供数据、阈值、因果关系或基因注释
+证据。候选图仍需经过 `comparison.py select`，然后再记录 `record-choice`。重复失败只能
+形成 `propose-rule` 待审阅事件；只有作者明确确认、维护者修改代码并通过测试后，规则才
+能进入下一版。若使用 `agent-figure-gallery`，导出的选择只作为参考证据，仍需人工审阅
+后写入 memory；图库预览不能当作可执行模板。FigureBrief 的 `evolution_policy` 必须保留
+`automatic_skill_self_edit: false`、`automatic_github_push: false` 和
+`human_confirmation_required: true`。
+
 ## 决策后直接交接
 
 通常选择一个主执行技能；按当前缺口加入助手。已有脚本足以完成小修改时，执行目标就是原代码，允许没有额外主技能；只配色或QA时，对应助手可承担这次主任务。向用户用一两句说明“沿用什么/选谁、负责什么、为什么”，然后继续任务，勿把路由建议当成绘图任务的终点。用户要求选方案或缺少关键数据时才停在相应节点。

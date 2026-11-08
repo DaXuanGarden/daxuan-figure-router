@@ -136,6 +136,34 @@ python "$ROUTER_SKILL/scripts/comparison.py" select --run comparison-run --id ca
 
 `comparison.py` 不执行 JSON 中任意命令；阻塞候选、未审阅和 QA 失败都保留原因。选择记录只表示待精修，不代表投稿就绪。
 
+## 有边界的灵感与自进化（C 版）
+
+如果你希望把论文参考图、候选选择和反复出现的失败原因沉淀成自己的绘图审美，可以为每个项目建立一个独立的 Figure evolution memory：
+
+```bash
+python "$ROUTER_SKILL/scripts/evolution.py" init --memory ./figure-memory
+python "$ROUTER_SKILL/scripts/evolution.py" add-reference \
+  --memory ./figure-memory --id circ-01 \
+  --title "Trait-locus-gene circular figure" \
+  --kind reference-image --source-url https://example.org/figure \
+  --tag circular --tag trait-locus-gene
+python "$ROUTER_SKILL/scripts/evolution.py" record-choice \
+  --memory ./figure-memory --variant-id circular-gene \
+  --reason "关系层次更清楚" --prefer arc-links --avoid dense-labels
+python "$ROUTER_SKILL/scripts/evolution.py" record-failure \
+  --memory ./figure-memory --area legend \
+  --reason "图例裁切" --action "调整为图下独立图例带"
+python "$ROUTER_SKILL/scripts/evolution.py" gallery \
+  --memory ./figure-memory --out ./figure-memory/gallery.html
+python "$ROUTER_SKILL/scripts/evolution.py" summary --memory ./figure-memory
+```
+
+这套记忆是追加式 SHA-256 哈希链，包含参考图、作者偏好、失败原因和待审阅规则提议。
+参考图只作为结构/风格参考，不作为数据或统计证据；工具不联网下载图片、不修改任何
+Skill 或科研脚本、不自动改变 P 值/FDR/PP.H4/clumping/基因注释，也不自动推送 GitHub。
+只有作者确认某条 `propose-rule` 后，维护者才会在普通代码审阅流程中实现它并补充测试。
+完整边界和事件字段见 [evolution policy](references/evolution-policy.md)。
+
 ### GWAS FigureBrief
 
 项目有多种已完成 GWAS/post-GWAS 结果时，建议先保存一份版本化 FigureBrief，

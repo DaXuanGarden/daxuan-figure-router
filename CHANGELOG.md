@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.3.0 — Bounded figure evolution (local development)
+
+- Add `scripts/evolution.py` for append-only references, author choices, failure reasons and
+  human-reviewed rule proposals.
+- Add an offline reference gallery with optional local previews and no remote image fetching.
+- Keep scientific results, upstream thresholds, Skills, renderers and GitHub outside automatic
+  mutation; all promotion proposals remain pending human review.
+- Extend FigureBrief evolution checks with explicit style-only and human-confirmation guards.
+
 ## v0.2.1 — Daxuan author profile (unreleased)
 
 - Clarify Daxuan as the author and maintainer in the package metadata, license, SKILL, and README.

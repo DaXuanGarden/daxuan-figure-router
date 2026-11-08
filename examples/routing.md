@@ -15,6 +15,7 @@
 | 中国各站点按类别上色 | 查 `easyplot` 的真实地图函数、经纬度和依赖；缺 `ggmapcn` 时说明缺项，不能声称已成功成图 |
 | 只要五个 HEX 与可辨性检查 | 直接让本机可用的配色技能处理，不增加一套通用绘图主控 |
 | 指定的技能没有出现在固定清单里 | 无语言/角色过滤地 `show` 查真实入口，读取后判断兼容性；不能用名字相近的技能冒充 |
+| 想把参考图、作者选择和失败原因沉淀成自己的审美 | 为项目初始化 `evolution.py` memory；记录参考与候选选择，规则只进入待人工审阅队列，不自动改 Skill |
 
 更多边界见 [test-prompts.json](../test-prompts.json)。
 
@@ -27,6 +28,7 @@ python "$ROUTER_SKILL/scripts/skill_index.py" search "forest 森林图" --intent
 python "$ROUTER_SKILL/scripts/skill_index.py" search "配色 palette" --intent palette
 python "$ROUTER_SKILL/scripts/skill_index.py" vocabulary
 python "$ROUTER_SKILL/scripts/skill_index.py" doctor
+python "$ROUTER_SKILL/scripts/evolution.py" summary --memory ./figure-memory
 ```
 
 如果只想使用自定义安装目录，传入 `--root /path/to/skills`；此时扫描范围仅为明确给出的根。带过滤的未知能力进入 `review_candidates`，需要复读；已核验的明确不兼容项不会混入。用户点名技能时先无过滤 `show` 找准确入口。
