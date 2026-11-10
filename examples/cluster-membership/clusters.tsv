@@ -1,0 +1,4 @@
+cluster_id	window_id	candidate_snp	cluster_pp	trait_set	candidate_snp_posterior_fraction
+syn-1	toy-window-1	variant_A	0.83	Exposure|Trait_A|Trait_C	0.19
+syn-2	toy-window-2	variant_B	0.91	Exposure|Trait_B|Trait_D	0.48
+syn-3	toy-window-3	variant_C	0.74	Exposure|Trait_A|Trait_D	0.23

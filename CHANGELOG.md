@@ -15,6 +15,14 @@
 - Add the author's public-account section and a valid PNG QR asset for 「大轩的成长花园」.
 - Keep the separate 「关于向阳乔木」 public profile while making its relationship to the repository explicit.
 
+## 2026-11-10 — traceable multi-trait cluster membership
+
+- Preserve accepted plots while making row-wise SNP–trait membership easier to trace with neutral reading guides.
+- Add an explicit cluster/region, exact-member-set and evidence-separation handoff; cluster PP never substitutes for candidate-SNP fine-mapping support.
+- Add a standalone source/display contract validator, positive and failure regression cases, and an explicitly synthetic SVG/interactive HTML example.
+- Keep model fitting, thresholds, publication claims and actual artwork inspection outside the data validator's PASS.
+
+
 ## Unreleased — GWAS figure contracts
 
 - Add a versioned FigureBrief validator and six display-only GWAS figure recipes.

@@ -109,6 +109,12 @@ python <本技能目录>/scripts/evolution.py check --memory ./figure-memory
 `automatic_skill_self_edit: false`、`automatic_github_push: false` 和
 `human_confirmation_required: true`。
 
+## 多性状共定位：把共享成员关系画清楚
+
+已有 HyPrColoc 结果、作者认可点阵但不易看出“哪个位点共享哪些性状”时，读取 [专题交接合同](references/multitrait-colocalization.md)。继承现有 R/Python 代码和已确认布局，优先尝试极淡中性隔行带，让候选 rsID、基因、成员点和 cluster PP 沿同一行可追踪。
+
+交接必须绑定真实区域/簇记录与精确性状集合：cluster PP 使用 `posterior_prob`；候选 SNP 的 `posterior_explained_by_snp` 单独保存，不能互相回填。成员点只来自 `in_cluster`；保留 `in_input` 区分未入簇与区域未输入。不要跨空白连线，不把共定位写成已证实的性状间因果效应。用 `scripts/check_cluster_membership.py` 验证来源与绘制成员集合，再打开实际 PDF/SVG 查行对齐、字体和裁切；脚本 PASS 不替代成图审阅。可复现的公开样例见 [synthetic demo](examples/cluster-membership/README.md)。
+
 ## 决策后直接交接
 
 通常选择一个主执行技能；按当前缺口加入助手。已有脚本足以完成小修改时，执行目标就是原代码，允许没有额外主技能；只配色或QA时，对应助手可承担这次主任务。向用户用一两句说明“沿用什么/选谁、负责什么、为什么”，然后继续任务，勿把路由建议当成绘图任务的终点。用户要求选方案或缺少关键数据时才停在相应节点。

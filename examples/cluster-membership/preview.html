@@ -1,0 +1,86 @@
+<!doctype html><meta charset="utf-8"><title>Synthetic shared clusters</title>
+<style>body{background:#fff;color:#111;font:16px Arial;margin:24px}svg{max-width:100%;height:auto;background:white}.focus-row{fill:transparent;stroke:none;cursor:pointer}.focus-row.active{fill:#3F607810;stroke:#3F6078;stroke-width:1;outline:none}#details{min-height:3em}</style>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 310" role="img" aria-labelledby="title desc">
+<title id="title">Synthetic illustration: traceable shared clusters</title>
+<desc id="desc">Each row binds a candidate identifier to exact shared traits and a distinct cluster posterior. No study results.</desc>
+<rect width="940" height="310" fill="white"/>
+<g font-family="Arial, sans-serif" fill="#111111">
+<text x="24" y="30" font-size="18">Synthetic illustration · shared-cluster membership</text>
+<rect class="reading-guide" x="20" y="67" width="900" height="46" fill="#F4F6F7"/>
+<text x="190" y="95" text-anchor="end" font-size="16">variant_A</text>
+<circle class="member" data-cluster="syn-1" data-trait="Exposure" cx="250" cy="90" r="6" fill="#3F6078"/>
+<circle class="member" data-cluster="syn-1" data-trait="Trait_A" cx="340" cy="90" r="6" fill="#3F6078"/>
+<circle class="member" data-cluster="syn-1" data-trait="Trait_C" cx="520" cy="90" r="6" fill="#3F6078"/>
+<line x1="760" x2="814.167" y1="90" y2="90" stroke="#DBB5AF" stroke-width="2"/>
+<circle cx="814.167" cy="90" r="5" fill="#A94B4A"/>
+<text x="190" y="147" text-anchor="end" font-size="16">variant_B</text>
+<circle class="member" data-cluster="syn-2" data-trait="Exposure" cx="250" cy="142" r="6" fill="#3F6078"/>
+<circle class="member" data-cluster="syn-2" data-trait="Trait_B" cx="430" cy="142" r="6" fill="#3F6078"/>
+<circle class="member" data-cluster="syn-2" data-trait="Trait_D" cx="610" cy="142" r="6" fill="#3F6078"/>
+<line x1="760" x2="847.500" y1="142" y2="142" stroke="#DBB5AF" stroke-width="2"/>
+<circle cx="847.500" cy="142" r="5" fill="#A94B4A"/>
+<rect class="reading-guide" x="20" y="171" width="900" height="46" fill="#F4F6F7"/>
+<text x="190" y="199" text-anchor="end" font-size="16">variant_C</text>
+<circle class="member" data-cluster="syn-3" data-trait="Exposure" cx="250" cy="194" r="6" fill="#3F6078"/>
+<circle class="member" data-cluster="syn-3" data-trait="Trait_A" cx="340" cy="194" r="6" fill="#3F6078"/>
+<circle class="member" data-cluster="syn-3" data-trait="Trait_D" cx="610" cy="194" r="6" fill="#3F6078"/>
+<line x1="760" x2="776.667" y1="194" y2="194" stroke="#DBB5AF" stroke-width="2"/>
+<circle cx="776.667" cy="194" r="5" fill="#A94B4A"/>
+<text x="250" y="238" font-size="14" text-anchor="middle">Exposure</text>
+<text x="340" y="238" font-size="14" text-anchor="middle">Trait_A</text>
+<text x="430" y="238" font-size="14" text-anchor="middle">Trait_B</text>
+<text x="520" y="238" font-size="14" text-anchor="middle">Trait_C</text>
+<text x="610" y="238" font-size="14" text-anchor="middle">Trait_D</text>
+<path d="M760 218H885M760 218v5M822.5 218v5M885 218v5" fill="none" stroke="black"/>
+<text x="760" y="240" font-size="13" text-anchor="middle">0.70</text>
+<text x="822.5" y="240" font-size="13" text-anchor="middle">0.85</text>
+<text x="885" y="240" font-size="13" text-anchor="middle">1.00</text>
+<text x="822" y="263" font-size="14" text-anchor="middle">Cluster PP</text>
+<text x="24" y="291" font-size="13">Dots: shared traits · Blank: no displayed membership · Bands: reading guides only</text>
+</g><rect class="focus-row" tabindex="0" role="button" aria-pressed="false" aria-label="variant_A: Exposure, Trait_A, Trait_C · Cluster PP 0.8300" x="20" y="67" width="900" height="46"><title>variant_A: Exposure, Trait_A, Trait_C · Cluster PP 0.8300</title></rect><rect class="focus-row" tabindex="0" role="button" aria-pressed="false" aria-label="variant_B: Exposure, Trait_B, Trait_D · Cluster PP 0.9100" x="20" y="119" width="900" height="46"><title>variant_B: Exposure, Trait_B, Trait_D · Cluster PP 0.9100</title></rect><rect class="focus-row" tabindex="0" role="button" aria-pressed="false" aria-label="variant_C: Exposure, Trait_A, Trait_D · Cluster PP 0.7400" x="20" y="171" width="900" height="46"><title>variant_C: Exposure, Trait_A, Trait_D · Cluster PP 0.7400</title></rect></svg>
+<p id="details" aria-live="polite">Hover, focus or select one row. Escape clears selection. Synthetic illustration only.</p>
+<script>/* Optional reading aid only: exactly one active row, no statistics or data edits. */
+(() => {
+  const rows = [...document.querySelectorAll('.focus-row')];
+  const details = document.getElementById('details');
+  const initialText = details.textContent;
+  let selected = null, hovered = null, focused = null;
+
+  function refresh() {
+    const active = hovered || focused || selected;
+    rows.forEach(row => {
+      row.classList.toggle('active', row === active);
+      row.setAttribute('aria-pressed', String(row === selected));
+    });
+    details.textContent = active
+      ? (active.dataset.detail || active.getAttribute('aria-label'))
+      : initialText;
+  }
+
+  function choose(row) {
+    selected = selected === row ? null : row;
+    refresh();
+  }
+
+  rows.forEach(row => {
+    row.addEventListener('mouseenter', () => { hovered = row; refresh(); });
+    row.addEventListener('mouseleave', () => { hovered = null; refresh(); });
+    row.addEventListener('focus', () => { focused = row; refresh(); });
+    row.addEventListener('blur', () => { focused = null; refresh(); });
+    row.addEventListener('click', () => choose(row));
+    row.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        choose(row);
+      }
+    });
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      selected = hovered = focused = null;
+      if (rows.includes(document.activeElement)) document.activeElement.blur();
+      refresh();
+    }
+  });
+})();
+</script>

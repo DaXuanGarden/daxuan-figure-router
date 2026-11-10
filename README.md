@@ -11,6 +11,14 @@ Route installed scientific figure skills, preserve existing code and language ch
 
 处理本机技能的发现、选择和交接。已有代码的小修改直接沿用；新图按输入状态、语言、领域、图型和输出要求选主技能；配色、模板和终检只在需要时加入。
 
+## 让“共享哪些性状”沿同一行读清楚
+
+保留已认可的点阵和 PP 棒棒糖，用中性隔行带引导横向阅读；区域/簇、候选 SNP、成员集合及基因证据分别追溯到来源。路由器负责交接和数据映射核验，实际 R/Python 绘图代码继续沿用。
+
+![Synthetic shared-cluster illustration](examples/cluster-membership/preview.svg)
+
+以上是**明确标注的合成示例，不是研究结果**。查看 [示例及运行命令](examples/cluster-membership/README.md)、[专题合同](references/multitrait-colocalization.md) 和 [本轮打磨报告](reports/multitrait-colocalization-polish-20261110.md)。只需 Python 标准库即可复现示例并检查成员映射。
+
 ## 安装
 
 需要 Python 3.10+ 和 Git；检索脚本没有第三方 Python 依赖。在已安装 Codex 的机器上，全新安装：

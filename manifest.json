@@ -1,10 +1,10 @@
 {
   "name": "daxuan-figure-router",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "owner": "Daxuan",
   "author": "Daxuan",
   "github_owner": "DaXuanGarden",
-  "updated_at": "2026-11-08",
+  "updated_at": "2026-11-10",
   "status": "active",
   "maturity_tier": "library",
   "lifecycle_stage": "library",
